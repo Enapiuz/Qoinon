@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-import site_config
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -21,10 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = site_config.SECRET_KEY
+SECRET_KEY = 't9dky=*#tc%2d_0sj%1c9$qs%t^$nc*)prdlb4-1v$n6u5gvdc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = site_config.DEBUG
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -116,3 +115,10 @@ TEMPLATE_LOADERS = (
     'django_jinja.loaders.FileSystemLoader',
 
 )
+
+
+# Перезапись существующего конфига
+try:
+    from site_config import *
+except:
+    pass
