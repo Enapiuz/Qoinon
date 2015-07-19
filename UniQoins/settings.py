@@ -26,7 +26,7 @@ SECRET_KEY = site_config.SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = site_config.DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
