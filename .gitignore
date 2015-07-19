@@ -63,3 +63,4 @@ site_config.py
 !/static/.gitkeep
 /media/*
 !/media/.gitkeep
+db.sqlite3
