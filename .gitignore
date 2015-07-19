@@ -57,3 +57,7 @@ docs/_build/
 target/
 
 .idea
+
+site_config.py
+/static/*
+!/static/.gitkeep
