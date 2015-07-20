@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Wallet, WalletCategory, Faucet, MetaKeyword, Captcha, Currency
+from .models import Wallet, WalletCategory, Faucet, MetaKeyword, Captcha, Currency, FaucetCategory
 
 
 class FaucetAdmin(admin.ModelAdmin):
@@ -13,6 +13,7 @@ class FaucetAdmin(admin.ModelAdmin):
 admin.site.register(Wallet)
 admin.site.register(WalletCategory)
 admin.site.register(Faucet)
+admin.site.register(FaucetCategory)
 admin.site.register(MetaKeyword)
 admin.site.register(Captcha)
 admin.site.register(Currency)
