@@ -3,4 +3,4 @@ from django.shortcuts import render
 
 
 def hello(req):
-    return render(req, 'front/layout.jinja')
+    return render(req, 'front/layout.html')
