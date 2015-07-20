@@ -28,6 +28,9 @@ class FaucetCategory(models.Model):
     title_en = models.CharField(max_length=300)
     title_ru = models.CharField(max_length=300)
 
+    def __str__(self):
+        return self.title_en
+
 class Faucet(models.Model):
     href = models.CharField(max_length=1024)
     title_en = models.CharField(max_length=300)
@@ -38,7 +41,7 @@ class Faucet(models.Model):
     now_pays = models.BooleanField(default=True)
     malfunction = models.BooleanField(default=False)
     captcha = models.ForeignKey(Captcha)
-    category = models.ForeignKey(FaucetCategory, null=True)
+    category = models.ForeignKey(FaucetCategory)
 
     likes = models.IntegerField(default=0)
     dislikes = models.IntegerField(default=0)
