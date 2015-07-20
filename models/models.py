@@ -1,19 +1,62 @@
 from django.db import models
 
-# Create your models here.
 
-class WalletCategory(models.Model):
-    title_rus = models.CharField(max_length=300)
-    title_eng = models.CharField(max_length=300)
+class Currency(models.Model):
+    title_short_en = models.CharField(max_length=50)
+    title_full_en = models.CharField(max_length=300)
+    title_short_ru = models.CharField(max_length=50)
+    title_full_ru = models.CharField(max_length=300)
 
     def __str__(self):
-        return self.title_eng
+        return "{0}, {1}".format(self.title_full_en, self.title_short_en)
+
+class Captcha(models.Model):
+    title_en = models.CharField(max_length=300)
+    title_ru = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.title_en
+
+class MetaKeyword(models.Model):
+    text_en = models.CharField(max_length=300)
+    text_ru = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.text_en
+
+class Faucet(models.Model):
+    href = models.CharField(max_length=1024)
+    title_en = models.CharField(max_length=300)
+    title_ru = models.CharField(max_length=300)
+    update_time = models.DateTimeField(help_text="Дата обновления, обновляется автоматически")
+    visible = models.BooleanField(default=False)
+    currency = models.ForeignKey(Currency)
+    now_pays = models.BooleanField(default=True)
+    malfunction = models.BooleanField(default=False)
+    captcha = models.ForeignKey(Captcha)
+
+    likes = models.IntegerField(default=0)
+    dislikes = models.IntegerField(default=0)
+
+    meta_title = models.CharField(max_length=1024, help_text="Максимум 1024 символа")
+    meta_description = models.TextField()
+    meta_keywords = models.ManyToManyField(MetaKeyword)
+
+    def __str__(self):
+        return self.title_en
+
+class WalletCategory(models.Model):
+    title_ru = models.CharField(max_length=300)
+    title_en = models.CharField(max_length=300)
+
+    def __str__(self):
+        return self.title_en
 
 class Wallet(models.Model):
-    title_rus = models.CharField(max_length=300)
-    title_eng = models.CharField(max_length=300)
+    title_ru = models.CharField(max_length=300)
+    title_en = models.CharField(max_length=300)
     category = models.ForeignKey(WalletCategory)
-    min_withdraw = models.IntegerField()
+    min_withdraw = models.IntegerField(help_text="Минимальная сумма вывода")
     currencies_count = models.IntegerField()
 
     def __str__(self):
