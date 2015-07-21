@@ -85,7 +85,7 @@ class Faucet(models.Model):
         return self.title_en
 
     def display_image(self):
-        return "<img src='%s' />" % self.image.url
+        return "<img height='150' src='%s' />" % self.image.url
     display_image.allow_tags = True
 
 class WalletCategory(models.Model):
