@@ -20,9 +20,6 @@ class MetaKeyInline(admin.TabularInline):
 
 
 class FaucetAdmin(admin.ModelAdmin):
-    """
-    Пока заглушка, чтобы не забыть описание
-    """
     fieldsets = [
         ('Основное', {'fields': ['title_en', 'title_ru', 'href']}),
         ('Служебное',
