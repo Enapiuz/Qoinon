@@ -28,9 +28,9 @@ class FaucetAdmin(admin.ModelAdmin):
         ('Служебное',
          {'fields': ['currency', 'now_pays', 'captcha', 'category', 'update_time', 'visible', 'malfunction']}),
         ('Награда', {'fields': ['reward_min', 'reward_max', 'reward_mid']}),
+        ('Просмотры', {'fields': ['views']})
         ('Лайки', {'fields': ['likes', 'dislikes']}),
-        ('Meta', {'fields': ['meta_title', 'meta_description']}),
-        (None, {'fields': ['views']})
+        ('Meta', {'fields': ['meta_title', 'meta_description']})
     ]
     inlines = [MetaKeyInline]
 
