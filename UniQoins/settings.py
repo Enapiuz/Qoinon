@@ -77,11 +77,17 @@ WSGI_APPLICATION = 'UniQoins.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
+POSTGRESQL_SETTINGS = {
+    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    'NAME': 'uniqoins',
+    'USER': 'enapiuz',
+    'PASSWORD': '',
+    'HOST': '',
+    'PORT': ''
+}
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+    'default': POSTGRESQL_SETTINGS
 }
 
 
