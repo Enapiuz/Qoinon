@@ -58,7 +58,7 @@ target/
 
 .idea
 
-site_config.py
+src/site_config.py
 /static/*
 !/static/.gitkeep
 /media/*

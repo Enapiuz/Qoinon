@@ -4,4 +4,5 @@ django-jinja==1.4.1
 Jinja2==2.7.3
 MarkupSafe==0.23
 Pillow==2.9.0
+psycopg2==2.6.1
 pytz==2015.4
