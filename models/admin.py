@@ -14,6 +14,10 @@ class CaptchaAdmin(admin.ModelAdmin):
 class CurrencyAdmin(admin.ModelAdmin):
     get_model_perms = lambda self, request: {}
 
+class MetaKeyInline(admin.TabularInline):
+    model = Faucet.meta_keywords.through
+    extra = 1
+
 
 class FaucetAdmin(admin.ModelAdmin):
     """
@@ -28,7 +32,7 @@ class FaucetAdmin(admin.ModelAdmin):
         ('Meta', {'fields': ['meta_title', 'meta_description', 'meta_keywords']}),
         (None, {'fields': ['views']})
     ]
-
+    inlines = [MetaKeyInline]
 
 admin.site.register(Wallet)
 admin.site.register(WalletCategory, WalletCategoryAdmin)
