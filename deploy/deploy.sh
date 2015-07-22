@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
-apt-get install python2
+sudo apt-get install python2
+alias python=/usr/local/bin/python2.7
 
 fab deploy

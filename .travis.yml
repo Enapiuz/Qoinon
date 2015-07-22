@@ -3,7 +3,6 @@ python:
   - "3.4"
 # command to install dependencies
 install:
-  - "apt-get install python"
   - "pip3 install -r deploy/requirements.txt"
   - "pip install Fabric"
 # command to run tests
