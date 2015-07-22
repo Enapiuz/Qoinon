@@ -33,7 +33,7 @@ class FaucetCategory(models.Model):
         return self.title_en
 
 class Faucet(models.Model):
-    href = models.CharField(max_length=1024)
+    href = models.CharField(max_length=1024, help_text="Для автоматической подстановки подходящего кошелька вписать WALLET в место, где он должен быть")
     title_en = models.CharField(max_length=300)
     title_ru = models.CharField(max_length=300)
     update_time = models.TimeField(help_text="Cooldown")
