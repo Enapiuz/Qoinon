@@ -9,6 +9,7 @@ def deploy():
         sudo('git pull', user='enapiuz')
         with cd('src'):
             with prefix('source ../../ucenv/bin/activate'):
+                sudo('pip3 install -r ../deploy/requirements.txt', user='enapiuz')
                 sudo('python manage.py migrate --noinput', user='enapiuz')
                 sudo('python manage.py collectstatic --noinput', user='enapiuz')
         sudo('touch ./deploy/touch.me', user='enapiuz')
