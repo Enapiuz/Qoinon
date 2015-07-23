@@ -7,7 +7,7 @@ install:
 script: nosetests
 
 after_success:
-- chmod 600 deploy-key
+- chmod 600 deploy_key
 - mv deploy_key ~/.ssh/deploy
 - eval "$(ssh-agent -s)"
 - ssh-add ~/.ssh/deploy
