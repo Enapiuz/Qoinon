@@ -7,11 +7,13 @@
     </head>
     <body>
         <div class="container-fluid">
-            <div class="row top-row">
+            <div class="row">
+
                 <div class="col-sm-2">
                     <img class="main-logo" src="{% static 'components/images/logo.png' %}" />
                 </div>
-                <div class="col-sm-9 top-row">
+
+                <div class="col-sm-9">
                     <ul class="nav nav-pills">
                       <li role="presentation"><a href="#">Faucets</a></li>
                       <li role="presentation"><a href="#">Analytics</a></li>
@@ -22,9 +24,35 @@
                       <li role="presentation"><a href="#">Blog</a></li>
                     </ul>
                 </div>
+
                 <div class="col-sm-1">
-                    <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                    <div class="btn btn-lg pull-right">
+                        <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                    </div>
                 </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-11">
+
+                </div>
+
+                <div class="col-sm-1">
+                    <div class="btn-group-vertical pull-right">
+                        <div class="btn btn-lg">
+                            <span class="glyphicon glyphicon-record" aria-hidden="true"></span>
+                        </div>
+                        <div class="btn btn-lg">
+                            <span class="glyphicon glyphicon-record glyphicon-white" aria-hidden="true"></span>
+                        </div>
+                        <div class="btn btn-lg">
+                            <span class="glyphicon glyphicon-record glyphicon-white" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
 
