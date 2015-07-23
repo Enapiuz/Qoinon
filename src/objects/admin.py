@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from models.models import Wallet, WalletCategory, Faucet, MetaKeyword, Captcha, Currency, FaucetCategory
+from objects.models import Wallet, WalletCategory, Faucet, MetaKeyword, Captcha, Currency, FaucetCategory
 
 
 class WalletCategoryAdmin(admin.ModelAdmin):

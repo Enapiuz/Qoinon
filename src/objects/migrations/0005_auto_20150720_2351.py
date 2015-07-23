@@ -7,7 +7,7 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('models', '0004_auto_20150720_2204'),
+        ('objects', '0004_auto_20150720_2204'),
     ]
 
     operations = [
@@ -47,6 +47,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='faucet',
             name='category',
-            field=models.ForeignKey(to='models.FaucetCategory', null=True),
+            field=models.ForeignKey(to='objects.FaucetCategory', null=True),
         ),
     ]

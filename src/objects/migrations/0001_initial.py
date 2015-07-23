@@ -31,6 +31,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='wallet',
             name='category',
-            field=models.ForeignKey(to='models.WalletCategory'),
+            field=models.ForeignKey(to='objects.WalletCategory'),
         ),
     ]

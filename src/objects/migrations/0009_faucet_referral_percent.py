@@ -7,13 +7,13 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('models', '0007_auto_20150721_2032'),
+        ('objects', '0008_faucet_image'),
     ]
 
     operations = [
         migrations.AddField(
             model_name='faucet',
-            name='image',
-            field=models.ImageField(upload_to='', default='#'),
+            name='referral_percent',
+            field=models.IntegerField(help_text='Сколько нам % с реферральной программы', default=0),
         ),
     ]

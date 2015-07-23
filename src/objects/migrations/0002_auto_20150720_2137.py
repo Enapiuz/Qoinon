@@ -7,7 +7,7 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('models', '0001_initial'),
+        ('objects', '0001_initial'),
     ]
 
     operations = [
@@ -42,8 +42,8 @@ class Migration(migrations.Migration):
                 ('malfunction', models.BooleanField(default=False)),
                 ('meta_title', models.CharField(help_text='Максимум 1024 символа', max_length=1024)),
                 ('meta_description', models.TextField()),
-                ('captcha', models.ForeignKey(to='models.Captcha')),
-                ('currency', models.ForeignKey(to='models.Currency')),
+                ('captcha', models.ForeignKey(to='objects.Captcha')),
+                ('currency', models.ForeignKey(to='objects.Currency')),
             ],
         ),
         migrations.CreateModel(
@@ -81,6 +81,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='faucet',
             name='meta_keywords',
-            field=models.ManyToManyField(to='models.MetaKeyword'),
+            field=models.ManyToManyField(to='objects.MetaKeyword'),
         ),
     ]

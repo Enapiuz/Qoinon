@@ -8,28 +8,28 @@ import django.core.validators
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('models', '0018_auto_20150723_2203'),
+        ('objects', '0006_auto_20150721_0015'),
     ]
 
     operations = [
-        migrations.AlterField(
+        migrations.AddField(
             model_name='faucet',
             name='minimum_withdraw',
-            field=models.FloatField(null=True, validators=[django.core.validators.MinValueValidator(0)]),
+            field=models.FloatField(validators=[django.core.validators.MinValueValidator(0)], default=0),
         ),
         migrations.AlterField(
             model_name='faucet',
             name='reward_max',
-            field=models.FloatField(null=True, validators=[django.core.validators.MinValueValidator(0)]),
+            field=models.IntegerField(validators=[django.core.validators.MinValueValidator(0)], default=0),
         ),
         migrations.AlterField(
             model_name='faucet',
             name='reward_mid',
-            field=models.FloatField(validators=[django.core.validators.MinValueValidator(0)]),
+            field=models.IntegerField(validators=[django.core.validators.MinValueValidator(0)], default=0),
         ),
         migrations.AlterField(
             model_name='faucet',
             name='reward_min',
-            field=models.FloatField(null=True, validators=[django.core.validators.MinValueValidator(0)]),
+            field=models.IntegerField(validators=[django.core.validators.MinValueValidator(0)], default=0),
         ),
     ]

@@ -2,18 +2,19 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
+import django.core.validators
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('models', '0013_auto_20150723_2023'),
+        ('objects', '0009_faucet_referral_percent'),
     ]
 
     operations = [
         migrations.AlterField(
             model_name='faucet',
-            name='update_time',
-            field=models.IntegerField(help_text='Cooldown'),
+            name='minimum_withdraw',
+            field=models.IntegerField(validators=[django.core.validators.MinValueValidator(0)], default=0),
         ),
     ]
