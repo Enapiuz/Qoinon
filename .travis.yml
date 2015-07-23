@@ -21,3 +21,6 @@ deploy:
 before_install:
 - openssl aes-256-cbc -K $encrypted_92865ab39364_key -iv $encrypted_92865ab39364_iv
   -in deploy_key.enc -out deploy_key -d
+
+notifications:
+  slack: uniqoins:yWG8oAU9XyDHSi6z60U9tFq3
