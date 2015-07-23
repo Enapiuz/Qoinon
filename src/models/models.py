@@ -36,8 +36,8 @@ class Faucet(models.Model):
     href = models.CharField(max_length=1024, help_text="Для автоматической подстановки подходящего кошелька вписать WALLET в место, где он должен быть")
     title_en = models.CharField(max_length=300)
     title_ru = models.CharField(max_length=300)
-    update_time = models.TimeField(help_text="Cooldown")
-    visible = models.BooleanField(default=False)
+    update_time = models.IntegerField(help_text="Cooldown")
+    visible = models.BooleanField(default=True)
     currency = models.ForeignKey(Currency)
     now_pays = models.BooleanField(default=True)
     malfunction = models.BooleanField(default=False)
@@ -77,8 +77,8 @@ class Faucet(models.Model):
 
     referral_percent = models.IntegerField(default=0, help_text="Сколько нам % с реферральной программы")
 
-    meta_title = models.CharField(max_length=1024, help_text="Максимум 1024 символа")
-    meta_description = models.TextField()
+    meta_title = models.CharField(max_length=1024, help_text="Максимум 1024 символа", blank=True)
+    meta_description = models.TextField(blank=True)
     meta_keywords = models.ManyToManyField(MetaKeyword)
 
     def __str__(self):
