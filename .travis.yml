@@ -1,15 +1,23 @@
 language: python
 python:
-  - "3.4"
+- '3.4'
 
 install:
-  - "pip3 install -r deploy/requirements.txt"
-
-# command to run tests
+- pip3 install -r deploy/requirements.txt
 script: nosetests
+
+after_success:
+- chmod 600 deploy-key
+- mv deploy_key ~/.ssh/deploy
+- eval "$(ssh-agent -s)"
+- ssh-add ~/.ssh/deploy
 
 deploy:
   provider: script
   script: deploy/deploy.sh
   on:
     branch: master
+
+before_install:
+- openssl aes-256-cbc -K $encrypted_92865ab39364_key -iv $encrypted_92865ab39364_iv
+  -in deploy_key.enc -out deploy_key -d
