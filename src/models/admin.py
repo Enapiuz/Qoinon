@@ -27,7 +27,7 @@ class MetaKeyInline(admin.TabularInline):
 class FaucetAdmin(admin.ModelAdmin):
     readonly_fields = ('display_image', )
     fieldsets = [
-        ('Основное', {'fields': ['title_en', 'title_ru', 'href']}),
+        ('Основное', {'fields': ['title_en', 'title_ru', 'href', 'append_wallet']}),
         ('Изображение', {'fields': ['image', 'display_image']}),
         ('Служебное',
          {'fields': ['currency', 'now_pays', 'captcha', 'category', 'update_time', 'visible', 'malfunction',
