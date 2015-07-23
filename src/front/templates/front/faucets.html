@@ -20,9 +20,9 @@
                     </td>
                     <td>
                         <div class="btn-group-vertical">
-                            <div class="btn">dwf</div>
-                            <div class="btn">dwfd</div>
-                            <div class="btn">dwsdf</div>
+                            {% for captcha in captchas %}
+                                <div class="btn">{{ captcha.title_en }}</div>
+                            {% endfor %}
                         </div>
                     </td>
                     <td>
