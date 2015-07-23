@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ssh root@188.166.114.242 /bin/bash << EOF
+ssh -oStrictHostKeyChecking=no root@188.166.114.242 /bin/bash << EOF
     cd /home/enapiuz/UniQoins
     sudo -u enapiuz git pull
     cd src
