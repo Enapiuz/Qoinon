@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from objects.models import Captcha
+from objects.models import Captcha, Faucet
 
 
 def hello(req):
@@ -8,6 +8,9 @@ def hello(req):
 
 def faucets(req):
     captchas = Captcha.objects.all()
+    faucets = Faucet.objects.all()
+
     return render(req, 'front/faucets.html', {
-        'captchas': captchas
+        'captchas': captchas,
+        'faucets': faucets
     })
