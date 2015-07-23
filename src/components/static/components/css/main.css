@@ -1,0 +1,15 @@
+.main-logo {
+  width: 100%; }
+
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none; }
+
+body {
+  padding-top: 1%; }
+
+.top-row {
+  height: 150px; }
+
+/*# sourceMappingURL=main.css.map */
