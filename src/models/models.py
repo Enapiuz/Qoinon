@@ -58,7 +58,7 @@ class Faucet(models.Model):
         ]
     )
     reward_max = models.IntegerField(
-        default=0,
+        blank=True,
         validators=[
             MinValueValidator(0)
         ]
@@ -70,7 +70,7 @@ class Faucet(models.Model):
         ]
     )
     minimum_withdraw = models.IntegerField(
-        default=0,
+        blank=True,
         validators=[
             MinValueValidator(0)
         ]
