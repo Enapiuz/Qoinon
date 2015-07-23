@@ -20,5 +20,5 @@ from front import urls as front_urls
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', include(front_urls)),
+    url(r'^', include(front_urls)),
 ]

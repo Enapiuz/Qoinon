@@ -10,12 +10,14 @@
             <div class="row">
 
                 <div class="col-sm-2">
-                    <img class="main-logo" src="{% static 'components/images/logo.png' %}" />
+                    <a href="{% url 'main' %}">
+                        <img class="main-logo" src="{% static 'components/images/logo.png' %}" />
+                    </a>
                 </div>
 
                 <div class="col-sm-9">
                     <ul class="nav nav-pills">
-                      <li role="presentation"><a href="#">Faucets</a></li>
+                      <li role="presentation"><a href="{% url 'faucets' %}">Faucets</a></li>
                       <li role="presentation"><a href="#">Analytics</a></li>
                       <li role="presentation"><a href="#">Mining</a></li>
                       <li role="presentation"><a href="#">Wallets</a></li>
@@ -35,23 +37,27 @@
 
             <div class="row">
 
-                <div class="col-sm-11">
+                {% block content %}
 
-                </div>
+                    <div class="col-sm-11">
 
-                <div class="col-sm-1">
-                    <div class="btn-group-vertical pull-right">
-                        <div class="btn btn-lg">
-                            <span class="glyphicon glyphicon-record" aria-hidden="true"></span>
-                        </div>
-                        <div class="btn btn-lg">
-                            <span class="glyphicon glyphicon-record glyphicon-white" aria-hidden="true"></span>
-                        </div>
-                        <div class="btn btn-lg">
-                            <span class="glyphicon glyphicon-record glyphicon-white" aria-hidden="true"></span>
+                    </div>
+
+                    <div class="col-sm-1">
+                        <div class="btn-group-vertical pull-right">
+                            <div class="btn btn-lg">
+                                <span class="glyphicon glyphicon-record" aria-hidden="true"></span>
+                            </div>
+                            <div class="btn btn-lg">
+                                <span class="glyphicon glyphicon-record glyphicon-white" aria-hidden="true"></span>
+                            </div>
+                            <div class="btn btn-lg">
+                                <span class="glyphicon glyphicon-record glyphicon-white" aria-hidden="true"></span>
+                            </div>
                         </div>
                     </div>
-                </div>
+
+                {% endblock %}
 
             </div>
         </div>
