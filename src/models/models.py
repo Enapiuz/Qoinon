@@ -51,25 +51,25 @@ class Faucet(models.Model):
     image = models.ImageField(default='#', upload_to='faucets')
     views = models.IntegerField(default=0)
 
-    reward_min = models.IntegerField(
+    reward_min = models.FloatField(
         default=0,
         validators=[
             MinValueValidator(0)
         ]
     )
-    reward_max = models.IntegerField(
+    reward_max = models.FloatField(
         blank=True,
         validators=[
             MinValueValidator(0)
         ]
     )
-    reward_mid = models.IntegerField(
+    reward_mid = models.FloatField(
         default=0,
         validators=[
             MinValueValidator(0)
         ]
     )
-    minimum_withdraw = models.IntegerField(
+    minimum_withdraw = models.FloatField(
         blank=True,
         validators=[
             MinValueValidator(0)
