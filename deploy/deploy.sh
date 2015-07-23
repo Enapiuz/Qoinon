@@ -13,7 +13,5 @@ ssh -oStrictHostKeyChecking=no root@188.166.114.242 /bin/bash << EOF
         touch ./deploy/touch.me
 
         echo uwsgi touch-restarted
-    ENP
-    sudo -u enapiuz 
-    
+ENP    
 EOF
