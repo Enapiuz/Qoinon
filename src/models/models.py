@@ -52,25 +52,24 @@ class Faucet(models.Model):
     views = models.IntegerField(default=0)
 
     reward_min = models.FloatField(
-        default=0,
+        null=True,
         validators=[
             MinValueValidator(0)
         ]
     )
     reward_max = models.FloatField(
-        blank=True,
+        null=True,
         validators=[
             MinValueValidator(0)
         ]
     )
     reward_mid = models.FloatField(
-        default=0,
         validators=[
             MinValueValidator(0)
         ]
     )
     minimum_withdraw = models.FloatField(
-        blank=True,
+        null=True,
         validators=[
             MinValueValidator(0)
         ]
