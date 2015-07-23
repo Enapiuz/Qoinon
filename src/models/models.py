@@ -37,7 +37,7 @@ class Faucet(models.Model):
     title_en = models.CharField(max_length=300)
     title_ru = models.CharField(max_length=300, blank=True)
     append_wallet = models.BooleanField(default=True, help_text="Автоматически подставлять в конец ссылки наш подходящий адрес кошелька")
-    update_time = models.IntegerField(help_text="Cooldown")
+    update_time = models.IntegerField(help_text="Cooldown в минутах")
     visible = models.BooleanField(default=True)
     currency = models.ForeignKey(Currency)
     now_pays = models.BooleanField(default=True)
@@ -52,16 +52,18 @@ class Faucet(models.Model):
     views = models.IntegerField(default=0)
 
     reward_min = models.FloatField(
+        blank=True,
         null=True,
-        validators=[
-            MinValueValidator(0)
-        ]
+        # validators=[
+        #     MinValueValidator(0)
+        # ]
     )
     reward_max = models.FloatField(
+        blank=True,
         null=True,
-        validators=[
-            MinValueValidator(0)
-        ]
+        # validators=[
+        #     MinValueValidator(0)
+        # ]
     )
     reward_mid = models.FloatField(
         validators=[
@@ -69,10 +71,11 @@ class Faucet(models.Model):
         ]
     )
     minimum_withdraw = models.FloatField(
+        blank=True,
         null=True,
-        validators=[
-            MinValueValidator(0)
-        ]
+        # validators=[
+        #     MinValueValidator(0)
+        # ]
     )
 
     referral_percent = models.IntegerField(default=0, help_text="Сколько нам % с реферральной программы")
