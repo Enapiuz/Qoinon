@@ -3,6 +3,7 @@
 ssh -oStrictHostKeyChecking=no root@188.166.114.242 /bin/bash << EOF
     cd /home/enapiuz/UniQoins
     exec sudo -u enapiuz /bin/bash << ENP
+        HOME=/home/enapiuz
         git pull
         cd src
         source ../../ucenv/bin/activate && pip3 install -r ../deploy/requirements.txt
