@@ -35,7 +35,7 @@ class FaucetCategory(models.Model):
 class Faucet(models.Model):
     href = models.CharField(max_length=1024)
     title_en = models.CharField(max_length=300)
-    title_ru = models.CharField(max_length=300)
+    title_ru = models.CharField(max_length=300, blank=True)
     append_wallet = models.BooleanField(default=True, help_text="Автоматически подставлять в конец ссылки наш подходящий адрес кошелька")
     update_time = models.IntegerField(help_text="Cooldown")
     visible = models.BooleanField(default=True)
