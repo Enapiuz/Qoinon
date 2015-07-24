@@ -39,7 +39,7 @@ class Faucet(models.Model):
     append_wallet = models.BooleanField(default=True, help_text="Автоматически подставлять в конец ссылки наш подходящий адрес кошелька")
     update_time = models.IntegerField(help_text="Cooldown в минутах")
     visible = models.BooleanField(default=True)
-    currency = models.ForeignKey(Currency)
+    currency = models.ForeignKey(Currency, default=1)
     now_pays = models.BooleanField(default=True)
     malfunction = models.BooleanField(default=False)
     captcha = models.ForeignKey(Captcha)
