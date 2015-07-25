@@ -43,7 +43,7 @@ class Faucet(models.Model):
     now_pays = models.BooleanField(default=True)
     malfunction = models.BooleanField(default=False)
     captcha = models.ForeignKey(Captcha)
-    category = models.ForeignKey(FaucetCategory)
+    category = models.ForeignKey(FaucetCategory, default=4)
 
     likes = models.IntegerField(default=0)
     dislikes = models.IntegerField(default=0)

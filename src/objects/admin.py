@@ -27,7 +27,7 @@ class MetaKeyInline(admin.TabularInline):
 class FaucetAdmin(admin.ModelAdmin):
     # TODO понять как называть фильтры
     list_filter = ('currency__title_short_en', 'category__title_en', 'captcha__title_en')
-    # ordering = ['-id', 'title_en']
+    ordering = ['title_en']
     search_fields = ['title_en']
     readonly_fields = ('display_image', )
     fieldsets = [
