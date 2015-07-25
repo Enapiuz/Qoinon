@@ -111,3 +111,11 @@ class Wallet(models.Model):
     def __str__(self):
         return self.title_eng
 
+class OurWallet(models.Model):
+    """
+    Наши кошельки для подстановки в ротаторе на основе валюты
+    """
+    address = models.CharField(max_length=300)
+    currency = models.ForeignKey(Currency)
+    comments = models.TextField(blank=True)
+

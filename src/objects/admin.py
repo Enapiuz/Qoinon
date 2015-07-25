@@ -1,5 +1,5 @@
 from django.contrib import admin
-from objects.models import Wallet, WalletCategory, Faucet, MetaKeyword, Captcha, Currency, FaucetCategory
+from objects.models import Wallet, WalletCategory, Faucet, MetaKeyword, Captcha, Currency, FaucetCategory, OurWallet
 
 
 class WalletCategoryAdmin(admin.ModelAdmin):
@@ -51,3 +51,4 @@ admin.site.register(FaucetCategory, FaucetCategoryAdmin)
 admin.site.register(MetaKeyword)
 admin.site.register(Captcha, CaptchaAdmin)
 admin.site.register(Currency, CurrencyAdmin)
+admin.site.register(OurWallet)
