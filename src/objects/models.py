@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator
+from datetime import datetime
 
 
 class Currency(models.Model):
@@ -83,6 +84,8 @@ class Faucet(models.Model):
     meta_title = models.CharField(max_length=1024, help_text="Максимум 1024 символа", blank=True)
     meta_description = models.TextField(blank=True)
     meta_keywords = models.ManyToManyField(MetaKeyword)
+
+    create_date = models.DateTimeField(default=datetime.now(), blank=True)
 
     def __str__(self):
         return self.title_en

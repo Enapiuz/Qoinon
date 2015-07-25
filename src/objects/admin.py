@@ -1,5 +1,4 @@
 from django.contrib import admin
-
 from objects.models import Wallet, WalletCategory, Faucet, MetaKeyword, Captcha, Currency, FaucetCategory
 
 
@@ -29,7 +28,7 @@ class FaucetAdmin(admin.ModelAdmin):
     list_filter = ('currency__title_short_en', 'category__title_en', 'captcha__title_en')
     ordering = ['title_en']
     search_fields = ['title_en']
-    readonly_fields = ('display_image', )
+    readonly_fields = ('display_image', 'create_date')
     fieldsets = [
         ('Основное', {'fields': ['title_en', 'title_ru', 'href', 'append_wallet']}),
         ('Изображение', {'fields': ['image', 'display_image']}),
@@ -39,7 +38,8 @@ class FaucetAdmin(admin.ModelAdmin):
         ('Награда', {'fields': ['reward_min', 'reward_max', 'reward_mid', 'minimum_withdraw']}),
         ('Просмотры', {'fields': ['views']}),
         ('Лайки', {'fields': ['likes', 'dislikes']}),
-        ('Meta', {'fields': ['meta_title', 'meta_description']})
+        ('Meta', {'fields': ['meta_title', 'meta_description']}),
+        ('Информация', {'fields': ['create_date']})
     ]
     inlines = [MetaKeyInline]
 
