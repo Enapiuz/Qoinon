@@ -36,9 +36,9 @@
 
             </div>
 
-            <div class="row">
 
-                {% block content %}
+            {% block content %}
+                <div class="row">
 
                     <div class="col-sm-11">
 
@@ -58,9 +58,9 @@
                         </div>
                     </div>
 
-                {% endblock %}
+                </div>
+            {% endblock %}
 
-            </div>
         </div>
 
         <script type="text/javascript" src="{% static 'components/javascripts/vendor.js' %}"></script>

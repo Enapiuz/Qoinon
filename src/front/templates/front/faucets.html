@@ -2,50 +2,82 @@
 
 {% block content %}
     <br />
-    <div class="col-sm-3">
-        <div class="well well-sm">
-            <table class="table text-center">
-                <tr>
-                    <td>Times</td>
-                    <td>Captchas</td>
-                    <td>Wallets</td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="btn-group-vertical">
-                            <div class="btn">dwf</div>
-                            <div class="btn">dwfd</div>
-                            <div class="btn">dwsdf</div>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="btn-group-vertical">
-                            {% for captcha in captchas %}
-                                <div class="btn">{{ captcha.title_en }}</div>
-                            {% endfor %}
-                        </div>
-                    </td>
-                    <td>
-                        <div class="btn-group-vertical">
-                            <div class="btn">dwf</div>
-                            <div class="btn">dwfd</div>
-                            <div class="btn">dwsdf</div>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+    <div class="row">
+        <div class="col-sm-3">
+
+        </div>
+        <div class="col-sm-9">
+            <h1>Faucets</h1>
+            <p>Select a familiar faucet and start!</p>
         </div>
     </div>
-    <div class="col-sm-9">
-        <table class="table table-bordered table-hover">
-            {% for faucet in faucets %}
-                <tr>
-                    <td>{{ faucet.title_en }}</td>
-                    <td>test</td>
-                    <td>test</td>
-                    <td>test</td>
-                </tr>
-            {% endfor %}
-        </table>
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="well well-sm">
+                <table class="table text-center">
+                    <tr>
+                        <td>Times</td>
+                        <td>Captchas</td>
+                        <td>Wallets</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="btn-group-vertical">
+                                <div class="btn">dwf</div>
+                                <div class="btn">dwfd</div>
+                                <div class="btn">dwsdf</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="btn-group-vertical">
+                                {% for captcha in captchas %}
+                                    <div class="btn">{{ captcha.title_en }}</div>
+                                {% endfor %}
+                            </div>
+                        </td>
+                        <td>
+                            <div class="btn-group-vertical">
+                                <div class="btn">dwf</div>
+                                <div class="btn">dwfd</div>
+                                <div class="btn">dwsdf</div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <table class="table table-hover">
+                {% for faucet in faucets %}
+                    <tr>
+                        <td>{{ faucet.title_en }}</td>
+                        <td>
+                            <div class="btn-group">
+                                <div class="btn">
+                                    <span class="glyphicon glyphicon-thumbs-up"></span>
+                                </div>
+                                <div class="btn disabled">
+                                    {{ faucet.update_time }}
+                                </div>
+                                <div class="btn">
+                                    <span class="glyphicon glyphicon-thumbs-down"></span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>{{ faucet.currency }}</td>
+                        <td>{{ faucet.category }}</td>
+                        <td>{{ faucet.update_time }}</td>
+                        <td>{{ faucet.reward_mid }}</td>
+                        <td>{{ faucet.reward_min }}</td>
+                        <td>{{ faucet.reward_max }}</td>
+                        <td>{{ faucet.malfunction }}</td>
+                        <td>{{ faucet.minimum_withdraw }}</td>
+                        <td>{{ faucet.views }}</td>
+                        <td><a href="#">About</a></td>
+                        <td><a href="#">GO!</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
     </div>
 {% endblock %}
