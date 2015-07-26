@@ -74,7 +74,7 @@
                         <td>{{ faucet.minimum_withdraw }}</td>
                         <td>{{ faucet.views }}</td>
 {#                        <td><a href="#">About</a></td>#}
-                        <td><a href="#">GO!</a></td>
+                        <td><a href="{% url 'hammer' %}?start={{ faucet.title_en|urlencode }}">GO!</a></td>
                     </tr>
                 {% endfor %}
             </table>
