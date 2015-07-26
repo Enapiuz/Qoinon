@@ -40,7 +40,8 @@ INSTALLED_APPS = (
     'django_jinja',
     'djangobower',
     'objects',
-    'front'
+    'front',
+    'hammer'
 )
 
 MIDDLEWARE_CLASSES = (
