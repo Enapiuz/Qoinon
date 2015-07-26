@@ -90,6 +90,9 @@ class Faucet(models.Model):
     def __str__(self):
         return self.title_en
 
+    def get_rating(self):
+        return self.likes - self.dislikes
+
     def display_image(self):
         return "<img height='150' src='%s' />" % self.image.url
     display_image.allow_tags = True

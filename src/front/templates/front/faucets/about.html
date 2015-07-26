@@ -10,6 +10,9 @@
     <div class="row">
         <div class="col-sm-4 text-center">
             <img width="100%" src="{{ faucet.image.url }}">
+            <br />
+            <span class="glyphicon glyphicon-thumbs-up"></span> {{ faucet.likes }} &nbsp;
+            <span class="glyphicon glyphicon-thumbs-down"></span> {{ faucet.dislikes }}
         </div>
         <div class="col-sm-8">
             <p>Cryptocurrency: <span>{{ faucet.currency }}</span></p>
