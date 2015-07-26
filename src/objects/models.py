@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator
-from datetime import datetime
+from django.utils import timezone
 
 
 class Currency(models.Model):
@@ -35,7 +35,7 @@ class FaucetCategory(models.Model):
 
 class Faucet(models.Model):
     href = models.CharField(max_length=1024)
-    title_en = models.CharField(max_length=300)
+    title_en = models.CharField(max_length=300, unique=True)
     title_ru = models.CharField(max_length=300, blank=True)
     append_wallet = models.BooleanField(default=True, help_text="Автоматически подставлять в конец ссылки наш подходящий адрес кошелька")
     update_time = models.IntegerField(help_text="Cooldown в минутах")
@@ -85,7 +85,7 @@ class Faucet(models.Model):
     meta_description = models.TextField(blank=True)
     meta_keywords = models.ManyToManyField(MetaKeyword)
 
-    create_date = models.DateTimeField(default=datetime.now(), blank=True)
+    create_date = models.DateTimeField(default=timezone.now(), blank=True)
 
     def __str__(self):
         return self.title_en

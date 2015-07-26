@@ -15,8 +15,8 @@ def faucets(req):
         'faucets': faucets
     })
 
-def faucet_about(req, faucet_id):
-    faucet = Faucet.objects.get(pk=faucet_id)
+def faucet_about(req, faucet_title_en):
+    faucet = Faucet.objects.get(title_en=faucet_title_en)
 
     return render(req, 'front/faucets/about.html', {
         'faucet': faucet
