@@ -1,5 +1,18 @@
 {% extends 'front/layout.html' %}
+{% load staticfiles %}
 
 {% block content %}
-    {{ faucet }}
+    <div class="row">
+        <div class="col-sm-12">
+            <h1>{{ faucet.title_en }}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 text-center">
+            <img src="{{ faucet.image.url }}">
+        </div>
+        <div class="col-sm-8">
+            <p>Cryptocurrency: <span>{{ faucet.currency }}</span></p>
+        </div>
+    </div>
 {% endblock %}
