@@ -13,6 +13,22 @@
         </div>
         <div class="col-sm-8">
             <p>Cryptocurrency: <span>{{ faucet.currency }}</span></p>
+
+            <p>Now pays:
+                {% if faucet.now_pays %} <span class="text-success">YES</span>
+                {% else %} <span class="text-danger">NO</span>
+                {% endif %}
+            </p>
+
+            <p>Malfunction:
+                {% if faucet.malfunction %} <span class="text-danger">YES</span>
+                {% else %} <span class="text-success">NO</span>
+                {% endif %}
+            </p>
+
+            <p>Faucet type: {{ faucet.category }}</p>
+            <p>Captcha type: {{ faucet.captcha }}</p>
+            <a class="btn btn-default btn-lg" href="{% url 'hammer' %}?start={{ faucet.title_en|urlencode }}">VISIT</a>
         </div>
     </div>
 {% endblock %}
