@@ -10,7 +10,14 @@ def faucets(req):
     captchas = Captcha.objects.all()
     faucets = Faucet.objects.all()
 
-    return render(req, 'front/faucets.html', {
+    return render(req, 'front/faucets/list.html', {
         'captchas': captchas,
         'faucets': faucets
+    })
+
+def faucet_about(req, faucet_id):
+    faucet = Faucet.objects.get(pk=faucet_id)
+
+    return render(req, 'front/faucets/about.html', {
+        'faucet': faucet
     })
