@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-timestamp=$(date)
+timestamp=$(date "+%F-%T")
 
 mkdir /tmp/backup
 mkdir /tmp/backup_finale
