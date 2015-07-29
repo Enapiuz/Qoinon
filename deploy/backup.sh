@@ -17,7 +17,7 @@ gpg --encrypt -r backup@uniqoins.com --always-trust /tmp/backup_finale/backup.ta
 rm -rf /tmp/backup/uniqoins_media.tar.gz
 rm -rf /tmp/backup/uniqoinsdb.dump
 
-megaput --username=backup@uniqoins.com --path /Root/uniqoins_backup/backup.${timestamp}.tar.gz /tmp/backup_finale/backup.tar.gz.gpg < ./megapass
+megaput --username=backup@uniqoins.com --path /Root/uniqoins_backup/backup.${timestamp}.tar.gz.gpg /tmp/backup_finale/backup.tar.gz.gpg < ./megapass
 
 
 echo "Regular backup made at ${timestamp}" | mutt -s "Regular UniQoins backup" -- enapiuz@gmail.com
