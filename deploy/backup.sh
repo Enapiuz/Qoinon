@@ -12,7 +12,7 @@ tar -czvf /tmp/backup_finale/backup.tar.gz /tmp/backup
 
 rm -rf /tmp/backup_finale/backup.tar.gz.gpg
 
-gpg --encrypt -r backup@uniqoins.com --always-trust /tmp/backup_finale/backup.tar.gz.gpg
+gpg --encrypt -r backup@uniqoins.com --always-trust /tmp/backup_finale/backup.tar.gz
 
 rm -rf /tmp/backup/uniqoins_media.tar.gz
 rm -rf /tmp/backup/uniqoinsdb.dump
