@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-timestamp=$(date +%s)
+timestamp=$(date)
 
 mkdir /tmp/backup
 mkdir /tmp/backup_finale
@@ -14,4 +14,4 @@ tar -czvf /tmp/backup_finale/backup.tar.gz /tmp/backup
 megaput --username=backup@uniqoins.com --path /Root/uniqoins_backup/backup.${timestamp}.tar.gz /tmp/backup_finale/backup.tar.gz < ./megapass
 
 
-echo "Regular backup" | mutt -s "Regular UniQoins backup" -- enapiuz@gmail.com < "Made at ${timestamp}"
+echo "Regular backup made at ${timestamp}" | mutt -s "Regular UniQoins backup" -- enapiuz@gmail.com
