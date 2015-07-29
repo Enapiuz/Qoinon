@@ -1,6 +1,6 @@
 from grab import Grab
 from grab.spider import Spider, Task
-import xlsxwriter
+import csv
 from urllib.parse import unquote
 
 
@@ -14,43 +14,49 @@ class FaucetBoxSpider(Spider):
         'https://faucetbox.com/en/list/DASH',
     ]
 
+    def prepare(self):
+        self.counter = 0
+        self.result_file = csv.writer(open('faucetbox.csv', 'w'))
+
+        self.result_file.writerow([
+            'currency',
+            'title',
+            'link',
+            'cooldown',
+            'description',
+            'max payout',
+            'avg daily payout',
+        ])
+
     def create_grab_instance(self, **kwargs):
         g = Grab(**kwargs)
         g.setup(follow_location=True)
         return g
 
     def task_initial(self, grab, task):
-        self.workbook = xlsxwriter.Workbook('faucetbox.xlsx')
-        self.worksheet = self.workbook.add_worksheet()
-
         faucets = grab.doc.select('//*[@id="faucets-list"]/tbody/tr')
         print(len(faucets))
 
-        self.worksheet.write(0, 0, 'currency')
-        self.worksheet.write(0, 1, 'title')
-        self.worksheet.write(0, 2, 'link')
-        self.worksheet.write(0, 3, 'cooldown')
-        self.worksheet.write(0, 4, 'description')
-        self.worksheet.write(0, 5, 'max payout')
-        self.worksheet.write(0, 6, 'avg daily payout')
+        for faucet in faucets:
+            data = (
+                self.get_currency(grab),  # currency
+                faucet.select('td[2]/a').text(),  # title
+                faucet.select('td[3]').text(),  # cooldown
+                faucet.select('td[4]').text(),  # description
+                faucet.select('td[5]').text(),  # max pay
+                faucet.select('td[6]').text()  # avg
+            )
 
-        for idx, faucet in enumerate(faucets):
-            self.worksheet.write(idx+1, 0, self.get_currency(grab))  # currency
-            self.worksheet.write(idx+1, 1, faucet.select('td[2]/a').text())  # title
-            self.worksheet.write(idx+1, 3, faucet.select('td[3]').text())  # cooldown
-            self.worksheet.write(idx+1, 4, faucet.select('td[4]').text())  # description
-            self.worksheet.write(idx+1, 5, faucet.select('td[5]').text())  # max pay
-            self.worksheet.write(idx+1, 6, faucet.select('td[6]').text())  # avg
-            yield Task('urls', url='https://faucetbox.com/en/' + unquote(faucet.select('td[2]/a/@href').text()), idx=idx)
+            yield Task('urls', url='https://faucetbox.com/en/' + unquote(faucet.select('td[2]/a/@href').text()), faucet=data)
 
     def task_urls(self, grab, task):
-        self.worksheet.write(task.idx+1, 2, grab.response.url)
+        data = task.faucet + (grab.response.url,)
+        self.result_file.writerow(list(data))
 
     def get_currency(self, grab):
         return grab.response.url.rsplit('/', 1)[-1]
 
 
 if __name__ == '__main__':
-    bot = FaucetBoxSpider(thread_number=2)
+    bot = FaucetBoxSpider(thread_number=4)
     bot.run()
-    bot.workbook.close()
