@@ -18,7 +18,11 @@ elixir(function(mix) {
     );
 
     mix.scripts(
-        ['../../../bower_components/bootstrap-sass/assets/javascripts/bootstrap.js'],
+        [
+            '../../../bower_components/underscore/underscore.js',
+            '../../../bower_components/jquery/dist/jquery.js',
+            '../../../bower_components/bootstrap-sass/assets/javascripts/bootstrap.js'
+        ],
         './static/components/javascripts/vendor.js'
     );
 });

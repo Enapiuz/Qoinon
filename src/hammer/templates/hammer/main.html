@@ -1,0 +1,23 @@
+{% extends 'front/layout.html' %}
+
+{% block content %}
+    <div class="row">
+
+    </div>
+
+    <div class="row hammer">
+        <iframe class="hammer__faucet" src="{{ faucet.href }}"></iframe>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(function(){
+            var $hammer = $(".hammer");
+            var hTop = $hammer.offset().top;
+            var hReal = hTop - $(window).scrollTop(); //position of the ele w.r.t window
+            var windowHeight = $(window).height();
+            $hammer.height(windowHeight - hReal - 10);
+        });
+    </script>
+{% endblock %}

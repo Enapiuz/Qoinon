@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 from django.utils import timezone
+import random
 
 
 class Currency(models.Model):
@@ -96,6 +97,11 @@ class Faucet(models.Model):
     def display_image(self):
         return "<img height='150' src='%s' />" % self.image.url
     display_image.allow_tags = True
+
+    @staticmethod
+    def get_random():
+        obj = random.choice(Faucet.objects.all())
+        return obj
 
 class WalletCategory(models.Model):
     title_ru = models.CharField(max_length=300)
