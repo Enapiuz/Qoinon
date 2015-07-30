@@ -16,7 +16,7 @@ class FaucetBoxSpider(Spider):
 
     def prepare(self):
         self.counter = 0
-        self.result_file = csv.writer(open('faucetbox.csv', 'w'))
+        self.result_file = csv.writer(open('faucetbox.csv', 'w'), delimiter=';')
 
         self.result_file.writerow([
             'currency',
