@@ -1,10 +1,18 @@
 @import "pages/main";
 @import "pages/hammer";
 
+html {
+  height: 100%;
+}
+
 body {
+  min-height: 100%;
   padding-top: 1%;
 }
 
+.fullheight {
+  height: 100%;
+}
 
 .glyphicon-white {
   opacity: 0.3;
