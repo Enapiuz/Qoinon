@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_hosts',
     'django_jinja',
     'djangobower',
     'objects',
@@ -45,6 +46,7 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django_hosts.middleware.HostsRequestMiddleware',  # всегда в начале
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -53,9 +55,15 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'django_hosts.middleware.HostsResponseMiddleware'  # всегда в конце
 )
 
+ROOT_HOSTCONF = 'UniQoins.hosts'
 ROOT_URLCONF = 'UniQoins.urls'
+
+DEFAULT_HOST = 'main_host'
+
+HOST_OVERRIDE_URL_TAG = True
 
 TEMPLATES = [
     {

@@ -17,10 +17,8 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 from front import urls as front_urls
-from hammer import urls as hammer_urls
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^hammer/', include(hammer_urls)),
     url(r'^', include(front_urls)),  # всегда должны быть последними
 ]
