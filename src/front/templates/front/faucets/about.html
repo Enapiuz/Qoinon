@@ -31,7 +31,7 @@
 
             <p>Faucet type: {{ faucet.category }}</p>
             <p>Captcha type: {{ faucet.captcha }}</p>
-            <a class="btn btn-default btn-lg" href="{% url 'hammer' %}?start={{ faucet.title_en|urlencode }}">VISIT</a>
+            <a class="btn btn-default btn-lg" href="{% url 'hammer' host 'hammer_host' %}?start={{ faucet.title_en|urlencode }}">VISIT</a>
         </div>
     </div>
 {% endblock %}
