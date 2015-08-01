@@ -3,6 +3,6 @@ from django_hosts import patterns, host
 from hammer import urls as hammer_urls
 
 host_patterns = patterns('',
-    host(r'', settings.ROOT_URLCONF, name='main_host'),
-    host(r'hammer', 'hammer.urls', name='hammer_host'),
+    host(r'uniqoins\.com', settings.ROOT_URLCONF, name='main_host'),
+    host(r'hammer\.uniqoins\.com', 'hammer.urls', name='hammer_host'),
 )
