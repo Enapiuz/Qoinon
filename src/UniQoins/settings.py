@@ -63,7 +63,7 @@ ROOT_URLCONF = 'UniQoins.urls'
 
 DEFAULT_HOST = 'main_host'
 
-HOST_OVERRIDE_URL_TAG = True
+# HOST_OVERRIDE_URL_TAG = True
 
 TEMPLATES = [
     {
