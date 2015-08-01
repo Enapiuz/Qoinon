@@ -7,7 +7,70 @@
         }
     </style>
     <div class="row">
+        <div class="col-sm-2 text-center">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>{{ faucet.title_en }}</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="glyphicon glyphicon-thumbs-up"></span> {{ faucet.likes }} &nbsp;
+                    <span class="glyphicon glyphicon-thumbs-down"></span> {{ faucet.dislikes }} &nbsp;
+                    <span class="glyphicon glyphicon-user"></span> 5
+                </div>
+            </div>
+        </div>
 
+        <div class="col-sm-2">
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="label label-default">Default</span>
+                    <span class="label label-success">Default</span>
+                    <span class="label label-success">Default</span>
+                    <span class="label label-success">Default</span>
+                    <span class="label label-success">Default</span>
+                    <span class="label label-success">Default</span>
+                    <span class="label label-success">Default</span>
+                    <span class="label label-success">Default</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-1">
+            Reward <br />
+            <b>~</b> {{ faucet.reward_mid }} <br />
+            <span class="glyphicon glyphicon-triangle-bottom"></span> {{ faucet.reward_min }} <br />
+            <span class="glyphicon glyphicon-triangle-top"></span> {{ faucet.reward_max }} <br />
+        </div>
+
+        <div class="col-sm-2 text-center">
+            Pays every {{ faucet.update_time }} minutes <br />
+            Next: <b>535</b> sites ~ 94543 satishi left
+        </div>
+
+        <div class="col-sm-5">
+            <div class="btn-group pull-right">
+                <div class="btn btn-lg btn-default">Past BTC address</div>
+                <div class="btn btn-lg btn-default">Edit</div>
+            </div>
+
+            <div class="pull-right">
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+            </div>
+
+            <div class="btn btn-lg btn-default pull-right">
+                Help
+            </div>
+
+            <div class="btn btn-lg btn-default pull-right">
+                Faucetbox balance
+            </div>
+        </div>
     </div>
 
     <div class="row hammer fullheight">
