@@ -75,7 +75,7 @@
                         <td>{{ faucet.minimum_withdraw }}</td>
                         <td>{{ faucet.views }}</td>
 {#                        <td><a href="#">About</a></td>#}
-                        <td><a href="{% host_url 'hammer' host 'hammer_host' %}?start={{ faucet.title_en|urlencode }}">GO!</a></td>
+                        <td><a href="{% host_url 'hammer' host 'hammer_host' scheme 'http' %}?start={{ faucet.title_en|urlencode }}">GO!</a></td>
                     </tr>
                 {% endfor %}
             </table>
