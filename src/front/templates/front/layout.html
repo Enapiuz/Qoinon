@@ -11,14 +11,14 @@
             <div class="row">
 
                 <div class="col-sm-2">
-                    <a href="{% url 'main' %}">
+                    <a href="{% url 'main' host 'main_host' %}">
                         <img class="main-logo" src="{% static 'components/images/logo.png' %}" />
                     </a>
                 </div>
 
                 <div class="col-sm-9">
                     <ul class="nav nav-pills">
-                      <li role="presentation"><a href="{% url 'faucets' %}">Faucets</a></li>
+                      <li role="presentation"><a href="{% url 'faucets' host 'main_host' %}">Faucets</a></li>
                       <li role="presentation"><a href="#">Analytics</a></li>
                       <li role="presentation"><a href="#">Mining</a></li>
                       <li role="presentation"><a href="#">Wallets</a></li>
