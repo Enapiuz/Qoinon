@@ -151,6 +151,8 @@ TEMPLATE_LOADERS = (
     'django_jinja.loaders.FileSystemLoader',
 )
 
+SESSION_COOKIE_DOMAIN = ".uniqoins.com"
+
 
 # Перезапись существующего конфига
 try:
