@@ -29,5 +29,6 @@ def main(req):
 
     return render(req, 'hammer/main.html', {
         'faucet': faucet,
-        'next_link': next_link
+        'next_link': next_link,
+        'is_moderator': req.user.groups.filter(name='Moderators').exists()
     })

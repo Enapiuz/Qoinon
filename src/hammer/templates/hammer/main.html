@@ -82,6 +82,13 @@
                 <p><a target="_blank" href="{{ faucet.real_href }}">Visit it here!</a></p>
             </div>
         {% endif %}
+
+        {% if is_moderator %}
+            <div class="moderator-panel">
+                <div class="btn btn-sm btn-danger">Не показывать в iframe</div>
+                <div class="btn btn-sm btn-success">Показывать в iframe</div>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
 
