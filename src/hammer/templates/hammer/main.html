@@ -73,8 +73,15 @@
     </div>
 
     <div class="row hammer fullheight">
-        <iframe class="hammer__faucet fullheight" src="{{ faucet.href }}"></iframe>
         <a href="{{ next_link }}" class="next-button"> </a>
+        {% if faucet.iframe_ready %}
+            <iframe class="hammer__faucet fullheight" src="{{ faucet.real_href }}"></iframe>
+        {% else %}
+            <div class="text-center error-iframe">
+                <p>This faucet doen't work in iframe.</p>
+                <p><a target="_blank" href="{{ faucet.real_href }}">Visit it here!</a></p>
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
 

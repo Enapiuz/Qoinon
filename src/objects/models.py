@@ -46,6 +46,7 @@ class Faucet(models.Model):
     malfunction = models.BooleanField(default=False)
     captcha = models.ForeignKey(Captcha)
     category = models.ForeignKey(FaucetCategory, default=4)
+    iframe_ready = models.BooleanField(default=True, help_text="Возможность работы в iframe")
 
     likes = models.IntegerField(default=0)
     dislikes = models.IntegerField(default=0)
@@ -97,6 +98,18 @@ class Faucet(models.Model):
     def display_image(self):
         return "<img height='150' src='%s' />" % self.image.url
     display_image.allow_tags = True
+
+    def real_href(self):
+        """
+        Выбиает все подходящие под кран наши кошельки и вставляет в конец
+        адрес подходящего
+        """
+        if self.append_wallet:
+            wallets = OurWallet.objects.filter(currency=self.currency).all()
+            wallet = random.choice(wallets).address if len(wallets) > 0 else ''
+            return self.href + wallet
+        else:
+            return self.href
 
     @staticmethod
     def get_random(query=None):
