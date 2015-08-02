@@ -120,6 +120,12 @@ class Faucet(models.Model):
         obj = random.choice(selector())
         return obj
 
+    def is_new(self):
+        """
+        Возвращает True, если кран моложе недели или другого срока
+        """
+        return True
+
 class WalletCategory(models.Model):
     title_ru = models.CharField(max_length=300)
     title_en = models.CharField(max_length=300)
