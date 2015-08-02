@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from objects.models import Faucet
+from django.core.urlresolvers import reverse
 
 # Create your views here.
 
@@ -24,6 +25,9 @@ def main(req):
     else:
         faucet = Faucet.get_random(query)
 
+    next_link = reverse('hammer') + '?c={0}'.format(faucet.currency_id)
+
     return render(req, 'hammer/main.html', {
-        'faucet': faucet
+        'faucet': faucet,
+        'next_link': next_link
     })

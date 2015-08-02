@@ -1,3 +1,5 @@
+@import "../vendor/bootstrap_variables";
+
 .hammer__faucet {
   border: 0;
   min-height: 100%;
@@ -7,4 +9,22 @@
 
 .hammer__menu {
   margin-bottom: 10px;
+}
+
+.next-button {
+  display: block;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 5%;
+  margin: 0;
+  padding: 5px;
+  background: $brand-info;
+  opacity: 0.8;
+  z-index: 5;
+  color: white;
+
+  background-image: url(/static/components/images/rarrow.png);
+  background-repeat: repeat-y;
+  background-size: contain;
 }
