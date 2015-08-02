@@ -40,8 +40,12 @@
         <div class="col-sm-1">
             Reward <br />
             <b>~</b> {{ faucet.reward_mid }} <br />
-            <span class="glyphicon glyphicon-triangle-bottom"></span> {{ faucet.reward_min }} <br />
-            <span class="glyphicon glyphicon-triangle-top"></span> {{ faucet.reward_max }} <br />
+            {% if faucet.reward_min %}
+                <span class="glyphicon glyphicon-triangle-bottom"></span> {{ faucet.reward_min }} <br />
+            {% endif %}
+            {% if faucet.reward_max %}
+                <span class="glyphicon glyphicon-triangle-top"></span> {{ faucet.reward_max }} <br />
+            {% endif %}
         </div>
 
         <div class="col-sm-2 text-center">
