@@ -34,7 +34,7 @@ class FaucetAdmin(admin.ModelAdmin):
         ('Изображение', {'fields': ['image', 'display_image']}),
         ('Служебное',
          {'fields': ['currency', 'now_pays', 'captcha', 'category', 'update_time', 'visible', 'malfunction',
-                     'referral_percent']}),
+                     'referral_percent', 'top', 'best']}),
         ('Награда', {'fields': ['reward_min', 'reward_max', 'reward_mid', 'minimum_withdraw']}),
         ('Просмотры', {'fields': ['views']}),
         ('Лайки', {'fields': ['likes', 'dislikes']}),
