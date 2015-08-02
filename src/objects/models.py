@@ -99,8 +99,9 @@ class Faucet(models.Model):
     display_image.allow_tags = True
 
     @staticmethod
-    def get_random():
-        obj = random.choice(Faucet.objects.all())
+    def get_random(query=None):
+        selector = lambda: query.all() if query is not None else Faucet.objects.all()
+        obj = random.choice(selector())
         return obj
 
 class WalletCategory(models.Model):
