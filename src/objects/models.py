@@ -48,6 +48,9 @@ class Faucet(models.Model):
     category = models.ForeignKey(FaucetCategory, default=4)
     iframe_ready = models.BooleanField(default=True, help_text="Возможность работы в iframe")
 
+    top = models.BooleanField(default=False)
+    best = models.BooleanField(default=False)
+
     likes = models.IntegerField(default=0)
     dislikes = models.IntegerField(default=0)
 
