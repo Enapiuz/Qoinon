@@ -42,4 +42,14 @@
   height: auto;
   background-color: #006666;
   padding: 2px;
+
+  .well-moder {
+    display: inline-block;
+    margin-bottom: 0;
+    padding: 2px;
+
+    label {
+      margin-bottom: 0;
+    }
+  }
 }

@@ -38,6 +38,12 @@
   height: auto;
   background-color: #006666;
   padding: 2px; }
+  .moderator-panel .well-moder {
+    display: inline-block;
+    margin-bottom: 0;
+    padding: 2px; }
+    .moderator-panel .well-moder label {
+      margin-bottom: 0; }
 
 html {
   height: 100%; }

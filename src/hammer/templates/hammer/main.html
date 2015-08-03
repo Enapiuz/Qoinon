@@ -89,8 +89,31 @@
 
         {% if is_moderator %}
             <div class="moderator-panel">
-                <div class="btn btn-sm btn-danger">Не показывать в iframe</div>
-                <div class="btn btn-sm btn-success">Показывать в iframe</div>
+                <div class="well well-sm well-moder">
+                    <label>
+                        <input type="checkbox" {% if faucet.iframe_ready %} checked {% endif %}> Показывать в iframe
+                    </label>
+                </div>
+                <div class="well well-sm well-moder">
+                    <label>
+                        <input type="checkbox" {% if faucet.visible %} checked {% endif %}> Включен
+                    </label>
+                </div>
+                <div class="well well-sm well-moder">
+                    <label>
+                        <input type="checkbox" {% if faucet.now_pays %} checked {% endif %}> Платит
+                    </label>
+                </div>
+                <div class="well well-sm well-moder">
+                    <label>
+                        <input type="checkbox" {% if faucet.top %} checked {% endif %}> TOP
+                    </label>
+                </div>
+                <div class="well well-sm well-moder">
+                    <label>
+                        <input type="checkbox" {% if faucet.best %} checked {% endif %}> BEST
+                    </label>
+                </div>
             </div>
         {% endif %}
     </div>
