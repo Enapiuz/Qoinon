@@ -151,3 +151,5 @@ class OurWallet(models.Model):
     currency = models.ForeignKey(Currency)
     comments = models.TextField(blank=True)
 
+    def __str__(self):
+        return "{0} - {1}".format(self.address, str(self.currency))
