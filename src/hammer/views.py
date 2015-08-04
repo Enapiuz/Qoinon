@@ -26,7 +26,9 @@ def main(req):
         faucet = Faucet.get_random(query)
 
     next_link = reverse('hammer') + '?c={0}'.format(faucet.currency_id)
-    admin_edit_link = reverse('objects_faucet_change', args=(faucet.id,))
+    
+    # турбо-костыль, починить admin namespace
+    admin_edit_link = "https://uniqoins.com/admin/objects/faucet/{0}/".format(faucet.id)
 
     return render(req, 'hammer/main.html', {
         'faucet': faucet,
