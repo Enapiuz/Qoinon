@@ -26,9 +26,11 @@ def main(req):
         faucet = Faucet.get_random(query)
 
     next_link = reverse('hammer') + '?c={0}'.format(faucet.currency_id)
+    admin_edit_link = reverse('admin:objects_faucet_change', args=(faucet.id,))
 
     return render(req, 'hammer/main.html', {
         'faucet': faucet,
         'next_link': next_link,
-        'is_moderator': req.user.groups.filter(name='Moderators').exists()
+        'is_moderator': req.user.groups.filter(name='Moderators').exists(),
+        'admin_edit_link': admin_edit_link
     })
