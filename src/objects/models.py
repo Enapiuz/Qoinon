@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 from django.utils import timezone
+from datetime import datetime
 import random
 
 
@@ -122,9 +123,9 @@ class Faucet(models.Model):
 
     def is_new(self):
         """
-        Возвращает True, если кран моложе недели или другого срока
+        Возвращает True, если кран моложе недели
         """
-        return True
+        return timezone.now() - timezone.timedelta(days=7) > self.create_date
 
 class WalletCategory(models.Model):
     title_ru = models.CharField(max_length=300)
