@@ -1,5 +1,4 @@
 {% extends 'front/layout.html' %}
-{% load admin_urls %}
 
 {% block content %}
     <style>
@@ -116,7 +115,7 @@
                     </label>
                 </div>
                 <div class="well well-sm well-moder">
-                    <a href="{% url 'admin:faucet_change' faucet.id %}">
+                    <a href="{{ admin_edit_link }}">
                         Редактировать в админке
                     </a>
                 </div>
