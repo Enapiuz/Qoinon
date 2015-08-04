@@ -116,7 +116,7 @@
                     </label>
                 </div>
                 <div class="well well-sm well-moder">
-                    <a href="{% host_url 'admin:faucet_change' host 'main_host' scheme 'https' faucet.id %}">
+                    <a href="{% url 'admin:faucet_change' faucet.id %}">
                         Редактировать в админке
                     </a>
                 </div>
