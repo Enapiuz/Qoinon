@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from objects.models import Faucet
 from django.core.urlresolvers import reverse
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -36,3 +37,19 @@ def main(req):
         'is_moderator': req.user.groups.filter(name='Moderators').exists(),
         'admin_edit_link': admin_edit_link
     })
+
+def moderation_actions(req):
+    if not req.user.groups.filter(name='Moderators').exists():
+        return JsonResponse({'status': 'not allowed'})
+
+    fid = req.GET.get('id')
+    name = req.GET.get('name')
+    value = req.GET.get('value')
+
+    faucet = Faucet.objects.get(pk=fid)
+    if hasattr(faucet, name):
+        setattr(faucet, name, value)
+        faucet.save()
+        return JsonResponse({'status': 'ok'})
+    else:
+        return JsonResponse({'status': 'err'})
