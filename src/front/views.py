@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from objects.models import Captcha, Faucet
+from objects.models import Captcha, Faucet, Currency, WalletCategory
 
 
 def hello(req):
@@ -9,10 +9,15 @@ def hello(req):
 def faucets(req):
     captchas = Captcha.objects.all()
     faucets = Faucet.objects.all()
+    currencies = Currency.objects.all()
+    wallets = WalletCategory.objects.all()
 
     return render(req, 'front/faucets/list.html', {
+        'global_centered': True,
         'captchas': captchas,
-        'faucets': faucets
+        'faucets': faucets,
+        'currencies': currencies,
+        'wallets': wallets
     })
 
 def faucet_about(req, faucet_title_en):
