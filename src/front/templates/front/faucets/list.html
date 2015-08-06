@@ -99,9 +99,11 @@
                             <div class="label label-info">{{ faucet.captcha.title_en }}</div>
                             <div class="label label-info">{{ faucet.category.title_en }}</div>
                         </td>
-                        <td>
-                            <a class="pull-right btn btn-default btn-sm" href="{% host_url 'hammer' host 'hammer_host' scheme 'http' %}?start={{ faucet.title_en|urlencode }}">GO!</a>
-                            <a style="margin-right: 5px;" href="{% url 'faucet_about' faucet.title_en %}" class="pull-right btn btn-default btn-sm">About</a>
+                        <td width="1%">
+                            <a href="{% url 'faucet_about' faucet.title_en %}" class="pull-right btn btn-default btn-sm">About</a>
+                        </td>
+                        <td width="1%">
+                            <a class="btn btn-default btn-sm" href="{% host_url 'hammer' host 'hammer_host' scheme 'http' %}?start={{ faucet.title_en|urlencode }}">GO!</a>
                         </td>
                     </tr>
 
