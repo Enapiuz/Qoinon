@@ -42,9 +42,11 @@ def moderation_actions(req):
     if not req.user.groups.filter(name='Moderators').exists():
         return JsonResponse({'status': 'not allowed'})
 
+    is_true = lambda x: x == 'true'
+
     fid = req.GET.get('id')
     name = req.GET.get('name')
-    value = req.GET.get('value')
+    value = is_true(req.GET.get('value'))
 
     faucet = Faucet.objects.get(pk=fid)
     if hasattr(faucet, name):
