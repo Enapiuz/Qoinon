@@ -101,6 +101,11 @@
                 </div>
                 <div class="well well-sm well-moder">
                     <label>
+                        <input name="malfunction" class="fast-checkbox" type="checkbox" {% if faucet.malfunction %} checked {% endif %}> Сломан / не работает
+                    </label>
+                </div>
+                <div class="well well-sm well-moder">
+                    <label>
                         <input name="now_pays" class="fast-checkbox" type="checkbox" {% if faucet.now_pays %} checked {% endif %}> Платит
                     </label>
                 </div>
