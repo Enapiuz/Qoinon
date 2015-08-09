@@ -94,10 +94,7 @@ class Faucet(models.Model):
     create_date = models.DateTimeField(default=timezone.now(), blank=True)
 
     def __str__(self):
-        return "{0} - [vis: {1}] [iframe: {2}] [now_pays: {3}] [malf: {4}] [top: {5}] [best: {6}]".format(
-            self.title_en, self.visible, self.iframe_ready, self.now_pays,
-            self.malfunction, self.top, self.best
-        )
+        return self.title_en
 
     def get_rating(self):
         return self.likes - self.dislikes
