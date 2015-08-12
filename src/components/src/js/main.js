@@ -3,3 +3,4 @@ require('bootstrap');
 
 // подключение модулей страниц
 require('./pages/faucets')();
+require('./pages/hammer')();
