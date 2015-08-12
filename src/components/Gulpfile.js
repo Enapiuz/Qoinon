@@ -2,27 +2,33 @@ var elixir = require('laravel-elixir');
 
 
 elixir(function(mix) {
+    // шрифты
     mix.copy(
         './bower_components/bootstrap-sass/assets/fonts',
         './static/components/fonts'
     );
 
+    // картинки
+    mix.copy(
+        './src/images',
+        './static/components/images'
+    );
+
+    // css либы
     mix.sass(
-        ['../../../scss/vendor.scss'],
+        ['../../../src/scss/vendor.scss'],
         './static/components/css/vendor.css'
     );
 
+    // css
     mix.sass(
-        ['../../../scss/main.scss'],
+        ['../../../src/scss/main.scss'],
         './static/components/css/main.css'
     );
 
-    mix.scripts(
-        [
-            '../../../bower_components/underscore/underscore.js',
-            '../../../bower_components/jquery/dist/jquery.js',
-            '../../../bower_components/bootstrap-sass/assets/javascripts/bootstrap.js'
-        ],
-        './static/components/javascripts/vendor.js'
+    // скрипты в browserify
+    mix.browserify(
+        '../../../src/js/main.js',
+        './static/components/javascripts/main.js'
     );
 });

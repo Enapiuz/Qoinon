@@ -9,7 +9,26 @@
   "author": "",
   "license": "BSD",
   "dependencies": {
-    "laravel-elixir": "~2.3.13",
-    "gulp": "~3.9.0"
+    "bootstrap-sass": "^3.3.5",
+    "browserify": "^11.0.1",
+    "browserify-shim": "^3.8.10",
+    "gulp": "~3.9.0",
+    "jquery": "^2.1.4",
+    "laravel-elixir": "~2.3.13"
+  },
+  "browser": {
+    "bootstrap": "./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "bootstrap": {
+      "depends": [
+        "jquery:jQuery"
+      ]
+    }
   }
 }
