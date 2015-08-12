@@ -1,6 +1,6 @@
 window.$ = window.jQuery = require('jquery');
 require('bootstrap');
 
-// подключение модулей страниц
+// РїРѕРґРєР»СЋС‡РµРЅРёРµ РјРѕРґСѓР»РµР№ СЃС‚СЂР°РЅРёС†
 require('./pages/faucets')();
 require('./pages/hammer')();

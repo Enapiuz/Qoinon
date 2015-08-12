@@ -4,10 +4,11 @@
 window.$ = window.jQuery = require('jquery');
 require('bootstrap');
 
-// ����������� ������� �������
+// подключение модулей страниц
 require('./pages/faucets')();
+require('./pages/hammer')();
 
-},{"./pages/faucets":4,"bootstrap":2,"jquery":3}],2:[function(require,module,exports){
+},{"./pages/faucets":4,"./pages/hammer":5,"bootstrap":2,"jquery":3}],2:[function(require,module,exports){
 (function (global){
 
 ; jQuery = global.jQuery = require("jquery");
@@ -11598,6 +11599,15 @@ module.exports = function () {
     var $ = require('jquery');
 
     console.log('hello from faucets');
+};
+
+},{"jquery":3}],5:[function(require,module,exports){
+'use strict';
+
+module.exports = function () {
+    var $ = require('jquery');
+
+    console.log('hello from hammer');
 };
 
 },{"jquery":3}]},{},[1]);
