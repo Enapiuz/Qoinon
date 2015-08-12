@@ -1,5 +1,5 @@
-var $ = global.jQuery = require('jquery');
-var bootstrap = require('bootstrap');
+window.$ = global.jQuery = require('jquery');
+require('bootstrap');
 
 // подключение модулей страниц
 require('./pages/faucets')();
