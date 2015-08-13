@@ -11620,21 +11620,21 @@ module.exports = function () {
             timesButtons.removeClass('faucets__filter_btn--active');
             $(this).addClass('faucets__filter_btn--active');
             $("#faucets__time_input").val($(this).data('value'));
-            setCaption($('.faucets__filter_time_text'), $(this).html());
+            setCaption($('.faucets__filter_time_text'), $(this).text());
         });
 
         captchaButtons.click(function (ev) {
             captchaButtons.removeClass('faucets__filter_btn--active');
             $(this).addClass('faucets__filter_btn--active');
             $("#faucets__captcha_input").val($(this).data('value'));
-            setCaption($('.faucets__filter_captcha_text'), $(this).html());
+            setCaption($('.faucets__filter_captcha_text'), $(this).text());
         });
 
         walletButtons.click(function (ev) {
             walletButtons.removeClass('faucets__filter_btn--active');
             $(this).addClass('faucets__filter_btn--active');
             $("#faucets__wallet_input").val($(this).data('value'));
-            setCaption($('.faucets__filter_wallet_text'), $(this).html());
+            setCaption($('.faucets__filter_wallet_text'), $(this).text());
         });
     });
 };
