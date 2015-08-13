@@ -10,57 +10,69 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="btn-group-justified">
-                {% for currency in currencies %}
-                    <div class="btn btn-default">
-                        {{ currency.title_full_en }} faucets
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div> <br />
+    <div class="faucets__filter">
+        <form>
+            <input id="faucets__currency_input" type="hidden" name="currency" value="">
+            <input id="faucets__time_input" type="hidden" name="time" value="">
+            <input id="faucets__captcha_input" type="hidden" name="captcha" value="">
+            <input id="faucets__wallet_input" type="hidden" name="wallet" value="">
+        </form>
 
-    <div class="row">
-        <div class="col-sm-12 text-center">
-            <div class="btn-group">
-                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Times <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="#">< 30</a></li>
-                    <li><a href="#">30 - 60</a></li>
-                    <li><a href="#">61 - 180</a></li>
-                    <li><a href="#">181 - 240</a></li>
-                    <li><a href="#">241 - 720</a></li>
-                    <li><a href="#">> 720</a></li>
-                </ul>
-            </div>
-
-            <div class="btn-group">
-                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Captchas <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    {% for captcha in captchas %}
-                        <li><a href="#">{{ captcha.title_en }}</a></li>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="btn-group-justified">
+                    {% for currency in currencies %}
+                        <div class="btn btn-default faucets__filter_btn faucets__filter_btn_currency" data-currency="{{ currency.id }}">
+                            {{ currency.title_full_en }} faucets
+                        </div>
                     {% endfor %}
-                </ul>
+                </div>
             </div>
+        </div> <br />
 
-            <div class="btn-group">
-                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Wallets <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu">
-                    {% for category in categories %}
-                        <li><a href="#">{{ category.title_en }}</a></li>
-                    {% endfor %}
-                </ul>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <div class="btn-group">
+                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Times
+                        <span></span>
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="faucets__filter_btn_time" data-value="0"><a href="#">< 30</a></li>
+                        <li class="faucets__filter_btn_time" data-value="1"><a href="#">30 - 60</a></li>
+                        <li class="faucets__filter_btn_time" data-value="2"><a href="#">61 - 180</a></li>
+                        <li class="faucets__filter_btn_time" data-value="3"><a href="#">181 - 240</a></li>
+                        <li class="faucets__filter_btn_time" data-value="4"><a href="#">241 - 720</a></li>
+                        <li class="faucets__filter_btn_time" data-value="5"><a href="#">> 720</a></li>
+                    </ul>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Captchas <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        {% for captcha in captchas %}
+                            <li><a href="#">{{ captcha.title_en }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="btn-group">
+                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Wallets <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        {% for category in categories %}
+                            <li><a href="#">{{ category.title_en }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
-        </div>
-    </div> <br />
+        </div> <br />
+    </div>
+
 
     <div class="row">
         <div class="col-sm-12">

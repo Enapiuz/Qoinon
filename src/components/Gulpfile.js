@@ -1,5 +1,6 @@
 var elixir = require('laravel-elixir');
 
+elixir.config.registerWatcher("default", "./src/**/*");
 
 elixir(function(mix) {
     mix.copy(

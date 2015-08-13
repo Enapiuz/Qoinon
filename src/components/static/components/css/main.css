@@ -45,6 +45,10 @@
     .moderator-panel .well-moder label {
       margin-bottom: 0; }
 
+.faucets__filter_btn--active {
+  background-color: #333333;
+  color: #5bc0de; }
+
 html {
   height: 100%; }
 

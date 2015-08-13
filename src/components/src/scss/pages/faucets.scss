@@ -1,0 +1,12 @@
+.faucets {
+  &__filter {
+    &_btn {
+
+    }
+
+    &_btn--active {
+      background-color: $gray-dark;
+      color: $brand-info;
+    }
+  }
+}
