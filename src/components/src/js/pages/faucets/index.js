@@ -1,11 +1,8 @@
 module.exports = function() {
     var $ = require('jquery');
+    var titler = require('../../common/titler');
 
     console.log('hello from faucets');
-
-    function setCaption($el, title) {
-        $el.html('[' + title + ']');
-    }
 
     $(function(){
         var currencyButtons = $(".faucets__filter_btn_currency");
@@ -23,21 +20,21 @@ module.exports = function() {
             timesButtons.removeClass('faucets__filter_btn--active');
             $(this).addClass('faucets__filter_btn--active');
             $("#faucets__time_input").val($(this).data('value'));
-            setCaption($('.faucets__filter_time_text'), $(this).text());
+            titler.squaredCaption($('.faucets__filter_time_text'), $(this).text());
         });
 
         captchaButtons.click(function(ev){
             captchaButtons.removeClass('faucets__filter_btn--active');
             $(this).addClass('faucets__filter_btn--active');
             $("#faucets__captcha_input").val($(this).data('value'));
-            setCaption($('.faucets__filter_captcha_text'), $(this).text());
+            titler.squaredCaption($('.faucets__filter_captcha_text'), $(this).text());
         });
 
         walletButtons.click(function(ev){
             walletButtons.removeClass('faucets__filter_btn--active');
             $(this).addClass('faucets__filter_btn--active');
             $("#faucets__wallet_input").val($(this).data('value'));
-            setCaption($('.faucets__filter_wallet_text'), $(this).text());
+            titler.squaredCaption($('.faucets__filter_wallet_text'), $(this).text());
         });
     });
 };

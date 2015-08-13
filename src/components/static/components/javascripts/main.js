@@ -8,7 +8,7 @@ require('bootstrap');
 require('./pages/faucets')();
 require('./pages/hammer')();
 
-},{"./pages/faucets":4,"./pages/hammer":5,"bootstrap":2,"jquery":3}],2:[function(require,module,exports){
+},{"./pages/faucets":5,"./pages/hammer":6,"bootstrap":2,"jquery":3}],2:[function(require,module,exports){
 (function (global){
 
 ; jQuery = global.jQuery = require("jquery");
@@ -11595,14 +11595,24 @@ return jQuery;
 },{}],4:[function(require,module,exports){
 'use strict';
 
+module.exports = {};
+
+module.exports.squaredCaption = function ($selector, text) {
+    $selector.html('[' + text + ']');
+};
+
+module.exports.roundedCaption = function ($selector, text) {
+    $selector.html('(' + text + ')');
+};
+
+},{}],5:[function(require,module,exports){
+'use strict';
+
 module.exports = function () {
     var $ = require('jquery');
+    var titler = require('../../common/titler');
 
     console.log('hello from faucets');
-
-    function setCaption($el, title) {
-        $el.html('[' + title + ']');
-    }
 
     $(function () {
         var currencyButtons = $(".faucets__filter_btn_currency");
@@ -11620,26 +11630,26 @@ module.exports = function () {
             timesButtons.removeClass('faucets__filter_btn--active');
             $(this).addClass('faucets__filter_btn--active');
             $("#faucets__time_input").val($(this).data('value'));
-            setCaption($('.faucets__filter_time_text'), $(this).text());
+            titler.squaredCaption($('.faucets__filter_time_text'), $(this).text());
         });
 
         captchaButtons.click(function (ev) {
             captchaButtons.removeClass('faucets__filter_btn--active');
             $(this).addClass('faucets__filter_btn--active');
             $("#faucets__captcha_input").val($(this).data('value'));
-            setCaption($('.faucets__filter_captcha_text'), $(this).text());
+            titler.squaredCaption($('.faucets__filter_captcha_text'), $(this).text());
         });
 
         walletButtons.click(function (ev) {
             walletButtons.removeClass('faucets__filter_btn--active');
             $(this).addClass('faucets__filter_btn--active');
             $("#faucets__wallet_input").val($(this).data('value'));
-            setCaption($('.faucets__filter_wallet_text'), $(this).text());
+            titler.squaredCaption($('.faucets__filter_wallet_text'), $(this).text());
         });
     });
 };
 
-},{"jquery":3}],5:[function(require,module,exports){
+},{"../../common/titler":4,"jquery":3}],6:[function(require,module,exports){
 'use strict';
 
 module.exports = function () {
