@@ -35,7 +35,7 @@
                 <div class="btn-group">
                     <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Times
-                        <span></span>
+                        <span class="faucets__filter_time_text"></span>
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
@@ -50,22 +50,26 @@
 
                 <div class="btn-group">
                     <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Captchas <span class="caret"></span>
+                        Captchas
+                        <span class="faucets__filter_captcha_text"></span>
+                        <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
                         {% for captcha in captchas %}
-                            <li><a href="#">{{ captcha.title_en }}</a></li>
+                            <li class="faucets__filter_btn_captcha" data-value="{{ captcha.id }}"><a href="#">{{ captcha.title_en }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
 
                 <div class="btn-group">
                     <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Wallets <span class="caret"></span>
+                        Wallets
+                        <span class="faucets__filter_wallet_text"></span>
+                        <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
                         {% for category in categories %}
-                            <li><a href="#">{{ category.title_en }}</a></li>
+                            <li class="faucets__filter_btn_wallet" data-value="{{ category.id }}"><a href="#">{{ category.title_en }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>

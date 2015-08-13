@@ -4,7 +4,7 @@ elixir.config.registerWatcher("default", "./src/**/*");
 
 elixir(function(mix) {
     mix.copy(
-        './bower_components/bootstrap-sass/assets/fonts',
+        './node_modules/bootstrap-sass/assets/fonts',
         './static/components/fonts'
     );
 
