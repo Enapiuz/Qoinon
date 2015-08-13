@@ -5,8 +5,8 @@
     }
 
     &_btn--active {
-      background-color: $gray-dark;
-      color: $brand-info;
+      background-color: $component-active-bg;
+      color: $component-active-color;
     }
   }
 }
