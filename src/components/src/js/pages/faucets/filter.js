@@ -2,39 +2,70 @@ var $ = require('jquery');
 var _ = require('lodash');
 var titler = require('../../common/titler');
 
-var faucetsFilter = function(currency, times, captcha, wallet) {
+var faucetsFilter = function(currency, times, captcha, wallet, faucet) {
     console.log('hello from faucets filter!');
 
     var currencyButtons = $(currency);
     var timesButtons = $(times);
     var captchaButtons = $(captcha);
     var walletButtons = $(wallet);
+    var faucets = $(faucet);
+
+    var selection = {
+        currency: null,
+        times: null,
+        captca: null,
+        wallet: null
+    };
+
+    function filter() {
+        console.log(faucets);
+
+        faucets.each(function(idx){
+            var canDisplay = true;
+            var $this = $(this);
+
+            if ($this.data('currency') != selection.currency) {
+                console.log($this);
+                $this.hide();
+                return;
+            }
+        });
+    }
 
     currencyButtons.click(function(ev){
         currencyButtons.removeClass('faucets__filter_btn--active');
         $(this).addClass('faucets__filter_btn--active');
-        $("#faucets__currency_input").val($(this).data('currency'));
+        selection.currency = $(this).data('currency');
+
+        filter();
     });
 
     timesButtons.click(function(ev){
         timesButtons.removeClass('faucets__filter_btn--active');
         $(this).addClass('faucets__filter_btn--active');
-        $("#faucets__time_input").val($(this).data('value'));
         titler.squaredCaption($('.faucets__filter_time_text'), $(this).text());
+        selection.times = $(this).data('value');
+
+        filter();
     });
 
     captchaButtons.click(function(ev){
         captchaButtons.removeClass('faucets__filter_btn--active');
         $(this).addClass('faucets__filter_btn--active');
-        $("#faucets__captcha_input").val($(this).data('value'));
         titler.squaredCaption($('.faucets__filter_captcha_text'), $(this).text());
+        selection.captca = $(this).data('value');
+
+        filter();
     });
 
     walletButtons.click(function(ev){
         walletButtons.removeClass('faucets__filter_btn--active');
         $(this).addClass('faucets__filter_btn--active');
-        $("#faucets__wallet_input").val($(this).data('value'));
         titler.squaredCaption($('.faucets__filter_wallet_text'), $(this).text());
+        selection.wallet = $(this).data('value');
+
+        filter();
     });
 };
 

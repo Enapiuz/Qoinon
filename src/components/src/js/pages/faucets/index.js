@@ -9,7 +9,8 @@ module.exports = function() {
             ".faucets__filter_btn_currency",
             ".faucets__filter_btn_time",
             ".faucets__filter_btn_captcha",
-            ".faucets__filter_btn_wallet"
+            ".faucets__filter_btn_wallet",
+            ".faucets__faucet"
         );
     });
 };

@@ -11,12 +11,12 @@
     </div>
 
     <div class="faucets__filter">
-        <form>
-            <input id="faucets__currency_input" type="hidden" name="currency" value="">
-            <input id="faucets__time_input" type="hidden" name="time" value="">
-            <input id="faucets__captcha_input" type="hidden" name="captcha" value="">
-            <input id="faucets__wallet_input" type="hidden" name="wallet" value="">
-        </form>
+{#        <form>#}
+{#            <input id="faucets__currency_input" type="hidden" name="currency" value="">#}
+{#            <input id="faucets__time_input" type="hidden" name="time" value="">#}
+{#            <input id="faucets__captcha_input" type="hidden" name="captcha" value="">#}
+{#            <input id="faucets__wallet_input" type="hidden" name="wallet" value="">#}
+{#        </form>#}
 
         <div class="row">
             <div class="col-sm-12">
@@ -82,7 +82,7 @@
         <div class="col-sm-12">
             <table class="table table-hover">
                 {% for faucet in faucets %}
-                    <tr>
+                    <tr class="faucets__faucet">
                         <td>
                             <a href="{% url 'faucet_about' faucet.title_en %}">
                                 {{ faucet.title_en }}
