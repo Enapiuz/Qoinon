@@ -1,6 +1,7 @@
 module.exports = function() {
     var $ = require('jquery');
     var titler = require('../../common/titler');
+    var _ = require('lodash');
 
     console.log('hello from faucets');
 

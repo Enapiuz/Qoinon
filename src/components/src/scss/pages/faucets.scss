@@ -1,5 +1,9 @@
 .faucets {
   &__filter {
+    &_container {
+      border-collapse: collapse;
+    }
+
     &_btn {
 
     }
