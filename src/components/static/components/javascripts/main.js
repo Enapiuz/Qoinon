@@ -23991,9 +23991,13 @@ var faucetsFilter = function faucetsFilter(currency, times, captcha, wallet, fau
             var $this = $(this);
 
             if ($this.data('currency') != selection.currency) {
-                console.log($this);
+                canDisplay = false;
+            }
+
+            if (canDisplay) {
+                $this.show();
+            } else {
                 $this.hide();
-                return;
             }
         });
     }

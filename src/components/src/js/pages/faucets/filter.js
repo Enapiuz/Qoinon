@@ -26,9 +26,13 @@ var faucetsFilter = function(currency, times, captcha, wallet, faucet) {
             var $this = $(this);
 
             if ($this.data('currency') != selection.currency) {
-                console.log($this);
+                canDisplay = false;
+            }
+
+            if (canDisplay) {
+                $this.show();
+            } else {
                 $this.hide();
-                return;
             }
         });
     }

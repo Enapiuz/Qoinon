@@ -82,7 +82,7 @@
         <div class="col-sm-12">
             <table class="table table-hover">
                 {% for faucet in faucets %}
-                    <tr class="faucets__faucet">
+                    <tr class="faucets__faucet" data-currency="{{ faucet.currency.id }}">
                         <td>
                             <a href="{% url 'faucet_about' faucet.title_en %}">
                                 {{ faucet.title_en }}
