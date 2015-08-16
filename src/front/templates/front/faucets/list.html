@@ -39,6 +39,7 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
+                        <li class="faucets__filter_btn_time" data-min="null" data-max="null" data-value="null"><a href="#">All</a></li>
                         <li class="faucets__filter_btn_time" data-min="null" data-max="30" data-value="0"><a href="#">< 30</a></li>
                         <li class="faucets__filter_btn_time" data-min="30" data-max="60" data-value="1"><a href="#">30 - 60</a></li>
                         <li class="faucets__filter_btn_time" data-min="61" data-max="61" data-value="2"><a href="#">61 - 180</a></li>
@@ -55,6 +56,7 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
+                        <li class="faucets__filter_btn_captcha" data-value="null"><a href="#">All</a></li>
                         {% for captcha in captchas %}
                             <li class="faucets__filter_btn_captcha" data-value="{{ captcha.id }}"><a href="#">{{ captcha.title_en }}</a></li>
                         {% endfor %}
@@ -68,6 +70,7 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
+                        <li class="faucets__filter_btn_wallet" data-value="null"><a href="#">All</a></li>
                         {% for category in categories %}
                             <li class="faucets__filter_btn_wallet" data-value="{{ category.id }}"><a href="#">{{ category.title_en }}</a></li>
                         {% endfor %}

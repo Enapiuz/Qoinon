@@ -24006,11 +24006,11 @@ var faucetsFilter = function faucetsFilter(currency, times, captcha, wallet, fau
                 canDisplay = false;
             }
 
-            if (selection.times.min !== 'null' && $this.data('cooldown') < selection.times.min) {
+            if (selection.times.min !== 'null' && selection.times.min !== null && $this.data('cooldown') < selection.times.min) {
                 canDisplay = false;
             }
 
-            if (selection.times.max !== 'null' && $this.data('cooldown') > selection.times.max) {
+            if (selection.times.max !== 'null' && selection.times.max !== null && $this.data('cooldown') > selection.times.max) {
                 canDisplay = false;
             }
 
