@@ -7,7 +7,7 @@ from django.http import JsonResponse
 
 def main(req):
     start = req.GET.get('start')
-    currency = req.GET.get('c')
+    currency = req.GET.get('cur')
     query = Faucet.objects
 
     if currency is not None:
@@ -18,7 +18,7 @@ def main(req):
         if len(query) == 0:
             response = redirect('hammer')
             if currency is not None:
-                response['Location'] += '?c={0}'.format(currency)
+                response['Location'] += '?cur={0}'.format(currency)
             print(response['Location'])
             return response
         else:
@@ -26,7 +26,7 @@ def main(req):
     else:
         faucet = Faucet.get_random(query)
 
-    next_link = reverse('hammer') + '?c={0}'.format(faucet.currency_id)
+    next_link = reverse('hammer') + '?cur={0}'.format(faucet.currency_id)
     
     # турбо-костыль, починить admin namespace
     admin_edit_link = "https://uniqoins.com/admin/objects/faucet/{0}/".format(faucet.id)
