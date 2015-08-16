@@ -23987,6 +23987,19 @@ var faucetsFilter = function faucetsFilter(currency, times, captcha, wallet, fau
         wallet: null
     };
 
+    function changeLink($el) {
+        var btn = $el.find(".faucets__btn_go").first();
+        var newLink = btn.data('href');
+
+        newLink += selection.currency == null ? '' : '&cur=' + selection.currency;
+        newLink += selection.captcha == null ? '' : '&cpt=' + selection.captcha;
+        newLink += selection.wallet == null ? '' : '&cat=' + selection.wallet;
+        newLink += selection.times.min == null || selection.times.min == 'null' ? '' : '&tmin=' + selection.times.min;
+        newLink += selection.times.max == null || selection.times.max == 'null' ? '' : '&tmax=' + selection.times.max;
+
+        btn.attr('href', newLink);
+    }
+
     function filter() {
         console.log(selection);
 
@@ -24015,6 +24028,7 @@ var faucetsFilter = function faucetsFilter(currency, times, captcha, wallet, fau
             }
 
             if (canDisplay) {
+                changeLink($this);
                 $this.show();
             } else {
                 $this.hide();

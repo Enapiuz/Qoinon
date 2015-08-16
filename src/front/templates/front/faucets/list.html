@@ -125,36 +125,14 @@
                             <a href="{% url 'faucet_about' faucet.title_en %}" class="pull-right btn btn-default btn-sm">About</a>
                         </td>
                         <td width="1%">
-                            <a class="btn btn-default btn-sm" href="{% host_url 'hammer' host 'hammer_host' scheme 'http' %}?start={{ faucet.title_en|urlencode }}">GO!</a>
+                            <a
+                                    class="btn btn-default btn-sm faucets__btn_go"
+                                    href="{% host_url 'hammer' host 'hammer_host' scheme 'http' %}?start={{ faucet.title_en|urlencode }}"
+                                    data-href="{% host_url 'hammer' host 'hammer_host' scheme 'http' %}?start={{ faucet.title_en|urlencode }}">
+                                GO!
+                            </a>
                         </td>
                     </tr>
-
-{#                    <tr>#}
-{#                        <td><a href="{% url 'faucet_about' faucet.title_en %}">{{ faucet.title_en }}</a></td>#}
-{#                        <td>#}
-{#                            <div class="btn-group">#}
-{#                                <div class="btn">#}
-{#                                    <span class="glyphicon glyphicon-thumbs-up"></span>#}
-{#                                </div>#}
-{#                                <div class="btn disabled">#}
-{#                                    {{ faucet.get_rating }}#}
-{#                                </div>#}
-{#                                <div class="btn">#}
-{#                                    <span class="glyphicon glyphicon-thumbs-down"></span>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </td>#}
-{#                        <td>{{ faucet.currency }}</td>#}
-{#                        <td>{{ faucet.category }}</td>#}
-{#                        <td>{{ faucet.update_time }}</td>#}
-{#                        <td>{{ faucet.reward_mid }}</td>#}
-{#                        <td>{{ faucet.reward_min }}</td>#}
-{#                        <td>{{ faucet.reward_max }}</td>#}
-{#                        <td>{{ faucet.malfunction }}</td>#}
-{#                        <td>{{ faucet.minimum_withdraw }}</td>#}
-{#                        <td>{{ faucet.views }}</td>#}
-{#                        <td><a href="{% host_url 'hammer' host 'hammer_host' scheme 'http' %}?start={{ faucet.title_en|urlencode }}">GO!</a></td>#}
-{#                    </tr>#}
                 {% endfor %}
             </table>
         </div>
