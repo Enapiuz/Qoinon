@@ -13,13 +13,17 @@ var faucetsFilter = function(currency, times, captcha, wallet, faucet) {
 
     var selection = {
         currency: null,
-        times: null,
+        times: {
+            val: null,
+            min: 'null',
+            max: 'null'
+        },
         captcha: null,
         wallet: null
     };
 
     function filter() {
-        console.log(faucets);
+        console.log(selection);
 
         faucets.each(function(idx){
             var canDisplay = true;
@@ -34,6 +38,14 @@ var faucetsFilter = function(currency, times, captcha, wallet, faucet) {
             }
 
             if (selection.wallet !== null && $this.data('wallet') != selection.wallet) {
+                canDisplay = false;
+            }
+
+            if (selection.times.min !== 'null' && $this.data('cooldown') < selection.times.min) {
+                canDisplay = false;
+            }
+
+            if (selection.times.max !== 'null' && $this.data('cooldown') > selection.times.max) {
                 canDisplay = false;
             }
 
@@ -57,7 +69,9 @@ var faucetsFilter = function(currency, times, captcha, wallet, faucet) {
         timesButtons.removeClass('faucets__filter_btn--active');
         $(this).addClass('faucets__filter_btn--active');
         titler.squaredCaption($('.faucets__filter_time_text'), $(this).text());
-        selection.times = $(this).data('value');
+        selection.times.val = $(this).data('value');
+        selection.times.min = $(this).data('min');
+        selection.times.max = $(this).data('max');
 
         filter();
     });
