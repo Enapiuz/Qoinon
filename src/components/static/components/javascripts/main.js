@@ -23979,7 +23979,7 @@ var faucetsFilter = function faucetsFilter(currency, times, captcha, wallet, fau
     var selection = {
         currency: null,
         times: null,
-        captca: null,
+        captcha: null,
         wallet: null
     };
 
@@ -23990,7 +23990,15 @@ var faucetsFilter = function faucetsFilter(currency, times, captcha, wallet, fau
             var canDisplay = true;
             var $this = $(this);
 
-            if ($this.data('currency') != selection.currency) {
+            if (selection.currency !== null && $this.data('currency') != selection.currency) {
+                canDisplay = false;
+            }
+
+            if (selection.captcha !== null && $this.data('captcha') != selection.captcha) {
+                canDisplay = false;
+            }
+
+            if (selection.wallet !== null && $this.data('wallet') != selection.wallet) {
                 canDisplay = false;
             }
 
@@ -24023,7 +24031,7 @@ var faucetsFilter = function faucetsFilter(currency, times, captcha, wallet, fau
         captchaButtons.removeClass('faucets__filter_btn--active');
         $(this).addClass('faucets__filter_btn--active');
         titler.squaredCaption($('.faucets__filter_captcha_text'), $(this).text());
-        selection.captca = $(this).data('value');
+        selection.captcha = $(this).data('value');
 
         filter();
     });
