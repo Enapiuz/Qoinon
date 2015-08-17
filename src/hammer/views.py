@@ -40,7 +40,7 @@ def main(req):
             faucet = query.get()
     else:
         if len(query) == 0:
-            response = redirect('faucets')
+            response = redirect(reverse('faucets'))
             return response
         else:
             faucet = Faucet.get_random(query)
