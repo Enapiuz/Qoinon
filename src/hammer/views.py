@@ -20,7 +20,7 @@ def main(req):
     in_cache_faucets = cache.keys(str(cache_prefix) + '.faucets.*')
 
     #  idшники просмотренных кранов
-    excludes = [x.rsplit('.', 1) for x in in_cache_faucets]
+    excludes = [x.rsplit('.', 1)[1] for x in in_cache_faucets]
 
     query = query.exclude(id__in=excludes)
 
