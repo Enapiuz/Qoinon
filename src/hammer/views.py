@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from objects.models import Faucet
 from django.core.urlresolvers import reverse
+from django_hosts import reverse_host
 from django.http import JsonResponse
 from django.core.cache import cache
 
@@ -40,7 +41,7 @@ def main(req):
             faucet = query.get()
     else:
         if len(query) == 0:
-            response = redirect(reverse('faucets'))
+            response = redirect(reverse_host('main_host', ('faucets',)))
             return response
         else:
             faucet = Faucet.get_random(query)
