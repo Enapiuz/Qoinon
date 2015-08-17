@@ -19,6 +19,11 @@ def main(req):
     #  тут получить все просмотренные краны и исключить их из выборки
     in_cache_faucets = cache.keys(str(cache_prefix) + '.faucets.*')
 
+    #  idшники просмотренных кранов
+    excludes = [x.rsplit('.', 1) for x in in_cache_faucets]
+
+    query = query.exclude(id__in=excludes)
+
     if start is not None:
         query = query.filter(title_en=start)
         if len(query) == 0:
