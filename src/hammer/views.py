@@ -17,7 +17,7 @@ def main(req):
         query = query.filter(currency__id=currency)
 
     #  тут получить все просмотренные краны и исключить их из выборки
-    in_cache_faucets = cache.keys(cache.ttl(str(cache_prefix) + 'faucets*'))
+    in_cache_faucets = cache.keys(str(cache_prefix) + '.faucets.*')
 
     if start is not None:
         query = query.filter(title_en=start)
@@ -33,7 +33,7 @@ def main(req):
         faucet = Faucet.get_random(query)
 
     #  записать кран в сессию
-    cache.set(str(cache_prefix) + 'faucets' + str(faucet.id), 1, timeout=faucet.update_time)
+    cache.set(str(cache_prefix) + '.faucets.' + str(faucet.id), 1, timeout=faucet.update_time)
 
     next_link = reverse('hammer') + '?cur={0}'.format(faucet.currency_id)
     
