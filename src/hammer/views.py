@@ -30,7 +30,6 @@ def main(req):
             response = redirect('hammer')
             if currency is not None:
                 response['Location'] += '?cur={0}'.format(currency)
-            print(response['Location'])
             return response
         else:
             faucet = query.get()
