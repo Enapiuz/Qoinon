@@ -33,7 +33,7 @@ def main(req):
         faucet = Faucet.get_random(query)
 
     #  записать кран в сессию
-    cache.set(str(cache_prefix) + '.faucets.' + str(faucet.id), 1, timeout=faucet.update_time)
+    cache.set(str(cache_prefix) + '.faucets.' + str(faucet.id), 1, timeout=faucet.update_time*60)
 
     next_link = reverse('hammer') + '?cur={0}'.format(faucet.currency_id)
     
