@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from objects.models import Faucet
 from django.core.urlresolvers import reverse
-from django_hosts import reverse_host
+from django_hosts import reverse as reverse_host
 from django.http import JsonResponse
 from django.core.cache import cache
 
