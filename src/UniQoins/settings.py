@@ -151,6 +151,7 @@ TEMPLATE_LOADERS = (
     'django_jinja.loaders.FileSystemLoader',
 )
 
+SESSION_SAVE_EVERY_REQUEST = True
 SESSION_COOKIE_DOMAIN = ".uniqoins.com"
 
 
