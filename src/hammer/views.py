@@ -41,7 +41,7 @@ def main(req):
             faucet = query.get()
     else:
         if len(query) == 0:
-            response = redirect(reverse_host('main_host', ('faucets',)))
+            response = redirect(reverse_host('faucets', host='main_host', scheme='https'))
             return response
         else:
             faucet = Faucet.get_random(query)
