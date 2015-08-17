@@ -2,16 +2,22 @@ from django.shortcuts import render, redirect
 from objects.models import Faucet
 from django.core.urlresolvers import reverse
 from django.http import JsonResponse
+from django.core.cache import cache
 
 # Create your views here.
 
 def main(req):
+    cache_prefix = req.session.session_key
+
     start = req.GET.get('start')
     currency = req.GET.get('cur')
     query = Faucet.objects
 
     if currency is not None:
         query = query.filter(currency__id=currency)
+
+    #  тут получить все просмотренные краны и исключить их из выборки
+    in_cache_faucets = cache.keys(cache.ttl(str(cache_prefix) + 'faucets*'))
 
     if start is not None:
         query = query.filter(title_en=start)
@@ -25,6 +31,9 @@ def main(req):
             faucet = query.get()
     else:
         faucet = Faucet.get_random(query)
+
+    #  записать кран в сессию
+    cache.set(str(cache_prefix) + 'faucets' + str(faucet.id), 1, timeout=faucet.update_time)
 
     next_link = reverse('hammer') + '?cur={0}'.format(faucet.currency_id)
     
