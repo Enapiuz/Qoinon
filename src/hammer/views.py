@@ -39,7 +39,11 @@ def main(req):
         else:
             faucet = query.get()
     else:
-        faucet = Faucet.get_random(query)
+        if len(query) == 0:
+            response = redirect('faucets')
+            return response
+        else:
+            faucet = Faucet.get_random(query)
 
     #  записать кран в сессию
     cache.set(str(cache_prefix) + '.faucets.' + str(faucet.id), 1, timeout=faucet.update_time*60)
