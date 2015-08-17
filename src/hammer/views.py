@@ -7,6 +7,11 @@ from django.core.cache import cache
 # Create your views here.
 
 def main(req):
+    """
+    Гавнокоооооод
+    нужно больше менеджеров
+    и обработки дополнительных параметров
+    """
     cache_prefix = req.session.session_key
 
     start = req.GET.get('start')
