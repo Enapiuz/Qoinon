@@ -17,34 +17,59 @@ def main(req):
 
     start = req.GET.get('start')
     currency = req.GET.get('cur')
+    captcha = req.GET.get('cpt')
+    wallet = req.GET.get('cat')
+    ut_min = req.GET.get('tmin')
+    ut_max = req.GET.get('tmax')
     query = Faucet.objects
 
     if currency is not None:
         query = query.filter(currency__id=currency)
 
-    #  тут получить все просмотренные краны и исключить их из выборки
-    in_cache_faucets = cache.keys(str(cache_prefix) + '.faucets.*')
+    if captcha is not None:
+        query = query.filter(captcha__id=captcha)
 
-    #  idшники просмотренных кранов
-    excludes = [x.rsplit('.', 1)[1] for x in in_cache_faucets]
+    if wallet is not None:
+        query = query.filter(category__id=wallet)
 
-    query = query.exclude(id__in=excludes)
+    if ut_min is not None:
+        query = query.filter(update_time__gt=ut_min)
 
-    if start is not None:
-        query = query.filter(title_en=start)
-        if len(query) == 0:
+    if ut_max is not None:
+        query = query.filter(update_time__lt=ut_max)
+
+    if start is None:
+        """
+        Если смотрим конкретный кран, то так уж и быть - показать, если еще на кд
+        """
+        in_cache_faucets = cache.keys(str(cache_prefix) + '.faucets.*')
+        excludes = [x.rsplit('.', 1)[1] for x in in_cache_faucets]
+        query = query.exclude(id__in=excludes)
+
+    if start is not None:  # если смотрми конкретный кран
+        query = query.filter(title_en=start)  # фильтр по крану
+        if len(query) == 0:  # если нет результатов (напр. нет крана) показать все краны по валюте
             response = redirect('hammer')
             if currency is not None:
                 response['Location'] += '?cur={0}'.format(currency)
             return response
         else:
             faucet = query.get()
-    else:
+    else:  # смотрим просто рядовой кран
         if len(query) == 0:
-            response = redirect(reverse_host('faucets', host='main_host', scheme='https'))
-            return response
+            """
+            Если все краны на кд и есть фильтр помимо валюты - оставляем только валюту
+            """
+            if not (captcha and wallet and ut_min and ut_min and ut_max) and captcha is None:
+                response = redirect('hammer')
+                if currency is not None:
+                    response['Location'] += '?cur={0}'.format(currency)
+                return response
+            else:
+                response = redirect(reverse_host('faucets', host='main_host', scheme='https'))
+                return response
         else:
-            faucet = Faucet.get_random(query)
+            faucet = query[0]
 
     #  записать кран в сессию
     cache.set(str(cache_prefix) + '.faucets.' + str(faucet.id), 1, timeout=faucet.update_time*60)
