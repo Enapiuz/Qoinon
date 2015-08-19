@@ -12,6 +12,9 @@ def faucets(req):
     currencies = Currency.objects.all()
     categories = FaucetCategory.objects.all()
 
+    for faucet in faucets:
+        setattr(faucet, 'ttl', round(faucet.get_cooldown(req.session.session_key) / 60))
+
     return render(req, 'front/faucets/list.html', {
         'global_centered': True,
         'captchas': captchas,

@@ -5,7 +5,6 @@ from django_hosts import reverse as reverse_host
 from django.http import JsonResponse
 from django.core.cache import cache
 
-# Create your views here.
 
 def main(req):
     """
@@ -60,7 +59,7 @@ def main(req):
             """
             Если все краны на кд и есть фильтр помимо валюты - оставляем только валюту
             """
-            if not (captcha and wallet and ut_min and ut_min and ut_max) and captcha is None:
+            if captcha or wallet or ut_min or ut_min or ut_max:
                 response = redirect('hammer')
                 if currency is not None:
                     response['Location'] += '?cur={0}'.format(currency)

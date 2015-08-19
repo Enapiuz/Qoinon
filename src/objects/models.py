@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import MinValueValidator
 from django.utils import timezone
 from datetime import datetime
+from django.core.cache import cache
 import random
 
 
@@ -126,6 +127,9 @@ class Faucet(models.Model):
         Возвращает True, если кран моложе недели
         """
         return timezone.now() - timezone.timedelta(days=7) > self.create_date
+
+    def get_cooldown(self, prefix):
+        return cache.ttl(str(prefix) + '.faucets.' + str(self.id))
 
 class WalletCategory(models.Model):
     title_ru = models.CharField(max_length=300)
