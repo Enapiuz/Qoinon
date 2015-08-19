@@ -23,11 +23,20 @@ def main(req):
     ut_max = req.GET.get('tmax')
     query = Faucet.objects
 
-    query = query.filter(currency__id=currency) if currency is not None
-    query = query.filter(captcha__id=captcha) if captcha is not None
-    query = query.filter(category__id=wallet) if wallet is not None
-    query = query.filter(update_time__gt=ut_min) if ut_min is not None
-    query = query.filter(update_time__lt=ut_max) if ut_max is not None
+    if currency is not None:
+        query = query.filter(currency__id=currency) 
+        
+    if captcha is not None:
+        query = query.filter(captcha__id=captcha)
+        
+    if wallet is not None:
+        query = query.filter(category__id=wallet)
+        
+    if ut_min is not None:
+        query = query.filter(update_time__gt=ut_min)
+        
+    if ut_max is not None:
+        query = query.filter(update_time__lt=ut_max)
 
     if start is None:
         """
@@ -66,10 +75,18 @@ def main(req):
     cache.set(str(cache_prefix) + '.faucets.' + str(faucet.id), 1, timeout=faucet.update_time*60)
 
     next_link = reverse('hammer') + '?cur={0}'.format(faucet.currency_id)
-    next_link = next_link + '&cpt=' + captcha if captcha is not Null
-    next_link = next_link + '&cat=' + wallet if wallet is not Null
-    next_link = next_link + '&tmin=' + ut_min if ut_min is not Null
-    next_link = next_link + '&tmax=' + ut_max if ut_max is not Null
+    
+    if captcha is not None:
+        next_link = next_link + '&cpt=' + captcha
+        
+    if wallet is not None:
+        next_link = next_link + '&cat=' + wallet
+        
+    if ut_min is not None:
+        next_link = next_link + '&tmin=' + ut_min
+        
+    if ut_max is not None:
+        next_link = next_link + '&tmax=' + ut_max
     
     # турбо-костыль, починить admin namespace
     admin_edit_link = "https://uniqoins.com/admin/objects/faucet/{0}/".format(faucet.id)
