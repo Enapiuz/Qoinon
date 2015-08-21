@@ -8,35 +8,73 @@
         <link rel="stylesheet" type="text/css" href="{% static 'components/css/main.css' %}" />
     </head>
     <body>
+    <nav class="navbar navbar-default">
         <div class="container-fluid">
-            <div class="row">
-
-                <div class="col-sm-2">
-                    <a href="{% host_url 'main' host 'main_host' %}">
-                        <img class="main-logo" src="{% static 'components/images/logo.png' %}" />
-                    </a>
-                </div>
-
-                <div class="col-sm-9">
-                    <ul class="nav nav-pills">
-                      <li role="presentation"><a href="{% host_url 'faucets' host 'main_host' %}">Faucets</a></li>
-                      <li role="presentation"><a href="#">Analytics</a></li>
-                      <li role="presentation"><a href="#">Mining</a></li>
-                      <li role="presentation"><a href="#">Wallets</a></li>
-                      <li role="presentation"><a href="#">FAQ</a></li>
-                      <li role="presentation"><a href="#">Contact</a></li>
-                      <li role="presentation"><a href="#">Blog</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-sm-1">
-                    <div class="btn btn-lg pull-right">
-                        <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                    </div>
-                </div>
-
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% host_url 'main' host 'main_host' %}">
+                    <img class="main-logo" src="{% static 'components/images/logo.png' %}" />
+                </a>
             </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="{% host_url 'faucets' host 'main_host' %}">Faucets</a></li>
+                    <li><a href="#">Analytics</a></li>
+                    <li><a href="#">Mining</a></li>
+                    <li><a href="#">Wallets</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+
+    {#        <div class="container-fluid">#}
+{#            <div class="row">#}
+{##}
+{#                <div class="col-sm-2">#}
+{#                    <a href="{% host_url 'main' host 'main_host' %}">#}
+{#                        <img class="main-logo" src="{% static 'components/images/logo.png' %}" />#}
+{#                    </a>#}
+{#                </div>#}
+{##}
+{#                <div class="col-sm-9">#}
+{#                    <ul class="nav nav-pills">#}
+{#                      <li role="presentation"><a href="{% host_url 'faucets' host 'main_host' %}">Faucets</a></li>#}
+{#                      <li role="presentation"><a href="#">Analytics</a></li>#}
+{#                      <li role="presentation"><a href="#">Mining</a></li>#}
+{#                      <li role="presentation"><a href="#">Wallets</a></li>#}
+{#                      <li role="presentation"><a href="#">FAQ</a></li>#}
+{#                      <li role="presentation"><a href="#">Contact</a></li>#}
+{#                      <li role="presentation"><a href="#">Blog</a></li>#}
+{#                    </ul>#}
+{#                </div>#}
+{##}
+{#                <div class="col-sm-1">#}
+{#                    <div class="btn btn-lg pull-right">#}
+{#                        <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#            </div>#}
+{#        </div>#}
+
         <div class="fullheight {% if global_centered %} container {% else %} container-fluid {% endif %}">
 
             {% block content %}
