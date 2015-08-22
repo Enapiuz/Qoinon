@@ -45,14 +45,14 @@
     "zeroclipboard": {
       "exports": null,
       "depends": [
-        "jquery:jQuery",
-        "zeroclipboard:ZeroClipboard"
+        "jquery:jQuery"
       ]
     },
     "jquery.clipboard": {
       "exports": null,
       "depends": [
-        "jquery:jQuery"
+        "jquery:jQuery",
+        "zeroclipboard:ZeroClipboard"
       ]
     }
   }

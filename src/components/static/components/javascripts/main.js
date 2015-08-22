@@ -2384,6 +2384,7 @@ if (typeof jQuery === 'undefined') {
 (function (global){
 
 ; jQuery = global.jQuery = require("jquery");
+ZeroClipboard = global.ZeroClipboard = require("g:\\SHARED\\UniQoins\\UniQoins\\src\\components\\node_modules\\zeroclipboard\\dist\\ZeroClipboard.js");
 ; var __browserify_shim_require__=require;(function browserifyShim(module, define, require) {
 /*
  * jQuery Clipboard :: Fork of zClip :: Uses ZeroClipboard v1.3.2
@@ -3498,7 +3499,7 @@ if (typeof jQuery === 'undefined') {
 }).call(global, module, undefined, undefined);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"jquery":5}],4:[function(require,module,exports){
+},{"g:\\SHARED\\UniQoins\\UniQoins\\src\\components\\node_modules\\zeroclipboard\\dist\\ZeroClipboard.js":7,"jquery":5}],4:[function(require,module,exports){
 /*!
  * jQuery Cookie Plugin v1.4.1
  * https://github.com/carhartl/jquery-cookie
@@ -25188,7 +25189,6 @@ return jQuery;
 (function (global){
 
 ; jQuery = global.jQuery = require("jquery");
-ZeroClipboard = global.ZeroClipboard = require("g:\\SHARED\\UniQoins\\UniQoins\\src\\components\\node_modules\\zeroclipboard\\dist\\ZeroClipboard.js");
 ; var __browserify_shim_require__=require;(function browserifyShim(module, define, require) {
 /*!
  * ZeroClipboard
@@ -27774,7 +27774,7 @@ ZeroClipboard = global.ZeroClipboard = require("g:\\SHARED\\UniQoins\\UniQoins\\
 }).call(global, module, undefined, undefined);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"g:\\SHARED\\UniQoins\\UniQoins\\src\\components\\node_modules\\zeroclipboard\\dist\\ZeroClipboard.js":7,"jquery":5}],8:[function(require,module,exports){
+},{"jquery":5}],8:[function(require,module,exports){
 'use strict';
 
 module.exports = {};
