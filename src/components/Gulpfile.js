@@ -20,7 +20,7 @@ elixir(function(mix) {
 
     mix.copy(
         './node_modules/zeroclipboard/dist/ZeroClipboard.swf',
-        './static/components/swf/ZeroClipboard.swf'
+        './static/components/javascripts/ZeroClipboard.swf'
     );
 
     mix.sass(
