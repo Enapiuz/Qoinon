@@ -2,7 +2,6 @@ module.exports = function() {
     var $ = require('jquery');
     require('jquery.cookie');
     require('zeroclipboard');
-    require('jquery.clipboard');
 
     console.log('hello from hammer');
 
@@ -18,25 +17,25 @@ module.exports = function() {
         e.preventDefault();
     });
 
-    $pastBtn.clipboard({
-        path: '/static/components/swf/jclip.swf',
-        copy: function() {
-            var value = $.cookie('address' + currentCurrency);
-
-            if (typeof value == 'undefined') {
-                value = window.prompt("Enter your wallet address:","");
-            }
-
-            return value;
-        }
-    });
-
-    $editBtn.clipboard({
-        path: '/static/components/swf/jclip.swf',
-        copy: function() {
-            var value = window.prompt("Enter your wallet address:","");
-            $.cookie('address' + currentCurrency, value);
-            return value;
-        }
-    });
+    //$pastBtn.clipboard({
+    //    path: '/static/components/swf/jclip.swf',
+    //    copy: function() {
+    //        var value = $.cookie('address' + currentCurrency);
+    //
+    //        if (typeof value == 'undefined') {
+    //            value = window.prompt("Enter your wallet address:","");
+    //        }
+    //
+    //        return value;
+    //    }
+    //});
+    //
+    //$editBtn.clipboard({
+    //    path: '/static/components/swf/jclip.swf',
+    //    copy: function() {
+    //        var value = window.prompt("Enter your wallet address:","");
+    //        $.cookie('address' + currentCurrency, value);
+    //        return value;
+    //    }
+    //});
 };
