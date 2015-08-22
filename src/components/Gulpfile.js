@@ -13,10 +13,10 @@ elixir(function(mix) {
         './static/components/images'
     );
 
-    //mix.copy(
-    //    './node_modules/jquery-clipboard/jquery.clipboard.swf',
-    //    './static/components/swf/jclip.swf'
-    //);
+    mix.copy(
+        './node_modules/zeroclipboard/dist/ZeroClipboard.js',
+        './static/components/javascripts/ZeroClipboard.js'
+    );
 
     mix.copy(
         './node_modules/zeroclipboard/dist/ZeroClipboard.swf',
