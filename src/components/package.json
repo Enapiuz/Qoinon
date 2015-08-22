@@ -39,12 +39,6 @@
       "depends": [
         "jquery:jQuery"
       ]
-    },
-    "jquery.clipboard": {
-      "exports": null,
-      "depends": [
-        "jquery:jQuery"
-      ]
     }
   }
 }

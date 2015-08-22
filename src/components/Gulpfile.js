@@ -18,6 +18,11 @@ elixir(function(mix) {
         './static/components/swf/jclip.swf'
     );
 
+    mix.copy(
+        './node_modules/jquery-clipboard/jquery.clipboard.js',
+        './static/components/javascripts/jclip.js'
+    );
+
     mix.sass(
         ['../../../src/scss/vendor.scss'],
         './static/components/css/vendor.css'

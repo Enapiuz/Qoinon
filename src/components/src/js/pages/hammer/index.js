@@ -1,7 +1,6 @@
 module.exports = function() {
     var $ = require('jquery');
     require('jquery.cookie');
-    require('jquery.clipboard');
 
     console.log('hello from hammer');
 
