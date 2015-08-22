@@ -14,12 +14,14 @@
     "browserify-shim": "^3.8.10",
     "gulp": "~3.9.0",
     "jquery": "^2.1.4",
+    "jquery-clipboard": "git+https://github.com/valeriansaliou/jquery.clipboard.git",
     "jquery.cookie": "^1.4.1",
     "laravel-elixir": "~2.3.13",
     "lodash": "^3.10.1"
   },
   "browser": {
-    "bootstrap": "./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"
+    "bootstrap": "./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js",
+    "jquery.clipboard": "./node_modules/jquery-clipboard/jquery.clipboard.js"
   },
   "browserify": {
     "transform": [
@@ -33,6 +35,12 @@
       ]
     },
     "jquery.cookie": {
+      "exports": null,
+      "depends": [
+        "jquery:jQuery"
+      ]
+    },
+    "jquery.clipboard": {
       "exports": null,
       "depends": [
         "jquery:jQuery"

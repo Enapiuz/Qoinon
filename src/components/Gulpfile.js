@@ -13,6 +13,11 @@ elixir(function(mix) {
         './static/components/images'
     );
 
+    mix.copy(
+        './node_modules/jquery-clipboard/jquery.clipboard.swf',
+        './static/components/swf/jclip.swf'
+    );
+
     mix.sass(
         ['../../../src/scss/vendor.scss'],
         './static/components/css/vendor.css'
