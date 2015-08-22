@@ -1,7 +1,7 @@
-module.exports = function() {
+module.exports = function () {
     var $ = require('jquery');
     require('jquery.cookie');
-    require('zeroclipboard');
+    var zc = require('ZeroClipboard');
 
     console.log('hello from hammer');
 
@@ -9,14 +9,25 @@ module.exports = function() {
     var $pastBtn = $("#hammer__past_btn");
     var $editBtn = $("#hammer__edit_btn");
 
-    $pastBtn.click(function(e){
-        e.preventDefault();
+    var client = new ZeroClipboard($pastBtn);
+
+    client.on('ready', function (event) {
+        // console.log( 'movie is loaded' );
+
+        client.on('copy', function (event) {
+            event.clipboardData.setData('text/plain', event.target.innerHTML);
+        });
+
+        client.on('aftercopy', function (event) {
+            console.log('Copied text to clipboard: ' + event.data['text/plain']);
+        });
     });
 
-    $editBtn.click(function(e){
-        e.preventDefault();
+    client.on('error', function (event) {
+        // console.log( 'ZeroClipboard error of type "' + event.name + '": ' + event.message );
+        ZeroClipboard.destroy();
     });
-
+    
     //$pastBtn.clipboard({
     //    path: '/static/components/swf/jclip.swf',
     //    copy: function() {
