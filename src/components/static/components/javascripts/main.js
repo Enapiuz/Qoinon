@@ -26812,7 +26812,13 @@ module.exports = function () {
         // console.log( 'movie is loaded' );
 
         client.on('copy', function (event) {
-            event.clipboardData.setData('text/plain', event.target.innerHTML);
+            var value = $.cookie('address' + currentCurrency);
+
+            if (typeof value == 'undefined') {
+                value = window.prompt("Enter your wallet address:", "");
+            }
+
+            event.clipboardData.setData('text/plain', value);
         });
 
         client.on('aftercopy', function (event) {
