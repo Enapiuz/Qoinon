@@ -25185,6 +25185,11 @@ return jQuery;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],7:[function(require,module,exports){
+(function (global){
+
+; jQuery = global.jQuery = require("jquery");
+ZeroClipboard = global.ZeroClipboard = require("g:\\SHARED\\UniQoins\\UniQoins\\src\\components\\node_modules\\zeroclipboard\\dist\\ZeroClipboard.js");
+; var __browserify_shim_require__=require;(function browserifyShim(module, define, require) {
 /*!
  * ZeroClipboard
  * The ZeroClipboard library provides an easy way to copy text to the clipboard using an invisible Adobe Flash movie and a JavaScript interface.
@@ -27766,7 +27771,10 @@ return jQuery;
 })(function() {
   return this || window;
 }());
-},{}],8:[function(require,module,exports){
+}).call(global, module, undefined, undefined);
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"g:\\SHARED\\UniQoins\\UniQoins\\src\\components\\node_modules\\zeroclipboard\\dist\\ZeroClipboard.js":7,"jquery":5}],8:[function(require,module,exports){
 'use strict';
 
 module.exports = {};
