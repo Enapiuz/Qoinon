@@ -26806,7 +26806,7 @@ module.exports = function () {
     var $pastBtn = $("#hammer__past_btn");
     var $editBtn = $("#hammer__edit_btn");
 
-    var client = new ZeroClipboard($pastBtn);
+    var client = new zc($pastBtn);
 
     client.on('ready', function (event) {
         // console.log( 'movie is loaded' );
