@@ -26806,16 +26806,19 @@ module.exports = function () {
     var $pastBtn = $("#hammer__past_btn");
     var $editBtn = $("#hammer__edit_btn");
 
+    var cookieName = 'address' + currentCurrency;
+
     var client = new zc($pastBtn);
 
     client.on('ready', function (event) {
         // console.log( 'movie is loaded' );
 
         client.on('copy', function (event) {
-            var value = $.cookie('address' + currentCurrency);
+            var value = $.cookie(cookieName);
 
             if (typeof value == 'undefined') {
                 value = window.prompt("Enter your wallet address:", "");
+                $.cookie(cookieName, value);
             }
 
             event.clipboardData.setData('text/plain', value);
@@ -26829,6 +26832,12 @@ module.exports = function () {
     client.on('error', function (event) {
         // console.log( 'ZeroClipboard error of type "' + event.name + '": ' + event.message );
         ZeroClipboard.destroy();
+    });
+
+    $editBtn.click(function () {
+        var value = $.cookie(cookieName);
+        value = window.prompt("Enter your wallet address:", value);
+        $.cookie(cookieName, value);
     });
 
     //$pastBtn.clipboard({
