@@ -17,11 +17,13 @@
     "jquery-clipboard": "git+https://github.com/valeriansaliou/jquery.clipboard.git",
     "jquery.cookie": "^1.4.1",
     "laravel-elixir": "~2.3.13",
-    "lodash": "^3.10.1"
+    "lodash": "^3.10.1",
+    "zeroclipboard": "^2.2.0"
   },
   "browser": {
     "bootstrap": "./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js",
-    "jquery.clipboard": "./node_modules/jquery-clipboard/jquery.clipboard.js"
+    "jquery.clipboard": "./node_modules/jquery-clipboard/jquery.clipboard.js",
+    "zeroclipboard": "./node_modules/zeroclipboard/dist/ZeroClipboard.js"
   },
   "browserify": {
     "transform": [
@@ -35,6 +37,12 @@
       ]
     },
     "jquery.cookie": {
+      "exports": null,
+      "depends": [
+        "jquery:jQuery"
+      ]
+    },
+    "zeroclipboard": {
       "exports": null,
       "depends": [
         "jquery:jQuery"
