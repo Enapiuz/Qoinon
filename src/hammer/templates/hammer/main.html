@@ -81,7 +81,7 @@
         <a href="{{ next_link }}" class="next-button"> </a>
         {% if faucet.iframe_ready %}
             <iframe class="hammer__faucet fullheight" src="{{ faucet.real_href }}"
-                    sandbox="allow-forms allow-popups allow-scripts"></iframe>
+                    sandbox="allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
         {% else %}
             <div class="text-center error-iframe">
                 <p>This faucet doen't work in iframe.</p>
@@ -119,6 +119,11 @@
                 <div class="well well-sm well-moder">
                     <label>
                         <input name="best" class="fast-checkbox" type="checkbox" {% if faucet.best %} checked {% endif %}> BEST
+                    </label>
+                </div>
+                <div class="well well-sm well-moder">
+                    <label>
+                        <input id="help_text" name="help_text" class="" type="text" value="{{ faucet.help_text }}" placeholder="Текст помощи...">
                     </label>
                 </div>
                 <div class="well well-sm well-moder">
@@ -160,6 +165,24 @@
                         }
                     });
                 });
+
+                $("#help_text").keyup(function (){
+                    var _this = this;
+                    if (window.localities_xhr) {
+                        window.localities_xhr.abort();
+                    }
+                    window.localities_xhr = $.ajax({
+                        url: "{% url 'hammer.edit_help_text' %}",
+                        dataType: 'json',
+                        delay: 250,
+                        data: {
+                            id: '{{ faucet.id }}',
+                            text: $(_this).val()
+                        }
+                    }).success(function(data){
+                        console.log(data);
+                    });
+            });
             });
         </script>
     {% endif %}

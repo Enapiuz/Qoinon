@@ -114,3 +114,16 @@ def moderation_actions(req):
         return JsonResponse({'status': 'ok'})
     else:
         return JsonResponse({'status': 'err'})
+
+def edit_help_text(req):
+    if not req.user.groups.filter(name='Moderators').exists():
+        return JsonResponse({'status': 'not allowed'})
+
+    fid = req.GET.get('id')
+    text = req.GET.get('text')
+
+    faucet = Faucet.objects.get(pk=fid)
+    faucet.help_text = text
+    faucet.save()
+
+    return JsonResponse({'status': 'ok'})
