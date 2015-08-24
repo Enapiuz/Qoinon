@@ -49,6 +49,7 @@ class Faucet(models.Model):
     captcha = models.ForeignKey(Captcha)
     category = models.ForeignKey(FaucetCategory, default=4)
     iframe_ready = models.BooleanField(default=True, help_text="Возможность работы в iframe")
+    help_text = models.TextField(blank=True)
 
     top = models.BooleanField(default=False)
     best = models.BooleanField(default=False)
