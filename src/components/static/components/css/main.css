@@ -64,4 +64,8 @@ body {
 .glyphicon-white {
   opacity: 0.3; }
 
+.navbar-nav > li > a {
+  padding-top: 30px;
+  padding-bottom: 30px; }
+
 /*# sourceMappingURL=main.css.map */
