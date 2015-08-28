@@ -67,3 +67,4 @@ db.sqlite3
 src/components/node_modules
 src/components/bower_components/*
 !src/components/bower_components/.gitkeep
+/faucets.csv
