@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 from django.utils import timezone
-from datetime import datetime
 from django.core.cache import cache
 import random
 

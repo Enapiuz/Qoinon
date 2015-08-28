@@ -1,6 +1,7 @@
 import os
 import csv
 from django.core.management.base import BaseCommand, CommandError
+from django.utils import timezone
 from objects.models import Faucet, Currency, FaucetCategory, Captcha
 
 class Command(BaseCommand):
@@ -34,6 +35,7 @@ class Command(BaseCommand):
                 fc.now_pays = bool(row[10])
                 fc.captcha = Captcha.objects.get(pk=row[11])
                 fc.referral_percent = row[12]
+                fc.create_date = timezone.now()
                 fc.save()
 
         self.stdout.write('Everything done!')
