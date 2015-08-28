@@ -34,7 +34,7 @@ class Command(BaseCommand):
                 fc.visible = not bool(row[9])
                 fc.now_pays = bool(row[10])
                 fc.captcha = Captcha.objects.get(pk=row[11])
-                fc.referral_percent = row[12] if not row[12] == '' else None
+                fc.referral_percent = row[12] if not row[12] == '' else 0
                 fc.create_date = timezone.now()
                 fc.save()
 
