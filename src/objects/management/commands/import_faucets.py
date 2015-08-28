@@ -23,18 +23,18 @@ class Command(BaseCommand):
                 fc.currency = Currency.objects.get(pk=row[0])
                 fc.title_en = row[1]
                 fc.title_ru = row[1]
-                fc.reward_min = row[2]
-                fc.reward_max = row[3]
-                fc.reward_mid = row[4]
+                fc.reward_min = row[2] if not row[2] == '' else None
+                fc.reward_max = row[3] if not row[3] == '' else None
+                fc.reward_mid = row[4] if not row[4] == '' else None
                 fc.category = FaucetCategory.objects.get(pk=row[5])
                 fc.update_time = row[6]
-                fc.minimum_withdraw = row[7]
+                fc.minimum_withdraw = row[7] if not row[7] == '' else None
                 fc.href = row[8]
                 fc.append_wallet = fc.href.endswith('?r=')
                 fc.visible = not bool(row[9])
                 fc.now_pays = bool(row[10])
                 fc.captcha = Captcha.objects.get(pk=row[11])
-                fc.referral_percent = row[12]
+                fc.referral_percent = row[12] if not row[12] == '' else None
                 fc.create_date = timezone.now()
                 fc.save()
 
