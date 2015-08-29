@@ -30,3 +30,8 @@ def faucet_about(req, faucet_title_en):
         'global_centered': True,
         'faucet': faucet
     })
+
+def faq(req):
+    return render(req, 'front/faq/index.html', {
+
+    })

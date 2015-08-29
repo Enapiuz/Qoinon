@@ -27,13 +27,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="{% host_url 'faucets' host 'main_host' %}">Faucets</a></li>
-                    <li><a href="#">Analytics</a></li>
-                    <li><a href="#">Mining</a></li>
-                    <li><a href="#">Wallets</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <li class="{% if request.resolver_match.url_name == 'faucets' %}active{% endif %}"><a href="{% host_url 'faucets' host 'main_host' %}">Faucets</a></li>
+                    <li class="{% if request.resolver_match.url_name == 'faq' %}active{% endif %}"><a href="{% host_url 'faq' host 'main_host' %}">FAQ</a></li>
+                    <li class="{% if request.resolver_match.url_name == 'contacts' %}active{% endif %}"><a href="#">Contact</a></li>
+                    <li class="{% if request.resolver_match.url_name == 'blog' %}active{% endif %}"><a href="#">Blog</a></li>
                 </ul>
 {#                <ul class="nav navbar-nav navbar-right">#}
 {#                    <li><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></li>#}
