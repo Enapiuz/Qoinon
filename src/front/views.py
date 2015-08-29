@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from objects.models import Captcha, Faucet, Currency, FaucetCategory
+from front.models import FaqItem
 
 
 def hello(req):
@@ -33,5 +34,6 @@ def faucet_about(req, faucet_title_en):
 
 def faq(req):
     return render(req, 'front/faq/index.html', {
-
+        'global_centered': True,
+        'qas': FaqItem.objects.all()
     })
