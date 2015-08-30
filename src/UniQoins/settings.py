@@ -42,8 +42,8 @@ INSTALLED_APPS = (
     'djangobower',
     'objects',
     'front',
-    'hammer'
-    # 'site_capture'
+    'hammer',
+    'site_capture'
 )
 
 MIDDLEWARE_CLASSES = (
