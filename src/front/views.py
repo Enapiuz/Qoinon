@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from objects.models import Captcha, Faucet, Currency, FaucetCategory
 from front.models import FaqItem
+from django.core.cache import cache
 
 
 def hello(req):
@@ -9,7 +10,11 @@ def hello(req):
 
 def faucets(req):
     captchas = Captcha.objects.all()
-    faucets = Faucet.objects.all()
+
+    faucets = cache.get('all_faucets_cache')
+    if faucets is None:
+        faucets = Faucet.objects.all()
+        cache.set('all_faucets_cache', faucets, 120)
     currencies = Currency.objects.all()
     categories = FaucetCategory.objects.all()
 
