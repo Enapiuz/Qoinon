@@ -43,7 +43,7 @@ INSTALLED_APPS = (
     'objects',
     'front',
     'hammer',
-    'site_capture'
+    # 'site_capture'
 )
 
 MIDDLEWARE_CLASSES = (
