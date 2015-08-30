@@ -7,7 +7,8 @@ if (phantom.args.length === 0) {
     console.log('target site: ' + phantom.args[0]);
     console.log('target file: ' + phantom.args[1]);
 
-    page.viewportSize = { width: 480, height: 400 };
+    page.viewportSize = { width: 1280, height: 1024 };
+    page.clipRect = { top: 0, left: 0, width: 1280, height: 1024 };
     page.open(phantom.args[0], function (status) {
         if (status !== 'success') {
             console.log('Unable to load the address: ' + status);
