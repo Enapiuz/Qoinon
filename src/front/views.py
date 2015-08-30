@@ -37,3 +37,8 @@ def faq(req):
         'global_centered': True,
         'qas': FaqItem.objects.all()
     })
+
+def contacts(req):
+    return render(req, 'front/contacts/index.html', {
+        'global_centered': True
+    })
