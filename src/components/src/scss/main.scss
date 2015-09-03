@@ -19,7 +19,16 @@ body {
   opacity: 0.3;
 }
 
-.navbar-nav  > li > a {
-  padding-top:    30px;
-  padding-bottom: 30px;
+//.navbar-nav  > li > a {
+//  padding-top:    30px;
+//  padding-bottom: 30px;
+//}
+
+.navbar-brand {
+  float: left;
+  padding: $navbar-brand-padding-vertical $navbar-brand-padding-horizontal;
+}
+
+.big-btns > .btn {
+  border-width: 3px;
 }

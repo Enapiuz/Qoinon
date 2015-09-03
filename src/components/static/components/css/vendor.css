@@ -1254,11 +1254,11 @@ mark,
   color: #777777; }
 
 .text-primary {
-  color: #337ab7; }
+  color: #8c9190; }
 
 a.text-primary:hover,
 a.text-primary:focus {
-  color: #286090; }
+  color: #727776; }
 
 .text-success {
   color: #3c763d; }
@@ -1292,11 +1292,11 @@ a.text-danger:focus {
   color: #fff; }
 
 .bg-primary {
-  background-color: #337ab7; }
+  background-color: #8c9190; }
 
 a.bg-primary:hover,
 a.bg-primary:focus {
-  background-color: #286090; }
+  background-color: #727776; }
 
 .bg-success {
   background-color: #dff0d8; }
@@ -3794,7 +3794,7 @@ tbody.collapse.in {
 
 .navbar {
   position: relative;
-  min-height: 80px;
+  min-height: 50px;
   margin-bottom: 20px;
   border: 1px solid transparent; }
   .navbar:before,
@@ -3906,7 +3906,7 @@ tbody.collapse.in {
   padding: 15px 15px;
   font-size: 18px;
   line-height: 20px;
-  height: 80px; }
+  height: 50px; }
   .navbar-brand:hover,
   .navbar-brand:focus {
     text-decoration: none; }
@@ -3922,8 +3922,8 @@ tbody.collapse.in {
   float: right;
   margin-right: 15px;
   padding: 9px 10px;
-  margin-top: 23px;
-  margin-bottom: 23px;
+  margin-top: 8px;
+  margin-bottom: 8px;
   background-color: transparent;
   background-image: none;
   border: 1px solid transparent;
@@ -3981,8 +3981,8 @@ tbody.collapse.in {
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
-  margin-top: 23px;
-  margin-bottom: 23px; }
+  margin-top: 8px;
+  margin-bottom: 8px; }
   @media (min-width: 768px) {
     .navbar-form .form-group {
       display: inline-block;
@@ -4049,18 +4049,18 @@ tbody.collapse.in {
   border-bottom-left-radius: 0; }
 
 .navbar-btn {
-  margin-top: 23px;
-  margin-bottom: 23px; }
+  margin-top: 8px;
+  margin-bottom: 8px; }
   .navbar-btn.btn-sm, .btn-group-sm > .navbar-btn.btn {
-    margin-top: 25px;
-    margin-bottom: 25px; }
+    margin-top: 10px;
+    margin-bottom: 10px; }
   .navbar-btn.btn-xs, .btn-group-xs > .navbar-btn.btn {
-    margin-top: 29px;
-    margin-bottom: 29px; }
+    margin-top: 14px;
+    margin-bottom: 14px; }
 
 .navbar-text {
-  margin-top: 30px;
-  margin-bottom: 30px; }
+  margin-top: 15px;
+  margin-bottom: 15px; }
   @media (min-width: 768px) {
     .navbar-text {
       float: left;
@@ -4884,7 +4884,7 @@ button.list-group-item-danger {
   margin-bottom: 20px;
   background-color: #fff;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 0;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05); }
 
 .panel-body {
@@ -4899,8 +4899,8 @@ button.list-group-item-danger {
 .panel-heading {
   padding: 10px 15px;
   border-bottom: 1px solid transparent;
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px; }
+  border-top-right-radius: -1;
+  border-top-left-radius: -1; }
   .panel-heading > .dropdown .dropdown-toggle {
     color: inherit; }
 
@@ -4920,8 +4920,8 @@ button.list-group-item-danger {
   padding: 10px 15px;
   background-color: #f5f5f5;
   border-top: 1px solid #ddd;
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px; }
+  border-bottom-right-radius: -1;
+  border-bottom-left-radius: -1; }
 
 .panel > .list-group,
 .panel > .panel-collapse > .list-group {
@@ -4933,13 +4933,13 @@ button.list-group-item-danger {
   .panel > .list-group:first-child .list-group-item:first-child,
   .panel > .panel-collapse > .list-group:first-child .list-group-item:first-child {
     border-top: 0;
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px; }
+    border-top-right-radius: -1;
+    border-top-left-radius: -1; }
   .panel > .list-group:last-child .list-group-item:last-child,
   .panel > .panel-collapse > .list-group:last-child .list-group-item:last-child {
     border-bottom: 0;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px; }
+    border-bottom-right-radius: -1;
+    border-bottom-left-radius: -1; }
 
 .panel > .panel-heading + .panel-collapse > .list-group .list-group-item:first-child {
   border-top-right-radius: 0;
@@ -4963,14 +4963,14 @@ button.list-group-item-danger {
 
 .panel > .table:first-child,
 .panel > .table-responsive:first-child > .table:first-child {
-  border-top-right-radius: 3px;
-  border-top-left-radius: 3px; }
+  border-top-right-radius: -1;
+  border-top-left-radius: -1; }
   .panel > .table:first-child > thead:first-child > tr:first-child,
   .panel > .table:first-child > tbody:first-child > tr:first-child,
   .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child,
   .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child {
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px; }
+    border-top-left-radius: -1;
+    border-top-right-radius: -1; }
     .panel > .table:first-child > thead:first-child > tr:first-child td:first-child,
     .panel > .table:first-child > thead:first-child > tr:first-child th:first-child,
     .panel > .table:first-child > tbody:first-child > tr:first-child td:first-child,
@@ -4979,7 +4979,7 @@ button.list-group-item-danger {
     .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:first-child,
     .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:first-child,
     .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:first-child {
-      border-top-left-radius: 3px; }
+      border-top-left-radius: -1; }
     .panel > .table:first-child > thead:first-child > tr:first-child td:last-child,
     .panel > .table:first-child > thead:first-child > tr:first-child th:last-child,
     .panel > .table:first-child > tbody:first-child > tr:first-child td:last-child,
@@ -4988,18 +4988,18 @@ button.list-group-item-danger {
     .panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:last-child,
     .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:last-child,
     .panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:last-child {
-      border-top-right-radius: 3px; }
+      border-top-right-radius: -1; }
 
 .panel > .table:last-child,
 .panel > .table-responsive:last-child > .table:last-child {
-  border-bottom-right-radius: 3px;
-  border-bottom-left-radius: 3px; }
+  border-bottom-right-radius: -1;
+  border-bottom-left-radius: -1; }
   .panel > .table:last-child > tbody:last-child > tr:last-child,
   .panel > .table:last-child > tfoot:last-child > tr:last-child,
   .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child,
   .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child {
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px; }
+    border-bottom-left-radius: -1;
+    border-bottom-right-radius: -1; }
     .panel > .table:last-child > tbody:last-child > tr:last-child td:first-child,
     .panel > .table:last-child > tbody:last-child > tr:last-child th:first-child,
     .panel > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
@@ -5008,7 +5008,7 @@ button.list-group-item-danger {
     .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:first-child,
     .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
     .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:first-child {
-      border-bottom-left-radius: 3px; }
+      border-bottom-left-radius: -1; }
     .panel > .table:last-child > tbody:last-child > tr:last-child td:last-child,
     .panel > .table:last-child > tbody:last-child > tr:last-child th:last-child,
     .panel > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
@@ -5017,7 +5017,7 @@ button.list-group-item-danger {
     .panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:last-child,
     .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
     .panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:last-child {
-      border-bottom-right-radius: 3px; }
+      border-bottom-right-radius: -1; }
 
 .panel > .panel-body + .table,
 .panel > .panel-body + .table-responsive,
@@ -5085,7 +5085,7 @@ button.list-group-item-danger {
   margin-bottom: 20px; }
   .panel-group .panel {
     margin-bottom: 0;
-    border-radius: 4px; }
+    border-radius: 0; }
     .panel-group .panel + .panel {
       margin-top: 5px; }
   .panel-group .panel-heading {

@@ -49,7 +49,7 @@
   border-collapse: collapse; }
 
 .faucets__filter_btn--active {
-  background-color: #337ab7;
+  background-color: #8c9190;
   color: #fff; }
 
 html {
@@ -64,8 +64,11 @@ body {
 .glyphicon-white {
   opacity: 0.3; }
 
-.navbar-nav > li > a {
-  padding-top: 30px;
-  padding-bottom: 30px; }
+.navbar-brand {
+  float: left;
+  padding: 6px 6px; }
+
+.big-btns > .btn {
+  border-width: 3px; }
 
 /*# sourceMappingURL=main.css.map */

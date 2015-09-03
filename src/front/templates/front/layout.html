@@ -9,7 +9,7 @@
     </head>
     <body>
     <nav class="navbar navbar-default">
-        <div class="container-fluid">
+        <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -32,9 +32,11 @@
                     <li class="{% if request.resolver_match.url_name == 'contacts' %}active{% endif %}"><a href="{% host_url 'contacts' host 'main_host' %}">Contact</a></li>
                     <li class="{% if request.resolver_match.url_name == 'blog' %}active{% endif %}"><a href="#">Blog</a></li>
                 </ul>
-{#                <ul class="nav navbar-nav navbar-right">#}
-{#                    <li><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></li>#}
-{#                </ul>#}
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">BTC: 100500$</a> </li>
+                    <li><a href="#">LTC: 1500$</a> </li>
+                </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
