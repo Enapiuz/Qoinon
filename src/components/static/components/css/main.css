@@ -56,7 +56,7 @@
 @font-face {
   font-family: Futura;
   /* Имя шрифта */
-  src: url(/static/components/fonts/futura.ttf);
+  src: url(/static/components/fonts/Futura.ttf);
   /* Путь к файлу со шрифтом */ }
 
 html {
