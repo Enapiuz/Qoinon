@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .main-logo {
   width: 100%; }
 
@@ -52,6 +53,12 @@
   background-color: #8c9190;
   color: #fff; }
 
+@font-face {
+  font-family: Futura;
+  /* Имя шрифта */
+  src: url(/static/components/fonts/futura.ttf);
+  /* Путь к файлу со шрифтом */ }
+
 html {
   height: 100%; }
 
@@ -70,5 +77,9 @@ body {
 
 .big-btns > .btn {
   border-width: 3px; }
+
+.futura-font, h1 {
+  font-family: Futura;
+  font-weight: 500; }
 
 /*# sourceMappingURL=main.css.map */

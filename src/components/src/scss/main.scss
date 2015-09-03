@@ -2,6 +2,11 @@
 @import "pages/hammer";
 @import "pages/faucets";
 
+@font-face {
+    font-family: Futura; /* Имя шрифта */
+    src: url(/static/components/fonts/futura.ttf); /* Путь к файлу со шрифтом */
+}
+
 html {
   height: 100%;
 }
@@ -31,4 +36,9 @@ body {
 
 .big-btns > .btn {
   border-width: 3px;
+}
+
+.futura-font, h1 {
+  font-family: Futura;
+  font-weight: 500;
 }
