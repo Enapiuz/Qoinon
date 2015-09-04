@@ -26805,6 +26805,7 @@ module.exports = function () {
     var currentCurrency = $("#hammer__current_currency_helper").val();
     var $pastBtn = $("#hammer__past_btn");
     var $editBtn = $("#hammer__edit_btn");
+    var $faucetboxBtn = $("#hammer__faucetbox_balance");
 
     var cookieName = 'address' + currentCurrency;
 
@@ -26816,9 +26817,16 @@ module.exports = function () {
         client.on('copy', function (event) {
             var value = $.cookie(cookieName);
 
-            if (typeof value == 'undefined') {
+            if (typeof value == 'undefined' || value.length == 0) {
                 value = window.prompt("Enter your wallet address:", "");
                 $.cookie(cookieName, value);
+
+                if (value == '') {
+                    $faucetboxBtn.addClass('hide');
+                } else {
+                    $faucetboxBtn.attr('href', "https://faucetbox.com/en/check/" + value);
+                    $faucetboxBtn.removeClass('hide');
+                }
             }
 
             event.clipboardData.setData('text/plain', value);
@@ -26838,29 +26846,14 @@ module.exports = function () {
         var value = $.cookie(cookieName);
         value = window.prompt("Enter your wallet address:", value);
         $.cookie(cookieName, value);
-    });
 
-    //$pastBtn.clipboard({
-    //    path: '/static/components/swf/jclip.swf',
-    //    copy: function() {
-    //        var value = $.cookie('address' + currentCurrency);
-    //
-    //        if (typeof value == 'undefined') {
-    //            value = window.prompt("Enter your wallet address:","");
-    //        }
-    //
-    //        return value;
-    //    }
-    //});
-    //
-    //$editBtn.clipboard({
-    //    path: '/static/components/swf/jclip.swf',
-    //    copy: function() {
-    //        var value = window.prompt("Enter your wallet address:","");
-    //        $.cookie('address' + currentCurrency, value);
-    //        return value;
-    //    }
-    //});
+        if (value == '') {
+            $faucetboxBtn.addClass('hide');
+        } else {
+            $faucetboxBtn.attr('href', "https://faucetbox.com/en/check/" + value);
+            $faucetboxBtn.removeClass('hide');
+        }
+    });
 };
 
 },{"ZeroClipboard":2,"jquery":5,"jquery.cookie":4}]},{},[1]);

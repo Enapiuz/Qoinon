@@ -90,11 +90,21 @@ def main(req):
     # турбо-костыль, починить admin namespace
     admin_edit_link = "https://uniqoins.com/admin/objects/faucet/{0}/".format(faucet.id)
 
+    if faucet.currency.title_short_en == "BTC":
+        cookie_faucet = req.COOKIES.get('address' + str(faucet.currency.id))
+        if cookie_faucet is not None and not cookie_faucet == '':
+            faucetbox_link = "https://faucetbox.com/en/check/" + str(cookie_faucet)
+        else:
+            faucetbox_link = ''
+    else:
+        faucetbox_link = ''
+
     return render(req, 'hammer/main.html', {
         'faucet': faucet,
         'next_link': next_link,
         'is_moderator': req.user.groups.filter(name='Moderators').exists(),
-        'admin_edit_link': admin_edit_link
+        'admin_edit_link': admin_edit_link,
+        'faucetbox_link': faucetbox_link
     })
 
 def moderation_actions(req):
