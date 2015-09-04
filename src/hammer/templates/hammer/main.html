@@ -92,6 +92,10 @@
         {% if is_moderator %}
             <div class="moderator-panel">
                 <div class="well well-sm well-moder">
+                    <a href="{{ faucet.real_href }}" target="_blank">{{ faucet.real_href }}</a>
+                </div>
+                <br />
+                <div class="well well-sm well-moder">
                     <label>
                         <input name="iframe_ready" class="fast-checkbox" type="checkbox" {% if faucet.iframe_ready %} checked {% endif %}> Показывать в iframe
                     </label>
