@@ -15,9 +15,15 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <span class="glyphicon glyphicon-thumbs-up"></span> {{ faucet.likes }} &nbsp;
-                    <span class="glyphicon glyphicon-thumbs-down"></span> {{ faucet.dislikes }} &nbsp;
-                    <span class="glyphicon glyphicon-user"></span> 5
+                    <div class="btn btn-sm">
+                        <span class="glyphicon glyphicon-thumbs-up like-faucet" data-faucet-id="{{ faucet.id }}"></span>
+                    </div>
+                    <span id="faucet-rating-{{ faucet.id }}">{{ faucet.get_rating }}</span>
+                    <div class="btn btn-sm">
+                        <span class="glyphicon glyphicon-thumbs-down dislike-faucet" data-faucet-id="{{ faucet.id }}"></span>
+                    </div>
+
+{#                    <span class="glyphicon glyphicon-user"></span> 5#}
                 </div>
             </div>
         </div>
@@ -56,11 +62,11 @@
         <div class="col-sm-4">
             <div class="btn-group pull-right">
                 <input id="hammer__current_currency_helper" type="hidden" value="{{ faucet.currency.id }}">
-                <div id="hammer__past_btn" class="btn btn-lg btn-default">Past BTC address</div>
-                <div id="hammer__edit_btn" class="btn btn-lg btn-default">Edit</div>
+                <div id="hammer__past_btn" class="btn btn-default btn-success">Past BTC address</div>
+                <div id="hammer__edit_btn" class="btn btn-default">Edit</div>
             </div>
 
-            <a id="hammer__faucetbox_balance" href="{{ faucetbox_link }}" target="_blank" class="btn btn-lg btn-default pull-left {% if not faucetbox_link %}hide{% endif %}">
+            <a id="hammer__faucetbox_balance" href="{{ faucetbox_link }}" target="_blank" class="btn btn-default pull-left {% if not faucetbox_link %}hide{% endif %}">
                 Faucetbox balance
             </a>
 
@@ -70,7 +76,7 @@
                 &nbsp;
             </div>
 
-            <div class="btn btn-lg btn-default pull-left">
+            <div class="btn btn-default pull-left btn-info">
                 Help
             </div>
 

@@ -48,6 +48,9 @@ module.exports = function () {
     $editBtn.click(function(){
         var value = $.cookie(cookieName);
         value = window.prompt("Enter your wallet address:", value);
+
+        if (value == null) return;
+
         $.cookie(cookieName, value);
 
         if (value == '') {
