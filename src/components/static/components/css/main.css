@@ -56,6 +56,9 @@
   background-color: #8c9190;
   color: #fff; }
 
+.faq-item .panel-heading {
+  cursor: pointer; }
+
 @font-face {
   font-family: Futura;
   /* Имя шрифта */

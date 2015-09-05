@@ -5,9 +5,9 @@
     <div class="row">
         <div class="col-sm-12">
             {% for qa in qas %}
-                <div class="panel panel-default">
+                <div class="panel panel-default faq-item">
                   <div class="panel-heading">{{ qa.question|safe }}</div>
-                  <div class="panel-body">
+                  <div class="panel-body" style="display: none">
                     {{ qa.answer|safe }}
                   </div>
                 </div>

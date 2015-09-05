@@ -7,8 +7,9 @@ require('bootstrap');
 // подключение модулей страниц
 require('./pages/faucets')();
 require('./pages/hammer')();
+require('./pages/faq')();
 
-},{"./pages/faucets":9,"./pages/hammer":10,"bootstrap":3,"jquery":5}],2:[function(require,module,exports){
+},{"./pages/faq":8,"./pages/faucets":10,"./pages/hammer":11,"bootstrap":3,"jquery":5}],2:[function(require,module,exports){
 /*!
  * ZeroClipboard
  * The ZeroClipboard library provides an easy way to copy text to the clipboard using an invisible Adobe Flash movie and a JavaScript interface.
@@ -26662,6 +26663,19 @@ module.exports.roundedCaption = function ($selector, text) {
 };
 
 },{}],8:[function(require,module,exports){
+"use strict";
+
+module.exports = function () {
+    var $ = require('jquery');
+
+    var $faqItems = $(".faq-item");
+
+    $(".faq-item .panel-heading").click(function (ev) {
+        $(ev.target).parent().find(".panel-body").slideToggle();
+    });
+};
+
+},{"jquery":5}],9:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -26778,7 +26792,7 @@ var faucetsFilter = function faucetsFilter(currency, times, captcha, wallet, fau
 module.exports = {};
 module.exports.faucetsFilter = faucetsFilter;
 
-},{"../../common/titler":7,"jquery":5,"lodash":6}],9:[function(require,module,exports){
+},{"../../common/titler":7,"jquery":5,"lodash":6}],10:[function(require,module,exports){
 'use strict';
 
 module.exports = function () {
@@ -26792,7 +26806,7 @@ module.exports = function () {
     });
 };
 
-},{"./filter":8,"jquery":5}],10:[function(require,module,exports){
+},{"./filter":9,"jquery":5}],11:[function(require,module,exports){
 'use strict';
 
 module.exports = function () {
