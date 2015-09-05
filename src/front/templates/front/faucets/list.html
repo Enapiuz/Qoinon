@@ -97,13 +97,13 @@
                         <td>
                             <div class="btn-group">
                                 <div class="btn btn-sm">
-                                    <span class="glyphicon glyphicon-thumbs-up"></span>
+                                    <span class="glyphicon glyphicon-thumbs-up like-faucet" data-faucet-id="{{ faucet.id }}"></span>
                                 </div>
-                                <div class="btn btn-sm disabled">
+                                <div class="btn btn-sm disabled faucet-rating" id="faucet-rating-{{ faucet.id }}">
                                     {{ faucet.get_rating }}
                                 </div>
                                 <div class="btn btn-sm">
-                                    <span class="glyphicon glyphicon-thumbs-down"></span>
+                                    <span class="glyphicon glyphicon-thumbs-down dislike-faucet" data-faucet-id="{{ faucet.id }}"></span>
                                 </div>
                             </div>
                         </td>
