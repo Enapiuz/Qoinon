@@ -21,6 +21,7 @@ from hammer import urls as hammer_urls
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^summernote/', include('django_summernote.urls')),
     url(r'^hammer/', include(hammer_urls)),  # TODO: сделать чтоб только на локале
     url(r'^', include(front_urls)),  # всегда должны быть последними
 ]

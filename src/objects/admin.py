@@ -1,5 +1,6 @@
 from django.contrib import admin
 from objects.models import Wallet, WalletCategory, Faucet, MetaKeyword, Captcha, Currency, FaucetCategory, OurWallet
+from django_summernote.admin import SummernoteModelAdmin
 
 
 class WalletCategoryAdmin(admin.ModelAdmin):
@@ -23,7 +24,7 @@ class MetaKeyInline(admin.TabularInline):
     extra = 1
 
 
-class FaucetAdmin(admin.ModelAdmin):
+class FaucetAdmin(SummernoteModelAdmin):
     # TODO понять как называть фильтры
     list_filter = ('currency__title_short_en', 'category__title_en', 'captcha__title_en')
     ordering = ['title_en']

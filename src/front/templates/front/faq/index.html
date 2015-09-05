@@ -6,9 +6,9 @@
         <div class="col-sm-12">
             {% for qa in qas %}
                 <div class="panel panel-default">
-                  <div class="panel-heading">{{ qa.question }}</div>
+                  <div class="panel-heading">{{ qa.question|safe }}</div>
                   <div class="panel-body">
-                    {{ qa.answer }}
+                    {{ qa.answer|safe }}
                   </div>
                 </div>
             {% endfor %}
