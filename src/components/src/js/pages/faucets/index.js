@@ -1,6 +1,7 @@
 module.exports = function() {
     var $ = require('jquery');
     var superFilter = require('./filter');
+    var liker = require('../../common/likes');
 
     $(function(){
         console.log('hello from faucets');
@@ -17,29 +18,17 @@ module.exports = function() {
         var $dislikeFaucets = $(".dislike-faucet");
 
         $likeFaucets.click(function(){
-            faucetLikeAction($(this).data('faucet-id'), 1)
+            var faucetId = $(this).data('faucet-id');
+            liker.likeFaucet(faucetId, liker.LIKE, function(likes){
+                $("#faucet-rating-" + faucetId).html(likes);
+            });
         });
 
         $dislikeFaucets.click(function(){
-            faucetLikeAction($(this).data('faucet-id'), 2)
-        });
-
-        function faucetLikeAction(faucetId, type) {
-            $.ajax({
-                'url': '/api/like_faucet',
-                'dataType': 'JSON',
-                'cache': false,
-                'data': {
-                    'type': type,
-                    'faucet_id': faucetId
-                }
-            }).success(function(data){
-                if (data.success == 1) {
-                    $("#faucet-rating-" + faucetId).html(data.likes);
-                }
-            }).complete(function(){
-
+            var faucetId = $(this).data('faucet-id');
+            liker.likeFaucet(faucetId, liker.DISLIKE, function(likes){
+                $("#faucet-rating-" + faucetId).html(likes);
             });
-        }
+        });
     });
 };

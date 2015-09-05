@@ -9,7 +9,7 @@ require('./pages/faucets')();
 require('./pages/hammer')();
 require('./pages/faq')();
 
-},{"./pages/faq":8,"./pages/faucets":10,"./pages/hammer":11,"bootstrap":3,"jquery":5}],2:[function(require,module,exports){
+},{"./pages/faq":9,"./pages/faucets":11,"./pages/hammer":12,"bootstrap":3,"jquery":5}],2:[function(require,module,exports){
 /*!
  * ZeroClipboard
  * The ZeroClipboard library provides an easy way to copy text to the clipboard using an invisible Adobe Flash movie and a JavaScript interface.
@@ -26652,6 +26652,32 @@ return jQuery;
 },{}],7:[function(require,module,exports){
 'use strict';
 
+var $ = require('jquery');
+
+module.exports = {};
+
+module.exports.LIKE = 1;
+module.exports.DISLIKE = 2;
+
+module.exports.likeFaucet = function (faucetId, type, ifSuccess) {
+    $.ajax({
+        'url': '/api/like_faucet',
+        'dataType': 'JSON',
+        'cache': false,
+        'data': {
+            'type': type,
+            'faucet_id': faucetId
+        }
+    }).success(function (data) {
+        if (data.success == 1) {
+            ifSuccess(data.likes);
+        }
+    }).complete(function () {});
+};
+
+},{"jquery":5}],8:[function(require,module,exports){
+'use strict';
+
 module.exports = {};
 
 module.exports.squaredCaption = function ($selector, text) {
@@ -26662,7 +26688,7 @@ module.exports.roundedCaption = function ($selector, text) {
     $selector.html('(' + text + ')');
 };
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 "use strict";
 
 module.exports = function () {
@@ -26675,7 +26701,7 @@ module.exports = function () {
     });
 };
 
-},{"jquery":5}],9:[function(require,module,exports){
+},{"jquery":5}],10:[function(require,module,exports){
 'use strict';
 
 var $ = require('jquery');
@@ -26792,12 +26818,13 @@ var faucetsFilter = function faucetsFilter(currency, times, captcha, wallet, fau
 module.exports = {};
 module.exports.faucetsFilter = faucetsFilter;
 
-},{"../../common/titler":7,"jquery":5,"lodash":6}],10:[function(require,module,exports){
+},{"../../common/titler":8,"jquery":5,"lodash":6}],11:[function(require,module,exports){
 'use strict';
 
 module.exports = function () {
     var $ = require('jquery');
     var superFilter = require('./filter');
+    var liker = require('../../common/likes');
 
     $(function () {
         console.log('hello from faucets');
@@ -26808,32 +26835,22 @@ module.exports = function () {
         var $dislikeFaucets = $(".dislike-faucet");
 
         $likeFaucets.click(function () {
-            faucetLikeAction($(this).data('faucet-id'), 1);
+            var faucetId = $(this).data('faucet-id');
+            liker.likeFaucet(faucetId, liker.LIKE, function (likes) {
+                $("#faucet-rating-" + faucetId).html(likes);
+            });
         });
 
         $dislikeFaucets.click(function () {
-            faucetLikeAction($(this).data('faucet-id'), 2);
+            var faucetId = $(this).data('faucet-id');
+            liker.likeFaucet(faucetId, liker.DISLIKE, function (likes) {
+                $("#faucet-rating-" + faucetId).html(likes);
+            });
         });
-
-        function faucetLikeAction(faucetId, type) {
-            $.ajax({
-                'url': '/api/like_faucet',
-                'dataType': 'JSON',
-                'cache': false,
-                'data': {
-                    'type': type,
-                    'faucet_id': faucetId
-                }
-            }).success(function (data) {
-                if (data.success == 1) {
-                    $("#faucet-rating-" + faucetId).html(data.likes);
-                }
-            }).complete(function () {});
-        }
     });
 };
 
-},{"./filter":9,"jquery":5}],11:[function(require,module,exports){
+},{"../../common/likes":7,"./filter":10,"jquery":5}],12:[function(require,module,exports){
 'use strict';
 
 module.exports = function () {
