@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from objects.models import Captcha, Faucet, Currency, FaucetCategory
-from front.models import FaqItem
+from .models import FaqItem, ContactForm
 from .forms import ContactsForm
 
 
@@ -54,7 +54,14 @@ def contacts(req):
     if req.method == 'POST':
         form = ContactsForm(req.POST)
         if form.is_valid():
-            # сохраняем отзыв
+            contact = ContactForm()
+            contact.name = form.cleaned_data['name']
+            contact.email = form.cleaned_data['email']
+            contact.text = form.cleaned_data['text']
+            contact.save()
+
+            # TODO: отправляем письмо
+
             return redirect("/contacts/")
     else:
         form = ContactsForm()
