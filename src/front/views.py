@@ -5,8 +5,13 @@ from front.models import FaqItem
 from django.core.cache import cache
 
 
-def hello(req):
-    return render(req, 'front/layout.html')
+def main(req):
+    btc = Currency.objects.filter(title_short_en='BTC').first()
+    faucets = Faucet.objects.filter(currency__id=btc.id).order_by('-reward_mid')[:10]
+    return render(req, 'front/main/index.html', {
+        'global_centered': True,
+        'faucets': faucets
+    })
 
 def faucets(req):
     captchas = Captcha.objects.all()
