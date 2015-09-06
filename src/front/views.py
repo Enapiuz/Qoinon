@@ -8,6 +8,8 @@ from django.core.cache import cache
 def main(req):
     btc = Currency.objects.filter(title_short_en='BTC').first()
     faucets = Faucet.objects.filter(currency__id=btc.id).order_by('-reward_mid')[:10]
+    for faucet in faucets:
+        setattr(faucet, 'ttl', round(faucet.get_cooldown(req.session.session_key) / 60))
     return render(req, 'front/main/index.html', {
         'global_centered': True,
         'faucets': faucets
