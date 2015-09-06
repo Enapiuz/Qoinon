@@ -1,8 +1,8 @@
-from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render
+from django.http import JsonResponse
+from django.shortcuts import render, redirect
 from objects.models import Captcha, Faucet, Currency, FaucetCategory
 from front.models import FaqItem
-from django.core.cache import cache
+from .forms import ContactsForm
 
 
 def main(req):
@@ -51,8 +51,17 @@ def faq(req):
     })
 
 def contacts(req):
+    if req.method == 'POST':
+        form = ContactsForm(req.POST)
+        if form.is_valid():
+            # сохраняем отзыв
+            return redirect("/contacts/")
+    else:
+        form = ContactsForm()
+
     return render(req, 'front/contacts/index.html', {
-        'global_centered': True
+        'global_centered': True,
+        'form': form
     })
 
 def like_faucet(req):

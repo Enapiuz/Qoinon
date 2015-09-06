@@ -7,4 +7,66 @@
             <h1>contacts</h1>
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <form method="post" action="/contacts/">
+                {{ form.non_field_errors }}
+
+                {% csrf_token %}
+                <div class="col-sm-6">
+                    <div class="form-group {% if form.name.errors %} has-error {% endif %}">
+                        {{ form.name.label_tag }}
+{#                        {% if form.name.errors %}#}
+{#                            <ol>#}
+{#                            {% for error in form.name.errors %}#}
+{#                                <li class="text-danger"><strong>{{ error|escape }}</strong></li>#}
+{#                            {% endfor %}#}
+{#                            </ol>#}
+{#                        {% endif %}#}
+                        {{ form.name }}
+                    </div>
+
+                    <div class="form-group {% if form.email.errors %} has-error {% endif %}">
+                        {{ form.email.label_tag }}
+{#                        {% if form.email.errors %}#}
+{#                            <ol>#}
+{#                            {% for error in form.email.errors %}#}
+{#                                <li class="text-danger"><strong>{{ error|escape }}</strong></li>#}
+{#                            {% endfor %}#}
+{#                            </ol>#}
+{#                        {% endif %}#}
+                        {{ form.email }}
+                    </div>
+
+                    <div class="form-group {% if form.captcha.errors %} has-error {% endif %}">
+                        {{ form.captcha.label_tag }}
+{#                        {% if form.captcha.errors %}#}
+{#                            <ol>#}
+{#                            {% for error in form.captcha.errors %}#}
+{#                                <li class="text-danger"><strong>{{ error|escape }}</strong></li>#}
+{#                            {% endfor %}#}
+{#                            </ol>#}
+{#                        {% endif %}#}
+                        {{ form.captcha }}
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group {% if form.text.errors %} has-error {% endif %}">
+                        {{ form.text.label_tag }}
+{#                        {% if form.text.errors %}#}
+{#                            <ol>#}
+{#                            {% for error in form.text.errors %}#}
+{#                                <li class="text-danger"><strong>{{ error|escape }}</strong></li>#}
+{#                            {% endfor %}#}
+{#                            </ol>#}
+{#                        {% endif %}#}
+                        {{ form.text }}
+                    </div>
+
+                    <input class="btn btn-primary" type="submit" value="Submit" />
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock %}

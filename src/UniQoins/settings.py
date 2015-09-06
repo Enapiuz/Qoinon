@@ -45,7 +45,8 @@ INSTALLED_APPS = (
     'objects',
     'front',
     'hammer',
-    'site_capture'
+    'site_capture',
+    'captcha'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -169,6 +170,10 @@ SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "default"
 
 SESSION_COOKIE_DOMAIN = ".uniqoins.com"
+
+RECAPTCHA_PUBLIC_KEY = "6Lf2YAwTAAAAAPPDfrRNNhG6foLD5ilXdNhW3uqN"
+RECAPTCHA_PRIVATE_KEY = "6Lf2YAwTAAAAAGw-EIHDgcwZdSO-PkrYCirj0YnH"  # TODO: не делать так
+NOCAPTCHA = True
 
 # Перезапись существующего конфига
 try:
