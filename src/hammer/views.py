@@ -101,6 +101,7 @@ def main(req):
 
     return render(req, 'hammer/main.html', {
         'faucet': faucet,
+        'labels': _make_labels(faucet),
         'next_link': next_link,
         'is_moderator': req.user.groups.filter(name='Moderators').exists(),
         'admin_edit_link': admin_edit_link,
@@ -137,3 +138,48 @@ def edit_help_text(req):
     faucet.save()
 
     return JsonResponse({'status': 'ok'})
+
+def _make_labels(faucet):
+    labels = []
+
+    labels.append({
+        'title': faucet.captcha.title_en,
+        'type': 'captcha'
+    })
+
+    labels.append({
+        'title': str(faucet.update_time) + ' min.',
+        'type': 'time'
+    })
+
+    labels.append({
+        'title': faucet.category.title_en,
+        'type': 'category'
+    })
+
+    if faucet.malfunction:
+        labels.append({
+            'title': 'Malfunction',
+            'type': 'bad'
+        })
+
+    if not faucet.now_pays:
+        labels.append({
+            'title': 'Not pays',
+            'type': 'bad'
+        })
+
+    if faucet.top:
+        labels.append({
+            'title': 'Top',
+            'type': 'top'
+        })
+
+    if faucet.best:
+        labels.append({
+            'title': 'Best',
+            'type': 'top'
+        })
+
+
+    return labels
