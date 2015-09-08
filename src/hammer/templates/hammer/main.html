@@ -5,61 +5,51 @@
         body {
             overflow: hidden;
         }
+
+        .navbar {
+            margin-bottom: 0;
+        }
     </style>
     <div class="row hammer__menu">
         <div class="col-sm-3 text-center">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h1>{{ faucet.title_en }}</h1>
-                </div>
+            <b>{{ faucet.title_en }}</b>
+            <div class="btn btn-sm">
+                <span class="glyphicon glyphicon-thumbs-up like-faucet" data-faucet-id="{{ faucet.id }}"></span>
             </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="btn btn-sm">
-                        <span class="glyphicon glyphicon-thumbs-up like-faucet" data-faucet-id="{{ faucet.id }}"></span>
-                    </div>
-                    <span id="faucet-rating-{{ faucet.id }}">{{ faucet.get_rating }}</span>
-                    <div class="btn btn-sm">
-                        <span class="glyphicon glyphicon-thumbs-down dislike-faucet" data-faucet-id="{{ faucet.id }}"></span>
-                    </div>
-
-{#                    <span class="glyphicon glyphicon-user"></span> 5#}
-                </div>
+            <span id="faucet-rating-{{ faucet.id }}">{{ faucet.get_rating }}</span>
+            <div class="btn btn-sm">
+                <span class="glyphicon glyphicon-thumbs-down dislike-faucet" data-faucet-id="{{ faucet.id }}"></span>
             </div>
         </div>
 
-        <div class="col-sm-2">
-            <div class="row">
-                <div class="col-sm-12">
-                    {% for label in labels %}
-                        {% if label.type in 'captcha' %}
-                            <span class="label label-default">{{ label.title }}</span>
-                        {% elif label.type in 'time' %}
-                            <span class="label label-success">{{ label.title }}</span>
-                        {% elif label.type in 'category' %}
-                            <span class="label label-warning">{{ label.title }}</span>
-                        {% elif label.type in 'bad' %}
-                            <span class="label label-danger">{{ label.title }}</span>
-                        {% elif label.type in 'top' %}
-                            <span class="label label-success">{{ label.title }}</span>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
+        <div class="col-sm-5 text-center">
+            {% for label in labels %}
+                {% if label.type in 'captcha' %}
+                    <span class="label label-default">{{ label.title }}</span>
+                {% elif label.type in 'time' %}
+                    <span class="label label-success">{{ label.title }}</span>
+                {% elif label.type in 'category' %}
+                    <span class="label label-warning">{{ label.title }}</span>
+                {% elif label.type in 'bad' %}
+                    <span class="label label-danger">{{ label.title }}</span>
+                {% elif label.type in 'top' %}
+                    <span class="label label-success">{{ label.title }}</span>
+                {% endif %}
+            {% endfor %}
 
-        <div class="col-sm-1">
-            Reward <br />
-            <b>~</b> {{ faucet.reward_mid }} <br />
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+            Reward
+            <b>~</b> {{ faucet.reward_mid }}
             {% if faucet.reward_min %}
-                <span class="glyphicon glyphicon-triangle-bottom"></span> {{ faucet.reward_min }} <br />
+                <span class="glyphicon glyphicon-triangle-bottom"></span> {{ faucet.reward_min }}
             {% endif %}
             {% if faucet.reward_max %}
-                <span class="glyphicon glyphicon-triangle-top"></span> {{ faucet.reward_max }} <br />
+                <span class="glyphicon glyphicon-triangle-top"></span> {{ faucet.reward_max }}
             {% endif %}
-        </div>
 
-        <div class="col-sm-2 text-center">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
             Pays every {{ faucet.update_time }} minutes
 {#            <br /> Next: <b>535</b> sites ~ 94543 satishi left#}
         </div>
