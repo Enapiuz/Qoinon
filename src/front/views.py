@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from objects.models import Captcha, Faucet, Currency, FaucetCategory
-from .models import FaqItem, ContactForm
+from .models import FaqItem, FaqCategory, ContactForm
 from .forms import ContactsForm
 
 
@@ -45,9 +45,13 @@ def faucet_about(req, faucet_title_en):
     })
 
 def faq(req):
+    faqs = FaqItem.objects.filter(visible=True).exclude(category__isnull=True)
+    categories = FaqCategory.objects.all()
+
     return render(req, 'front/faq/index.html', {
         'global_centered': True,
-        'qas': FaqItem.objects.all()
+        'faqs': faqs,
+        'categories': categories
     })
 
 def contacts(req):

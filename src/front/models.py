@@ -1,12 +1,24 @@
 from django.db import models
 
 
+class FaqCategory(models.Model):
+    title_en = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.title_en
+
 class FaqItem(models.Model):
     question = models.CharField(max_length=500)
     answer = models.TextField(blank=True)
+    visible = models.BooleanField(default=True)
+    category = models.ForeignKey(FaqCategory, default=None, null=True)
 
     def __str__(self):
-        return self.question
+        if self.category is not None:
+            cat = '[' + self.category.title_en + '] '
+        else:
+            cat = ''
+        return cat + self.question
 
 class ContactForm(models.Model):
     name = models.CharField(max_length=100)

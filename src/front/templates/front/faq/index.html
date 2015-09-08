@@ -4,14 +4,31 @@
 {% block content %}
     <div class="row">
         <div class="col-sm-12">
-            {% for qa in qas %}
-                <div class="panel panel-default faq-item">
-                  <div class="panel-heading">{{ qa.question|safe }}</div>
-                  <div class="panel-body" style="display: none">
-                    {{ qa.answer|safe }}
-                  </div>
-                </div>
-            {% endfor %}
+            <ul class="nav nav-tabs" role="tablist">
+                {% for category in categories %}
+                    <li role="presentation" class="{% if forloop.first %} active {% endif %}">
+                        <a href="#category{{ category.id }}" aria-controls="category{{ category.id }}" role="tab"data-toggle="tab">{{ category.title_en }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <div class="tab-content">
+                {% for category in categories %}
+                    <div role="tabpanel" class="tab-pane {% if forloop.first %} active {% endif %}" id="category{{ category.id }}">
+                        <br />
+                        {% for faq in faqs %}
+                            {% if faq.category.id == category.id %}
+                                <div class="panel panel-default faq-item">
+                                    <div class="panel-heading">{{ faq.question|safe }}</div>
+                                    <div class="panel-body" style="display: none">
+                                        {{ faq.answer|safe }}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}
