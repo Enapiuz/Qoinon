@@ -94,7 +94,7 @@
                             </a>
                         </td>
                         <td>
-                            <div class="btn-group">
+                            <div class="btn-group" style="display: inline-flex">
                                 <div class="btn btn-sm">
                                     <span class="glyphicon glyphicon-thumbs-up like-faucet" data-faucet-id="{{ faucet.id }}"></span>
                                 </div>
@@ -107,12 +107,16 @@
                             </div>
                         </td>
                         <td>
-                            <b>~</b> {{ faucet.reward_mid }}
+                            <b>~</b>&nbsp;{{ faucet.reward_mid }}
                             {% if faucet.reward_min %}
-                                <span class="glyphicon glyphicon-triangle-bottom"></span> {{ faucet.reward_min }}
+                                <span style="display: inline-flex">
+                                    <span class="glyphicon glyphicon-triangle-bottom"></span>&nbsp;{{ faucet.reward_min }}
+                                </span>
                             {% endif %}
                             {% if faucet.reward_max %}
-                                <span class="glyphicon glyphicon-triangle-top"></span> {{ faucet.reward_max }}
+                                <span style="display: inline-flex">
+                                    <span class="glyphicon glyphicon-triangle-top"></span>&nbsp;{{ faucet.reward_max }}
+                                </span>
                             {% endif %}
                         </td>
                         <td>
