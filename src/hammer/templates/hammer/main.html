@@ -67,7 +67,9 @@
                 </td>
 
                 <td class="text-right">
-                    <div class="btn btn-default btn-info">Help</div>
+                    {% if faucet.help_text %}
+                        <div class="btn btn-default btn-info" data-toggle="modal" data-target="#help-modal">Help</div>
+                    {% endif %}
 
                     <a id="hammer__faucetbox_balance" href="{{ faucetbox_link }}" target="_blank"
                        class="btn btn-default {% if not faucetbox_link %}hide{% endif %}">
@@ -81,6 +83,14 @@
                 </td>
             </tr>
         </table>
+    </div>
+
+    <div id="help-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="faucetHelp">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content" style="padding: 5px;">
+                {{ faucet.help_text|default:'There is no help text' }}
+            </div>
+        </div>
     </div>
 
     <div class="row hammer fullheight">
