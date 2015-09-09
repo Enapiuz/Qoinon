@@ -10,72 +10,77 @@
             margin-bottom: 0;
         }
     </style>
-    <div class="row hammer__menu">
-        <div class="col-sm-3 text-center">
-            <b>{{ faucet.title_en }}</b>
-            <div class="btn btn-sm">
-                <span class="glyphicon glyphicon-thumbs-up like-faucet" data-faucet-id="{{ faucet.id }}"></span>
-            </div>
-            <span id="faucet-rating-{{ faucet.id }}">{{ faucet.get_rating }}</span>
-            <div class="btn btn-sm">
-                <span class="glyphicon glyphicon-thumbs-down dislike-faucet" data-faucet-id="{{ faucet.id }}"></span>
-            </div>
-        </div>
+    <div class="row hammer__menu" style="margin-bottom: 0">
+        <table class="table" style="width: 100%; margin-bottom: 0">
+            <tr>
+                <td>
+                    <b>{{ faucet.title_en }}</b>
 
-        <div class="col-sm-5 text-center">
-            {% for label in labels %}
-                {% if label.type in 'captcha' %}
-                    <span class="label label-default">{{ label.title }}</span>
-                {% elif label.type in 'time' %}
-                    <span class="label label-success">{{ label.title }}</span>
-                {% elif label.type in 'category' %}
-                    <span class="label label-warning">{{ label.title }}</span>
-                {% elif label.type in 'bad' %}
-                    <span class="label label-danger">{{ label.title }}</span>
-                {% elif label.type in 'top' %}
-                    <span class="label label-success">{{ label.title }}</span>
-                {% endif %}
-            {% endfor %}
+                    <div style="display: inline-block;">
+                        <div class="btn btn-sm">
+                            <span class="glyphicon glyphicon-thumbs-up like-faucet"
+                                  data-faucet-id="{{ faucet.id }}"></span>
+                        </div>
+                        <span id="faucet-rating-{{ faucet.id }}">{{ faucet.get_rating }}</span>
 
-            &nbsp;&nbsp;&nbsp;&nbsp;
+                        <div class="btn btn-sm">
+                                            <span class="glyphicon glyphicon-thumbs-down dislike-faucet"
+                                                  data-faucet-id="{{ faucet.id }}"></span>
+                        </div>
+                    </div>
+                </td>
 
-            Reward
-            <b>~</b> {{ faucet.reward_mid }}
-            {% if faucet.reward_min %}
-                <span class="glyphicon glyphicon-triangle-bottom"></span> {{ faucet.reward_min }}
-            {% endif %}
-            {% if faucet.reward_max %}
-                <span class="glyphicon glyphicon-triangle-top"></span> {{ faucet.reward_max }}
-            {% endif %}
+                <td>
+                    {% for label in labels %}
+                        {% if label.type in 'captcha' %}
+                            <span class="label label-default">{{ label.title }}</span>
+                        {% elif label.type in 'time' %}
+                            <span class="label label-success">{{ label.title }}</span>
+                        {% elif label.type in 'category' %}
+                            <span class="label label-warning">{{ label.title }}</span>
+                        {% elif label.type in 'bad' %}
+                            <span class="label label-danger">{{ label.title }}</span>
+                        {% elif label.type in 'top' %}
+                            <span class="label label-success">{{ label.title }}</span>
+                        {% endif %}
+                    {% endfor %}
+                </td>
 
-            &nbsp;&nbsp;&nbsp;&nbsp;
+                <td>
+                    Reward:
+                    <div style="display: inline-block" title="Average"><b>~</b>&nbsp;{{ faucet.reward_mid }}</div>
+                    {% if faucet.reward_min %}
+                        <div style="display: inline-block" title="Minimum">
+                            <span class="glyphicon glyphicon-triangle-bottom"></span>&nbsp;{{ faucet.reward_min }}
+                        </div>
+                    {% endif %}
+                    {% if faucet.reward_max %}
+                        <div style="display: inline-block" title="Maximum">
+                            <span class="glyphicon glyphicon-triangle-top"></span>&nbsp;{{ faucet.reward_max }}
+                        </div>
+                    {% endif %}
 
-            Pays every {{ faucet.update_time }} minutes
-{#            <br /> Next: <b>535</b> sites ~ 94543 satishi left#}
-        </div>
+                </td>
 
-        <div class="col-sm-4">
-            <div class="btn-group pull-right">
-                <input id="hammer__current_currency_helper" type="hidden" value="{{ faucet.currency.id }}">
-                <div id="hammer__past_btn" class="btn btn-default btn-success">Copy wallet address</div>
-                <div id="hammer__edit_btn" class="btn btn-default">Edit</div>
-            </div>
+                <td width="1%">
+                    Pays&nbsp;every&nbsp;{{ faucet.update_time }}&nbsp;minutes
+                </td>
 
-            <a id="hammer__faucetbox_balance" href="{{ faucetbox_link }}" target="_blank" class="btn btn-default pull-left {% if not faucetbox_link %}hide{% endif %}">
-                Faucetbox balance
-            </a>
+                <td class="text-right">
+                    <div class="btn btn-default btn-info">Help</div>
 
-            <div class="pull-left">
-                &nbsp;
-                &nbsp;
-                &nbsp;
-            </div>
+                    <a id="hammer__faucetbox_balance" href="{{ faucetbox_link }}" target="_blank"
+                       class="btn btn-default {% if not faucetbox_link %}hide{% endif %}">
+                        Faucetbox balance
+                    </a>
 
-            <div class="btn btn-default pull-left btn-info">
-                Help
-            </div>
+                    <div id="hammer__past_btn" class="btn btn-default btn-success">Copy wallet address</div>
+                    <div id="hammer__edit_btn" class="btn btn-default">Edit</div>
 
-        </div>
+                    <input id="hammer__current_currency_helper" type="hidden" value="{{ faucet.currency.id }}">
+                </td>
+            </tr>
+        </table>
     </div>
 
     <div class="row hammer fullheight">
@@ -86,6 +91,7 @@
         {% else %}
             <div class="text-center error-iframe">
                 <p>This faucet doen't work in iframe.</p>
+
                 <p><a target="_blank" href="{{ faucet.real_href }}">Visit it here!</a></p>
             </div>
         {% endif %}
@@ -95,40 +101,48 @@
                 <div class="well well-sm well-moder">
                     <a href="{{ faucet.real_href }}" target="_blank">{{ faucet.real_href }}</a>
                 </div>
-                <br />
+                <br/>
+
                 <div class="well well-sm well-moder">
                     <label>
-                        <input name="iframe_ready" class="fast-checkbox" type="checkbox" {% if faucet.iframe_ready %} checked {% endif %}> Показывать в iframe
+                        <input name="iframe_ready" class="fast-checkbox" type="checkbox" {% if faucet.iframe_ready %}
+                               checked {% endif %}> Показывать в iframe
                     </label>
                 </div>
                 <div class="well well-sm well-moder">
                     <label>
-                        <input name="visible" class="fast-checkbox" type="checkbox" {% if faucet.visible %} checked {% endif %}> Показывать
+                        <input name="visible" class="fast-checkbox" type="checkbox" {% if faucet.visible %}
+                               checked {% endif %}> Показывать
                     </label>
                 </div>
                 <div class="well well-sm well-moder">
                     <label>
-                        <input name="malfunction" class="fast-checkbox" type="checkbox" {% if faucet.malfunction %} checked {% endif %}> Сломан / не работает
+                        <input name="malfunction" class="fast-checkbox" type="checkbox" {% if faucet.malfunction %}
+                               checked {% endif %}> Сломан / не работает
                     </label>
                 </div>
                 <div class="well well-sm well-moder">
                     <label>
-                        <input name="now_pays" class="fast-checkbox" type="checkbox" {% if faucet.now_pays %} checked {% endif %}> Платит
+                        <input name="now_pays" class="fast-checkbox" type="checkbox" {% if faucet.now_pays %}
+                               checked {% endif %}> Платит
                     </label>
                 </div>
                 <div class="well well-sm well-moder">
                     <label>
-                        <input name="top" class="fast-checkbox" type="checkbox" {% if faucet.top %} checked {% endif %}> TOP
+                        <input name="top" class="fast-checkbox" type="checkbox" {% if faucet.top %} checked {% endif %}>
+                        TOP
                     </label>
                 </div>
                 <div class="well well-sm well-moder">
                     <label>
-                        <input name="best" class="fast-checkbox" type="checkbox" {% if faucet.best %} checked {% endif %}> BEST
+                        <input name="best" class="fast-checkbox" type="checkbox" {% if faucet.best %}
+                               checked {% endif %}> BEST
                     </label>
                 </div>
                 <div class="well well-sm well-moder">
                     <label>
-                        <input id="help_text" name="help_text" class="" type="text" value="{{ faucet.help_text }}" placeholder="Текст помощи...">
+                        <input id="help_text" name="help_text" class="" type="text" value="{{ faucet.help_text }}"
+                               placeholder="Текст помощи...">
                     </label>
                 </div>
                 <div class="well well-sm well-moder">
@@ -144,13 +158,13 @@
 {% block javascripts %}
     {% if is_moderator %}
         <script>
-            $(function(){
+            $(function () {
                 function beep() {
                     var snd = new Audio("data:audio/wav;base64,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qJrx4KOQjahZxWbcZgztj2c49nKmkId44S71j0c8eV9yDK6uPRzx5X18eDvjvQ6yKo9ZSS6l//8elePK/Lf//IInrOF/FvDoADYAGBMGb7FtErm5MXMlmPAJQVgWta7Zx2go+8xJ0UiCb8LHHdftWyLJE0QIAIsI+UbXu67dZMjmgDGCGl1H+vpF4NSDckSIkk7Vd+sxEhBQMRU8j/12UIRhzSaUdQ+rQU5kGeFxm+hb1oh6pWWmv3uvmReDl0UnvtapVaIzo1jZbf/pD6ElLqSX+rUmOQNpJFa/r+sa4e/pBlAABoAAAAA3CUgShLdGIxsY7AUABPRrgCABdDuQ5GC7DqPQCgbbJUAoRSUj+NIEig0YfyWUho1VBBBA//uQZB4ABZx5zfMakeAAAAmwAAAAF5F3P0w9GtAAACfAAAAAwLhMDmAYWMgVEG1U0FIGCBgXBXAtfMH10000EEEEEECUBYln03TTTdNBDZopopYvrTTdNa325mImNg3TTPV9q3pmY0xoO6bv3r00y+IDGid/9aaaZTGMuj9mpu9Mpio1dXrr5HERTZSmqU36A3CumzN/9Robv/Xx4v9ijkSRSNLQhAWumap82WRSBUqXStV/YcS+XVLnSS+WLDroqArFkMEsAS+eWmrUzrO0oEmE40RlMZ5+ODIkAyKAGUwZ3mVKmcamcJnMW26MRPgUw6j+LkhyHGVGYjSUUKNpuJUQoOIAyDvEyG8S5yfK6dhZc0Tx1KI/gviKL6qvvFs1+bWtaz58uUNnryq6kt5RzOCkPWlVqVX2a/EEBUdU1KrXLf40GoiiFXK///qpoiDXrOgqDR38JB0bw7SoL+ZB9o1RCkQjQ2CBYZKd/+VJxZRRZlqSkKiws0WFxUyCwsKiMy7hUVFhIaCrNQsKkTIsLivwKKigsj8XYlwt/WKi2N4d//uQRCSAAjURNIHpMZBGYiaQPSYyAAABLAAAAAAAACWAAAAApUF/Mg+0aohSIRobBAsMlO//Kk4soosy1JSFRYWaLC4qZBYWFRGZdwqKiwkNBVmoWFSJkWFxX4FFRQWR+LsS4W/rFRb/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////VEFHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAU291bmRib3kuZGUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMjAwNGh0dHA6Ly93d3cuc291bmRib3kuZGUAAAAAAAAAACU=");
                     snd.play();
                 }
 
-                $(".fast-checkbox").change(function(){
+                $(".fast-checkbox").change(function () {
                     var $this = $(this);
                     $.ajax({
                         url: "{% url 'hammer.moderation' %}",
@@ -160,7 +174,7 @@
                             value: $this.prop('checked')
                         },
                         dataType: 'json'
-                    }).success(function(data){
+                    }).success(function (data) {
                         console.log(data);
 
                         if (data.status != 'ok') {
@@ -171,7 +185,7 @@
                     });
                 });
 
-                $("#help_text").keyup(function (){
+                $("#help_text").keyup(function () {
                     var _this = this;
                     if (window.localities_xhr) {
                         window.localities_xhr.abort();
@@ -184,10 +198,10 @@
                             id: '{{ faucet.id }}',
                             text: $(_this).val()
                         }
-                    }).success(function(data){
+                    }).success(function (data) {
                         console.log(data);
                     });
-            });
+                });
             });
         </script>
     {% endif %}
