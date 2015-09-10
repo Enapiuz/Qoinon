@@ -1,3 +1,4 @@
+from random import randint
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from objects.models import Captcha, Faucet, Currency, FaucetCategory
@@ -11,8 +12,10 @@ def main(req):
     for faucet in faucets:
         setattr(faucet, 'ttl', round(faucet.get_cooldown(req.session.session_key) / 60))
     return render(req, 'front/main/index.html', {
+        'global_color_inverse': True,
         'global_centered': True,
-        'faucets': faucets
+        'faucets': faucets,
+        'background_id': 'components/images/foto%s.png' % randint(1, 6)
     })
 
 def faucets(req):

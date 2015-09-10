@@ -2,6 +2,9 @@
 .main-logo {
   width: 100%; }
 
+.main-page-header {
+  margin-bottom: 30px; }
+
 .hammer__faucet {
   border: 0;
   min-height: 100%;
@@ -59,6 +62,20 @@
 
 .faq-item .panel-heading {
   cursor: pointer; }
+
+.uni-inverse body {
+  background-color: #222222;
+  color: #eeeeee;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat; }
+
+.uni-inverse a {
+  color: #eeeeee; }
+
+.uni-inverse .btn-default {
+  border-color: #000000;
+  background-color: #181818; }
 
 @font-face {
   font-family: Futura;

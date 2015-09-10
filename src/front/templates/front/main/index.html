@@ -3,14 +3,14 @@
 {% load hosts %}
 
 {% block content %}
-    <div class="row">
+    <div class="row main-page-header">
         <div class="col-sm-12 text-center">
             <h1>The largest faucet rotator!</h1>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-12">
-            <table class="table table-hover">
+            <table class="table table-condensed">
                 {% for faucet in faucets %}
                     <tr class="faucets__faucet" data-currency="{{ faucet.currency.id }}"
                             data-captcha="{{ faucet.captcha.id }}"
