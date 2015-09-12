@@ -16,12 +16,12 @@
                             data-captcha="{{ faucet.captcha.id }}"
                             data-wallet="{{ faucet.category.id }}"
                             data-cooldown="{{ faucet.update_time }}">
-                        <td>
+                        <td class="faucets__faucet_about_cell">
                             <a href="{% url 'faucet_about' faucet.title_en %}">
                                 {{ faucet.title_en }}
                             </a>
                         </td>
-                        <td>
+                        <td class="faucets__likes_area">
                             <div class="btn-group">
                                 <div class="btn btn-sm">
                                     <span class="glyphicon glyphicon-thumbs-up like-faucet" data-faucet-id="{{ faucet.id }}"></span>

@@ -60,6 +60,15 @@
   background-color: #8c9190;
   color: #fff; }
 
+.faucets__faucet td {
+  vertical-align: middle !important; }
+
+.faucets__likes_area {
+  text-align: center; }
+
+.faucets__faucet_about_cell {
+  text-align: center; }
+
 .faq-item .panel-heading {
   cursor: pointer; }
 

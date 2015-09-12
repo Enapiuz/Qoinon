@@ -13,4 +13,16 @@
       color: $component-active-color;
     }
   }
+
+  &__faucet td {
+      vertical-align: middle !important;
+  }
+
+  &__likes_area {
+    text-align: center;
+  }
+
+  &__faucet_about_cell {
+    text-align: center;
+  }
 }
