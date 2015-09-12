@@ -5,8 +5,9 @@
  */
 
 // Core variables and mixins
-@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
-@import "bootstrap_variables";
+//@import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+//@import "bootstrap_variables";
+@import "bootswatch";
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
 // Reset and dependencies
