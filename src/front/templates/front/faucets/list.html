@@ -21,7 +21,8 @@
             <div class="col-sm-12">
                 <div class="btn-group btn-group-justified faucets__filter_container big-btns">
                     {% for currency in currencies %}
-                        <div class="btn btn-default faucets__filter_btn faucets__filter_btn_currency" data-currency="{{ currency.id }}">
+                        <div class="btn btn-default faucets__filter_btn faucets__filter_btn_currency {% if currency.title_short_en == 'BTC' %} faucets__filter_btn--active {% endif %}"
+                             data-currency="{{ currency.id }}">
                             {{ currency.title_full_en }}
                         </div>
                     {% endfor %}
@@ -87,7 +88,8 @@
                     <tr class="faucets__faucet" data-currency="{{ faucet.currency.id }}"
                             data-captcha="{{ faucet.captcha.id }}"
                             data-wallet="{{ faucet.category.id }}"
-                            data-cooldown="{{ faucet.update_time }}">
+                            data-cooldown="{{ faucet.update_time }}"
+                            style="{% if faucet.currency.title_short_en != 'BTC' %} display: none {% endif %}">
                         <td class="faucets__faucet_about_cell">
                             <a href="{% url 'faucet_about' faucet.title_en %}">
                                 {{ faucet.title_en }}
