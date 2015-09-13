@@ -15,6 +15,14 @@
     margin-top: 0;
     font-size: 28px;
   }
+
+  table {
+    td {
+      padding: 4px !important;
+      vertical-align: middle !important;
+      border-top: none;
+    }
+  }
 }
 
 .next-button {

@@ -17,6 +17,10 @@
   .hammer__menu h1 {
     margin-top: 0;
     font-size: 28px; }
+  .hammer__menu table td {
+    padding: 4px !important;
+    vertical-align: middle !important;
+    border-top: none; }
 
 .next-button {
   display: block;

@@ -68,16 +68,16 @@
 
                 <td class="text-right">
                     {% if faucet.help_text %}
-                        <div class="btn btn-default btn-info" data-toggle="modal" data-target="#help-modal">Help</div>
+                        <div class="btn btn-default btn-info btn-sm" data-toggle="modal" data-target="#help-modal">Help</div>
                     {% endif %}
 
                     <a id="hammer__faucetbox_balance" href="{{ faucetbox_link }}" target="_blank"
-                       class="btn btn-default {% if not faucetbox_link %}hide{% endif %}">
+                       class="btn btn-default btn-sm {% if not faucetbox_link %}hide{% endif %}">
                         Faucetbox balance
                     </a>
 
-                    <div id="hammer__past_btn" class="btn btn-default btn-success">Copy wallet address</div>
-                    <div id="hammer__edit_btn" class="btn btn-default">Edit</div>
+                    <div id="hammer__past_btn" class="btn btn-default btn-sm btn-success">Copy wallet address</div>
+                    <div id="hammer__edit_btn" class="btn btn-default btn-sm">Edit</div>
 
                     <input id="hammer__current_currency_helper" type="hidden" value="{{ faucet.currency.id }}">
                 </td>
@@ -100,6 +100,7 @@
                     sandbox="allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
         {% else %}
             <div class="text-center error-iframe">
+                <br /><br />
                 <p>This faucet doen't work in iframe.</p>
 
                 <p><a target="_blank" href="{{ faucet.real_href }}">Visit it here!</a></p>
