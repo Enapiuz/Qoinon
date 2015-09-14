@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "UniQoinsAzure", "UniQoinsAzure\UniQoinsAzure.ccproj", "{12E2C209-6616-478A-B4EB-09620098A048}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "WebRole1", "WebRole1\WebRole1.pyproj", "{E099D865-1A39-40BB-99D9-4C0EF869C761}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{12E2C209-6616-478A-B4EB-09620098A048}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12E2C209-6616-478A-B4EB-09620098A048}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12E2C209-6616-478A-B4EB-09620098A048}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12E2C209-6616-478A-B4EB-09620098A048}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E099D865-1A39-40BB-99D9-4C0EF869C761}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E099D865-1A39-40BB-99D9-4C0EF869C761}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E099D865-1A39-40BB-99D9-4C0EF869C761}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E099D865-1A39-40BB-99D9-4C0EF869C761}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
