@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 't9dky=*#tc%2d_0sj%1c9$qs%t^$nc*)prdlb4-1v$n6u5gvdc'
+SECRET_KEY = 't9dky=*#tc%djH@87*@!lkJ_-0)df@=+prdlb4-1v$n6u5gvdc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -91,17 +91,11 @@ WSGI_APPLICATION = 'UniQoins.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-POSTGRESQL_SETTINGS = {
-    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'uniqoins',
-    'USER': 'enapiuz',
-    'PASSWORD': '',
-    'HOST': '',
-    'PORT': ''
-}
-
 DATABASES = {
-    'default': POSTGRESQL_SETTINGS
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
+    }
 }
 
 
@@ -174,9 +168,3 @@ SESSION_COOKIE_DOMAIN = ".uniqoins.com"
 RECAPTCHA_PUBLIC_KEY = "6Lf2YAwTAAAAAPPDfrRNNhG6foLD5ilXdNhW3uqN"
 RECAPTCHA_PRIVATE_KEY = "6Lf2YAwTAAAAAGw-EIHDgcwZdSO-PkrYCirj0YnH"  # TODO: не делать так
 NOCAPTCHA = True
-
-# Перезапись существующего конфига
-try:
-    from site_config import *
-except:
-    pass

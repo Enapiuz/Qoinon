@@ -64,7 +64,7 @@ src/site_config.py
 /media/*
 !/media/.gitkeep
 db.sqlite3
-src/components/node_modules
-src/components/bower_components/*
-!src/components/bower_components/.gitkeep
+components/node_modules
+components/bower_components/*
+!components/bower_components/.gitkeep
 /faucets.csv
