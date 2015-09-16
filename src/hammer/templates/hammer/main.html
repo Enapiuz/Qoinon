@@ -10,7 +10,7 @@
             margin-bottom: 0;
         }
     </style>
-    <div class="row hammer__menu" style="margin-bottom: 0">
+    <div id="hammer__menu" class="row hammer__menu" style="margin-bottom: 0">
         <table class="table" style="width: 100%; margin-bottom: 0">
             <tr>
                 <td>
@@ -93,7 +93,7 @@
         </div>
     </div>
 
-    <div class="row hammer fullheight">
+    <div class="row hammer">
         <a href="{{ next_link }}" class="next-button"> </a>
         {% if faucet.iframe_ready %}
             <iframe class="hammer__faucet fullheight" src="{{ faucet.real_href }}"

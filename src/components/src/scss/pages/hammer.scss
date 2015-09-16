@@ -1,11 +1,21 @@
 @import "../vendor/bootstrap_variables";
 
+.hammer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 92px;
+  width: 100%;
+  margin: 0 !important;
+}
+
 .hammer__faucet {
   border: 0;
   min-height: 100%;
   width: 100%;
   position: absolute;
-  padding-bottom: 153px;
+  //padding-bottom: 153px;
 }
 
 .hammer__menu {

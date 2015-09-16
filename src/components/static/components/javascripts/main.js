@@ -26915,6 +26915,19 @@ module.exports = function () {
             $faucetboxBtn.removeClass('hide');
         }
     });
+
+    $(function () {
+        var hammerMenu = $("#hammer__menu");
+        var mainMenu = $("#main_menu");
+        var hammer = $(".hammer");
+
+        $(window).resize(function () {
+            if (hammerMenu.length == 1 && mainMenu.length == 1 && hammer.length > 0) {
+                hammer.css('top', hammerMenu.height() + mainMenu.height() + 'px');
+            }
+        });
+        $(window).resize();
+    });
 };
 
 },{"ZeroClipboard":2,"jquery":5,"jquery.cookie":4}]},{},[1]);
