@@ -183,3 +183,6 @@ def _make_labels(faucet):
 
 
     return labels
+
+def robots_txt(req):
+    return render(req, 'front/main/hammer_robots.html', content_type='text/plain')

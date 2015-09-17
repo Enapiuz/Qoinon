@@ -102,3 +102,6 @@ def like_faucet(req):
         'success': result,
         'likes': likes
     })
+
+def robots_txt(req):
+    return render(req, 'front/main/main_robots.html', content_type='text/plain')
