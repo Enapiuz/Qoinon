@@ -134,7 +134,7 @@
                                     class="btn btn-default btn-sm faucets__btn_go"
                                     href="{% host_url 'hammer' host 'hammer_host' scheme 'http' %}?start={{ faucet.title_en|urlencode }}"
                                     data-href="{% host_url 'hammer' host 'hammer_host' scheme 'http' %}?start={{ faucet.title_en|urlencode }}">
-                                GO! ({{ faucet.ttl }})
+                                GO! {% if faucet.ttl > 0 %} ({{ faucet.ttl }} min.) {% endif %}
                             </a>
                         </td>
                     </tr>
