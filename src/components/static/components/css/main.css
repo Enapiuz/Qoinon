@@ -133,4 +133,10 @@ body {
   border-right: none;
   border-radius: 0; }
 
+.footer {
+  margin-top: 150px;
+  color: white; }
+  .footer * {
+    color: white !important; }
+
 /*# sourceMappingURL=main.css.map */
