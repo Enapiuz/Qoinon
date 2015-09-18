@@ -15,7 +15,7 @@ def main(req):
         'global_color_inverse': True,
         'global_centered': True,
         'faucets': faucets,
-        'background_id': 'components/images/foto%s.png' % randint(1, 6)
+        'background_id': 'components/images/foto%s.png' % randint(1, 4)
     })
 
 def faucets(req):
