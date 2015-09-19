@@ -8,7 +8,7 @@ from .forms import ContactsForm
 
 def main(req):
     btc = Currency.objects.filter(title_short_en='BTC').first()
-    faucets = Faucet.objects.filter(currency__id=btc.id).order_by('-reward_mid')[:10]
+    faucets = Faucet.objects.exclude(visible=False).filter(currency__id=btc.id).order_by('-reward_mid')[:10]
     for faucet in faucets:
         setattr(faucet, 'ttl', round(faucet.get_cooldown(req.session.session_key) / 60))
     return render(req, 'front/main/index.html', {
@@ -23,7 +23,7 @@ def faucets(req):
 
     # faucets = cache.get('all_faucets_cache')
     # if faucets is None:
-    faucets = Faucet.objects.order_by('-reward_mid')
+    faucets = Faucet.objects.exclude(visible=False).order_by('-reward_mid')
         # cache.set('all_faucets_cache', faucets, 120)
     currencies = Currency.objects.all()
     categories = FaucetCategory.objects.all()

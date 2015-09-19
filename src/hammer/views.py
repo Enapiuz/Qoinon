@@ -20,7 +20,7 @@ def main(req):
     wallet = req.GET.get('cat')
     ut_min = req.GET.get('tmin')
     ut_max = req.GET.get('tmax')
-    query = Faucet.objects.order_by('-reward_mid')
+    query = Faucet.objects.exclude(visible=False).order_by('-reward_mid')
 
     if currency is not None:
         query = query.filter(currency__id=currency) 
