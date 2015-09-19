@@ -104,20 +104,22 @@
 
         </div>
 
-        <div class="container footer">
-            <div class="row">
-                <div class="col-sm-12 col-md-6">
-                    <a href="{% host_url 'main' host 'main_host' %}">Main page</a> |
-                    <a href="{% host_url 'faucets' host 'main_host' %}">Faucets</a> |
-                    <a href="{% host_url 'faq' host 'main_host' %}">FAQ</a> |
-                    <a href="{% host_url 'contacts' host 'main_host' %}">Contacts</a>
-                </div>
+        {% if request.resolver_match.url_name != 'hammer' %}
+            <div class="container footer">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <a href="{% host_url 'main' host 'main_host' %}">Main page</a> |
+                        <a href="{% host_url 'faucets' host 'main_host' %}">Faucets</a> |
+                        <a href="{% host_url 'faq' host 'main_host' %}">FAQ</a> |
+                        <a href="{% host_url 'contacts' host 'main_host' %}">Contacts</a>
+                    </div>
 
-                <div class="col-sm-12 col-md-6 text-right">
-                    Copyright {% now "Y" %} UniQoins.com
+                    <div class="col-sm-12 col-md-6 text-right">
+                        Copyright {% now "Y" %} UniQoins.com
+                    </div>
                 </div>
             </div>
-        </div>
+        {% endif %}
 
         <script type="text/javascript" src="{% static 'components/javascripts/main.js' %}"></script>
 {#        <script type="text/javascript" src="{% static 'components/javascripts/ZeroClipboard.js' %}"></script>#}
