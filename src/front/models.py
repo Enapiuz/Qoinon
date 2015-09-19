@@ -12,6 +12,7 @@ class FaqItem(models.Model):
     answer = models.TextField(blank=True)
     visible = models.BooleanField(default=True)
     category = models.ForeignKey(FaqCategory, default=None, null=True)
+    position = models.IntegerField(default=0)
 
     def __str__(self):
         if self.category is not None:

@@ -48,7 +48,7 @@ def faucet_about(req, faucet_title_en):
     })
 
 def faq(req):
-    faqs = FaqItem.objects.filter(visible=True).exclude(category__isnull=True)
+    faqs = FaqItem.objects.filter(visible=True).exclude(category__isnull=True).order_by('position')
     categories = FaqCategory.objects.all()
 
     return render(req, 'front/faq/index.html', {
