@@ -135,6 +135,7 @@ body {
 
 .footer {
   margin-top: 150px;
+  margin-bottom: 50px;
   color: white; }
   .footer * {
     color: white !important; }
