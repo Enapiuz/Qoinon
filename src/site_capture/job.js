@@ -20,4 +20,5 @@ if (phantom.args.length === 0) {
             }, 200);
         }
     });
+
 }
