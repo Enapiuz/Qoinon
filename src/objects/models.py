@@ -10,6 +10,7 @@ class Currency(models.Model):
     title_full_en = models.CharField(max_length=300)
     title_short_ru = models.CharField(max_length=50)
     title_full_ru = models.CharField(max_length=300)
+    display = models.BooleanField(default=True)
 
     def __str__(self):
         return "{0}, {1}".format(self.title_full_en, self.title_short_en)
