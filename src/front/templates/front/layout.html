@@ -5,6 +5,9 @@
 <html {% if global_color_inverse %} class="uni-inverse" {% endif %} >
     <head>
         <title>UniQoins.com</title>
+
+        <meta name="description" content="{% block meta_description %}Международный проект о криптовалютах - uniqoins.com. Огромный каталог кранов криптовалюты: Bitcoin (BTC), Litecoin(LTC), Dashcoin (DASH), Dogecoin (XDG) и др. ­ самая актуальная информация, последние новости, аналитика рынка биткоин. Самые доходные satoshi-краны в одном месте - возможность заработка в интернете более 500 000 satoshi в день{% endblock %}" />
+        <meta name="keywords" content="{% block meta_keywords %}Биткоин, заработок в интернете, сатоши бесплатно, Bitcoin, BTC, Litecoin, LTC, Dashcoin, DASH, Dogecoin, XDG, курс биткоин, обмен биткоин, Догекоин, Лайткоин, Дашкоин{% endblock %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'components/css/vendor.css' %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'components/css/main.css' %}" />
 {#        <link href='https://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic' rel='stylesheet' type='text/css'>#}
@@ -42,37 +45,6 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-
-
-    {#        <div class="container-fluid">#}
-{#            <div class="row">#}
-{##}
-{#                <div class="col-sm-2">#}
-{#                    <a href="{% host_url 'main' host 'main_host' %}">#}
-{#                        <img class="main-logo" src="{% static 'components/images/logo.png' %}" />#}
-{#                    </a>#}
-{#                </div>#}
-{##}
-{#                <div class="col-sm-9">#}
-{#                    <ul class="nav nav-pills">#}
-{#                      <li role="presentation"><a href="{% host_url 'faucets' host 'main_host' %}">Faucets</a></li>#}
-{#                      <li role="presentation"><a href="#">Analytics</a></li>#}
-{#                      <li role="presentation"><a href="#">Mining</a></li>#}
-{#                      <li role="presentation"><a href="#">Wallets</a></li>#}
-{#                      <li role="presentation"><a href="#">FAQ</a></li>#}
-{#                      <li role="presentation"><a href="#">Contact</a></li>#}
-{#                      <li role="presentation"><a href="#">Blog</a></li>#}
-{#                    </ul>#}
-{#                </div>#}
-{##}
-{#                <div class="col-sm-1">#}
-{#                    <div class="btn btn-lg pull-right">#}
-{#                        <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>#}
-{#                    </div>#}
-{#                </div>#}
-{##}
-{#            </div>#}
-{#        </div>#}
 
         <div class="fullheight {% if global_centered %} container {% else %} container-fluid {% endif %}">
 
