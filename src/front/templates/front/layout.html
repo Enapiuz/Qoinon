@@ -1,5 +1,6 @@
 {% load staticfiles %}
 {% load hosts %}
+{% load crypto_currency %}
 <!DOCTYPE html>
 <html {% if global_color_inverse %} class="uni-inverse" {% endif %} >
     <head>
@@ -26,19 +27,16 @@
                 </a>
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="{% if request.resolver_match.url_name == 'faucets' %}active{% endif %}"><a href="{% host_url 'faucets' host 'main_host' %}">Faucets</a></li>
                     <li class="{% if request.resolver_match.url_name == 'faq' %}active{% endif %}"><a href="{% host_url 'faq' host 'main_host' %}">FAQ</a></li>
                     <li class="{% if request.resolver_match.url_name == 'contacts' %}active{% endif %}"><a href="{% host_url 'contacts' host 'main_host' %}">Contact</a></li>
-{#                    <li class="{% if request.resolver_match.url_name == 'blog' %}active{% endif %}"><a href="#">Blog</a></li>#}
                 </ul>
 
-{#                <ul class="nav navbar-nav navbar-right">#}
-{#                    <li><a href="#">BTC: 100500$</a> </li>#}
-{#                    <li><a href="#">LTC: 1500$</a> </li>#}
-{#                </ul>#}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" onclick="return false;">BTC: {% btc_currency %}$</a> </li>
+                </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
