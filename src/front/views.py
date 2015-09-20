@@ -25,7 +25,7 @@ def faucets(req):
     # if faucets is None:
     faucets = Faucet.objects.exclude(visible=False).order_by('-reward_mid')
         # cache.set('all_faucets_cache', faucets, 120)
-    currencies = Currency.objects.all()
+    currencies = Currency.objects.order_by('id')
     categories = FaucetCategory.objects.all()
 
     for faucet in faucets:
