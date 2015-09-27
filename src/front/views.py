@@ -1,3 +1,5 @@
+import os.path
+from django.conf import settings
 from random import randint
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
@@ -41,6 +43,9 @@ def faucets(req):
 
 def faucet_about(req, faucet_title_en):
     faucet = Faucet.objects.get(title_en=faucet_title_en)
+
+    if not os.path.isfile(settings.MEDIA_ROOT + faucet.image.path):
+        faucet.image.name ='#'
 
     return render(req, 'front/faucets/about.html', {
         'global_centered': True,
