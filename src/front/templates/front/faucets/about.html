@@ -13,7 +13,11 @@
     </div>
     <div class="row">
         <div class="col-sm-4 text-center">
-            <img width="100%" src="{{ faucet.image.url }}">
+            {% if faucet.image.url == '#' %}
+                <img width="100%" src="/static/components/images/noimage.png">
+            {% else %}
+                <img width="100%" src="{{ faucet.image.url }}">
+            {% endif %}
             <br />
             <span class="glyphicon glyphicon-thumbs-up"></span> {{ faucet.likes }} &nbsp;
             <span class="glyphicon glyphicon-thumbs-down"></span> {{ faucet.dislikes }}
