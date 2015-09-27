@@ -43,8 +43,10 @@
   z-index: 5;
   color: white;
   background-image: url(/static/components/images/rarrow.png);
-  background-repeat: repeat-y;
-  background-size: contain; }
+  background-size: 100% 100%;
+  background-repeat: no-repeat; }
+  .next-button:hover {
+    background-image: url(/static/components/images/rarrowh.png); }
 
 .error-iframe {
   font-size: 36px; }
