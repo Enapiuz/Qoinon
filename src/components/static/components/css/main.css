@@ -82,6 +82,9 @@
 .faucets__faucet_about_cell {
   text-align: center; }
 
+#disqus_thread {
+  margin-top: 50px; }
+
 .faq-item .panel-heading {
   cursor: pointer; }
 
