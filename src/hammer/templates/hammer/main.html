@@ -16,7 +16,7 @@
         <table class="table" style="width: 100%; margin-bottom: 0">
             <tr>
                 <td>
-                    <b>{{ faucet.title_en }}</b>
+                    <a href="{% url 'faucet_about' faucet.title_en %}"><b>{{ faucet.title_en }}</b></a>
 
                     <div style="display: inline-block;">
                         <div class="btn btn-sm">
