@@ -1,4 +1,5 @@
 {% extends 'front/layout.html' %}
+{% load hosts %}
 
 {% block top_title %}Hammer page - Hammer | {{ faucet.title_en }} | {% endblock %}
 
@@ -16,7 +17,7 @@
         <table class="table" style="width: 100%; margin-bottom: 0">
             <tr>
                 <td>
-                    <a href="{% url 'faucet_about' faucet.title_en %}"><b>{{ faucet.title_en }}</b></a>
+                    <a href="https://uniqoins.com/{{ faucet.title_en }}"><b>{{ faucet.title_en }}</b></a>
 
                     <div style="display: inline-block;">
                         <div class="btn btn-sm">
