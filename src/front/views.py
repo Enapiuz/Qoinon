@@ -1,7 +1,7 @@
 import os.path
 from django.conf import settings
 from random import randint
-from django.http import JsonResponse
+from django.http import JsonResponse, Http404
 from django.shortcuts import render, redirect
 from objects.models import Captcha, Faucet, Currency, FaucetCategory
 from .models import FaqItem, FaqCategory, ContactForm
@@ -42,7 +42,10 @@ def faucets(req):
     })
 
 def faucet_about(req, faucet_title_en):
-    faucet = Faucet.objects.get(title_en=faucet_title_en)
+    try:
+        faucet = Faucet.objects.get(title_en=faucet_title_en)
+    except Exception:
+        raise Http404("Faucet does not exist")
 
     if not os.path.isfile(settings.MEDIA_ROOT + faucet.image.path):
         faucet.image.name ='#'
