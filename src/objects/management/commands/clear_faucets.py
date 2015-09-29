@@ -11,7 +11,7 @@ class Command(BaseCommand):
         for faucet in faucets:
             error = False
             try:
-                r = requests.get(faucet.href, timeout=5)
+                r = requests.get(faucet.href, timeout=20)
                 if r.status_code != requests.codes.ok:
                     error = True
             except Exception:
@@ -22,6 +22,8 @@ class Command(BaseCommand):
                 faucet.visible = False
                 faucet.save()
             else:
+                faucet.visible = True
+                faucet.save()
                 self.stdout.write('ok - ' + faucet.href)
 
         self.stdout.write('Everything done!')
