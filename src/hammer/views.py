@@ -88,7 +88,7 @@ def main(req):
         next_link = next_link + '&tmax=' + ut_max
     
     # турбо-костыль, починить admin namespace
-    admin_edit_link = "https://uniqoins.com/admin/objects/faucet/{0}/".format(faucet.id)
+    admin_edit_link = "https://qoinon.com/admin/objects/faucet/{0}/".format(faucet.id)
 
     if faucet.currency.title_short_en == "BTC":
         cookie_faucet = req.COOKIES.get('address' + str(faucet.currency.id))
