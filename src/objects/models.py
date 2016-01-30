@@ -166,3 +166,14 @@ class OurWallet(models.Model):
 
     def __str__(self):
         return "{0} - {1}".format(self.address, str(self.currency))
+
+
+class FaucetHistory(models.Model):
+    faucet = models.ForeignKey(Faucet, null=False)
+    action_type = models.IntegerField(null=False, blank=False)
+    action_text_ru = models.TextField(blank=False, null=False)
+    action_text_en = models.TextField(blank=False, null=False)
+    date = models.DateTimeField(default=timezone.now, blank=False, null=False)
+
+    def __str__(self):
+        return "{0} action at {1}".format(self.faucet.title_en, self.date)

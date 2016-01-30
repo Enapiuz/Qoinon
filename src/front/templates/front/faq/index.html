@@ -22,7 +22,7 @@
                             {% if faq.category.id == category.id %}
                                 <div class="panel panel-default faq-item">
                                     <div class="panel-heading">{{ faq.question|safe }}</div>
-                                    <div class="panel-body" style="display: none">
+                                    <div class="panel-body" style="">
                                         {{ faq.answer|safe }}
                                     </div>
                                 </div>

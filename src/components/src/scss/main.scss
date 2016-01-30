@@ -4,10 +4,10 @@
 @import "pages/faq";
 @import "inverse";
 
-@font-face {
-    font-family: Futura; /* Имя шрифта */
-    src: url(/static/components/fonts/Futura.ttf); /* Путь к файлу со шрифтом */
-}
+//@font-face {
+//    font-family: Futura; /* Имя шрифта */
+//    src: url(/static/components/fonts/Futura.ttf); /* Путь к файлу со шрифтом */
+//}
 
 html {
   height: 100%;
@@ -15,7 +15,7 @@ html {
 
 body {
   min-height: 100%;
-  font-family: 'Artifika', serif !important;
+  font-family: 'Verdana', serif !important;
   //padding-top: 1%;
 }
 
@@ -42,7 +42,7 @@ body {
 }
 
 .futura-font, h1 {
-  font-family: Futura;
+  font-family: 'Arial Black', serif;
   font-weight: 500;
 }
 
