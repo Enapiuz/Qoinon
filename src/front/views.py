@@ -9,16 +9,21 @@ from .forms import ContactsForm
 
 
 def main(req):
-    btc = Currency.objects.filter(title_short_en='BTC').first()
-    faucets = Faucet.objects.exclude(visible=False).filter(currency__id=btc.id).order_by('-reward_mid')[:10]
-    for faucet in faucets:
-        setattr(faucet, 'ttl', round(faucet.get_cooldown(req.session.session_key) / 60))
+    try:
+        btc = Currency.objects.filter(title_short_en='BTC').first()
+        faucets = Faucet.objects.exclude(visible=False).filter(currency__id=btc.id).order_by('-reward_mid')[:10]
+        for faucet in faucets:
+            setattr(faucet, 'ttl', round(faucet.get_cooldown(req.session.session_key) / 60))
+    except Exception:
+        faucets = []
+
     return render(req, 'front/main/index.html', {
         'global_color_inverse': True,
         'global_centered': True,
         'faucets': faucets,
         'background_id': 'components/images/foto%s.png' % randint(1, 4)
     })
+
 
 def faucets(req):
     captchas = Captcha.objects.all()
@@ -41,6 +46,7 @@ def faucets(req):
         'categories': categories
     })
 
+
 def faucet_about(req, faucet_title_en):
     try:
         faucet = Faucet.objects.get(title_en=faucet_title_en)
@@ -55,6 +61,7 @@ def faucet_about(req, faucet_title_en):
         'faucet': faucet
     })
 
+
 def faq(req):
     faqs = FaqItem.objects.filter(visible=True).exclude(category__isnull=True).order_by('position')
     categories = FaqCategory.objects.all()
@@ -64,6 +71,7 @@ def faq(req):
         'faqs': faqs,
         'categories': categories
     })
+
 
 def contacts(req):
     if req.method == 'POST':
@@ -86,6 +94,7 @@ def contacts(req):
         'form': form
     })
 
+
 def like_faucet(req):
     like_type = req.GET.get('type')
     faucet_id = req.GET.get('faucet_id')
@@ -105,11 +114,11 @@ def like_faucet(req):
         result = 0
         likes = 0
 
-
     return JsonResponse({
         'success': result,
         'likes': likes
     })
+
 
 def robots_txt(req):
     return render(req, 'front/main/main_robots.html', content_type='text/plain')
