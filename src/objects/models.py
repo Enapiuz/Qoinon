@@ -16,6 +16,7 @@ class Currency(models.Model):
     def __str__(self):
         return "{0}, {1}".format(self.title_full_en, self.title_short_en)
 
+
 class Captcha(models.Model):
     title_en = models.CharField(max_length=300)
     title_ru = models.CharField(max_length=300)
@@ -30,12 +31,14 @@ class MetaKeyword(models.Model):
     def __str__(self):
         return self.text_en
 
+
 class FaucetCategory(models.Model):
     title_en = models.CharField(max_length=300)
     title_ru = models.CharField(max_length=300)
 
     def __str__(self):
         return self.title_en
+
 
 class Faucet(models.Model):
     href = models.CharField(max_length=1024)
@@ -133,12 +136,14 @@ class Faucet(models.Model):
     def get_cooldown(self, prefix):
         return cache.ttl(str(prefix) + '.faucets.' + str(self.id))
 
+
 class WalletCategory(models.Model):
     title_ru = models.CharField(max_length=300)
     title_en = models.CharField(max_length=300)
 
     def __str__(self):
         return self.title_en
+
 
 class Wallet(models.Model):
     title_ru = models.CharField(max_length=300)
@@ -149,6 +154,7 @@ class Wallet(models.Model):
 
     def __str__(self):
         return self.title_eng
+
 
 class OurWallet(models.Model):
     """
