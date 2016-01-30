@@ -1,6 +1,6 @@
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
-from .models import Faucet, FaucetHistory
+from objects.models import Faucet, FaucetHistory
 from django.utils import timezone
 
 
@@ -11,4 +11,10 @@ def faucet_history_handler(sender, **kwargs):
     # и сформировать описание
     # записать изменения
     # и удалить всю историю кроме последних 100 записей
-    pass
+
+    obj = kwargs['instance']
+    if obj.is_dirty:
+        fields = obj.get_dirty_fields()
+        if len(fields) > 0:
+            if 'visible' in fields:
+                pass

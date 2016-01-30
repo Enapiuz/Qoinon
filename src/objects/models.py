@@ -3,6 +3,7 @@ from django.core.validators import MinValueValidator
 from django.utils import timezone
 from django.core.cache import cache
 import random
+from dirtyfields import DirtyFieldsMixin
 
 
 class Currency(models.Model):
@@ -40,7 +41,7 @@ class FaucetCategory(models.Model):
         return self.title_en
 
 
-class Faucet(models.Model):
+class Faucet(DirtyFieldsMixin, models.Model):
     href = models.CharField(max_length=1024)
     title_en = models.CharField(max_length=300, unique=True)
     title_ru = models.CharField(max_length=300, blank=True)
@@ -177,3 +178,7 @@ class FaucetHistory(models.Model):
 
     def __str__(self):
         return "{0} action at {1}".format(self.faucet.title_en, self.date)
+
+
+# попахивает тухлятинкой
+import objects.signals
