@@ -202,7 +202,7 @@ def faucet_history_handler(sender, **kwargs):
     }
 
     obj = kwargs['instance']
-    if obj.is_dirty:
+    if obj.is_dirty():
         fields = obj.get_dirty_fields()
         if len(fields) > 0:
             if 'visible' in fields:
