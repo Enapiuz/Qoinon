@@ -25,6 +25,7 @@ class Captcha(models.Model):
     def __str__(self):
         return self.title_en
 
+
 class MetaKeyword(models.Model):
     text_en = models.CharField(max_length=300)
     text_ru = models.CharField(max_length=300)
@@ -45,7 +46,9 @@ class Faucet(DirtyFieldsMixin, models.Model):
     href = models.CharField(max_length=1024)
     title_en = models.CharField(max_length=300, unique=True)
     title_ru = models.CharField(max_length=300, blank=True)
-    append_wallet = models.BooleanField(default=True, help_text="Автоматически подставлять в конец ссылки наш подходящий адрес кошелька")
+    append_wallet = models.BooleanField(
+            default=True,
+            help_text="Автоматически подставлять в конец ссылки наш подходящий адрес кошелька")
     update_time = models.IntegerField(help_text="Cooldown в минутах")
     visible = models.BooleanField(default=True)
     currency = models.ForeignKey(Currency, default=1)
@@ -66,30 +69,30 @@ class Faucet(DirtyFieldsMixin, models.Model):
     views = models.IntegerField(default=0)
 
     reward_min = models.IntegerField(
-        blank=True,
-        null=True,
-        # validators=[
-        #     MinValueValidator(0)
-        # ]
+            blank=True,
+            null=True,
+            # validators=[
+            #     MinValueValidator(0)
+            # ]
     )
     reward_max = models.IntegerField(
-        blank=True,
-        null=True,
-        # validators=[
-        #     MinValueValidator(0)
-        # ]
+            blank=True,
+            null=True,
+            # validators=[
+            #     MinValueValidator(0)
+            # ]
     )
     reward_mid = models.IntegerField(
-        validators=[
-            MinValueValidator(0)
-        ]
+            validators=[
+                MinValueValidator(0)
+            ]
     )
     minimum_withdraw = models.IntegerField(
-        blank=True,
-        null=True,
-        # validators=[
-        #     MinValueValidator(0)
-        # ]
+            blank=True,
+            null=True,
+            # validators=[
+            #     MinValueValidator(0)
+            # ]
     )
 
     referral_percent = models.IntegerField(default=0, help_text="Сколько нам % с реферральной программы")
@@ -98,7 +101,7 @@ class Faucet(DirtyFieldsMixin, models.Model):
     meta_description = models.TextField(blank=True)
     meta_keywords = models.ManyToManyField(MetaKeyword)
 
-    create_date = models.DateTimeField(default=timezone.now(), blank=True)
+    create_date = models.DateTimeField(default=timezone.now, blank=True)
 
     def __str__(self):
         return self.title_en
@@ -108,6 +111,7 @@ class Faucet(DirtyFieldsMixin, models.Model):
 
     def display_image(self):
         return "<img height='150' src='%s' />" % self.image.url
+
     display_image.allow_tags = True
 
     def real_href(self):
