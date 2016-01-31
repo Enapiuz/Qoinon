@@ -206,7 +206,7 @@ def faucet_history_handler(sender, **kwargs):
         fields = obj.get_dirty_fields()
         if len(fields) > 0:
             if 'visible' in fields:
-                if fields['visible'] is True:
+                if getattr(obj, 'visible') is True:
                     FaucetHistory.objects.create(
                             faucet=obj,
                             action_type=history_states['updated'],
