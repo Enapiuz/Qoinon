@@ -205,11 +205,11 @@ def faucet_history_handler(sender, **kwargs):
 
     if kwargs['created'] is True:
         FaucetHistory.objects.create(
-                            faucet=obj,
-                            action_type=history_states['added'],
-                            action_text_ru='Новый',
-                            action_text_en='New'
-                    )
+                faucet=obj,
+                action_type=history_states['added'],
+                action_text_ru='Новый',
+                action_text_en='New'
+        )
     elif obj.is_dirty():
         fields = obj.get_dirty_fields()
         if len(fields) > 0:
