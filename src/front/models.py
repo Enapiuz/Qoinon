@@ -7,6 +7,7 @@ class FaqCategory(models.Model):
     def __str__(self):
         return self.title_en
 
+
 class FaqItem(models.Model):
     question = models.CharField(max_length=500)
     answer = models.TextField(blank=True)
@@ -20,6 +21,7 @@ class FaqItem(models.Model):
         else:
             cat = ''
         return cat + self.question
+
 
 class ContactForm(models.Model):
     name = models.CharField(max_length=100)

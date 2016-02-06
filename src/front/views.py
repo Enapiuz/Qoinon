@@ -6,21 +6,18 @@ from django.shortcuts import render, redirect
 from objects.models import Captcha, Faucet, Currency, FaucetCategory
 from .models import FaqItem, FaqCategory, ContactForm
 from .forms import ContactsForm
+from .logic import get_main_faucets, get_life_widget
 
 
 def main(req):
-    try:
-        btc = Currency.objects.filter(title_short_en='BTC').first()
-        faucets = Faucet.objects.exclude(visible=False).filter(currency__id=btc.id).order_by('-reward_mid')[:10]
-        for faucet in faucets:
-            setattr(faucet, 'ttl', round(faucet.get_cooldown(req.session.session_key) / 60))
-    except Exception:
-        faucets = []
+    main_faucets = get_main_faucets(req.session.session_key)
+    life_widget = get_life_widget()
 
     return render(req, 'front/main/index.html', {
         'global_color_inverse': True,
         'global_centered': True,
-        'faucets': faucets,
+        'faucets': main_faucets,
+        'life_widget': life_widget,
         'background_id': 'components/images/foto%s.png' % randint(1, 4)
     })
 
