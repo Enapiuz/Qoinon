@@ -25,32 +25,13 @@
                                 {{ faucet.title_en }}
                             </a>
                         </td>
-                        <td class="faucets__likes_area">
-                            <div class="btn-group">
-                                <div class="btn btn-sm">
-                                    <span class="glyphicon glyphicon-thumbs-up like-faucet" data-faucet-id="{{ faucet.id }}"></span>
-                                </div>
-                                <div class="btn btn-sm disabled faucet-rating" id="faucet-rating-{{ faucet.id }}">
-                                    {{ faucet.get_rating }}
-                                </div>
-                                <div class="btn btn-sm">
-                                    <span class="glyphicon glyphicon-thumbs-down dislike-faucet" data-faucet-id="{{ faucet.id }}"></span>
-                                </div>
-                            </div>
-                        </td>
                         <td>
-                            <b>~</b> {{ faucet.reward_mid }}
-                            {% if faucet.reward_min %}
-                                <span class="glyphicon glyphicon-triangle-bottom"></span> {{ faucet.reward_min }}
-                            {% endif %}
-                            {% if faucet.reward_max %}
-                                <span class="glyphicon glyphicon-triangle-top"></span> {{ faucet.reward_max }}
-                            {% endif %}
+                            <b>~</b>&nbsp;{{ faucet.reward_mid }}
                         </td>
                         <td>
                             <div class="label label-warning">wait {{ faucet.update_time }} min.</div>
                             <div class="label label-info">{{ faucet.captcha.title_en }}</div>
-                            <div class="label label-info">{{ faucet.category.title_en }}</div>
+                            <div class="label label-primary">{{ faucet.category.title_en }}</div>
                         </td>
                         <td width="1%">
                             <a href="{% url 'faucet_about' faucet.title_en %}" class="pull-right btn btn-default btn-sm">About</a>
@@ -58,8 +39,8 @@
                         <td width="1%">
                             <a
                                     class="btn btn-default btn-sm faucets__btn_go"
-                                    href="{% host_url 'hammer' host 'hammer_host' scheme 'http' %}?start={{ faucet.title_en|urlencode }}"
-                                    data-href="{% host_url 'hammer' host 'hammer_host' scheme 'http' %}?start={{ faucet.title_en|urlencode }}">
+                                    href="{{ faucet.get_absolute_url }}"
+                                    data-href="{{ faucet.get_absolute_url }}">
                                 GO! {% if faucet.ttl > 0 %} ({{ faucet.ttl }} min.) {% endif %}
                             </a>
                         </td>

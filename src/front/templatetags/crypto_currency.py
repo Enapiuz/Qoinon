@@ -3,6 +3,7 @@ from objects.models import Currency
 
 register = template.Library()
 
+
 @register.simple_tag
 def btc_currency():
     try:

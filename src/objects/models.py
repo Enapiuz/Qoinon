@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 from django.utils import timezone
+from django.utils.http import urlencode
 from django.core.cache import cache
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -142,6 +143,9 @@ class Faucet(DirtyFieldsMixin, models.Model):
 
     def get_cooldown(self, prefix):
         return cache.ttl(str(prefix) + '.faucets.' + str(self.id))
+
+    def get_absolute_url(self):
+        return '/hammer?start=' + urlencode(self.title_en)
 
 
 class WalletCategory(models.Model):
