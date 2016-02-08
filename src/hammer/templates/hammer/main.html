@@ -18,19 +18,6 @@
             <tr>
                 <td>
                     <a href="https://qoinon.com/{{ faucet.title_en }}"><b>{{ faucet.title_en }}</b></a>
-
-                    <div style="display: inline-block;">
-                        <div class="btn btn-sm">
-                            <span class="glyphicon glyphicon-thumbs-up like-faucet"
-                                  data-faucet-id="{{ faucet.id }}"></span>
-                        </div>
-                        <span id="faucet-rating-{{ faucet.id }}">{{ faucet.get_rating }}</span>
-
-                        <div class="btn btn-sm">
-                                            <span class="glyphicon glyphicon-thumbs-down dislike-faucet"
-                                                  data-faucet-id="{{ faucet.id }}"></span>
-                        </div>
-                    </div>
                 </td>
 
                 <td>
@@ -51,22 +38,13 @@
 
                 <td>
                     Reward:
-                    <div style="display: inline-block" title="Average"><b>~</b>&nbsp;{{ faucet.reward_mid }}</div>
-                    {% if faucet.reward_min %}
-                        <div style="display: inline-block" title="Minimum">
-                            <span class="glyphicon glyphicon-triangle-bottom"></span>&nbsp;{{ faucet.reward_min }}
-                        </div>
-                    {% endif %}
-                    {% if faucet.reward_max %}
-                        <div style="display: inline-block" title="Maximum">
-                            <span class="glyphicon glyphicon-triangle-top"></span>&nbsp;{{ faucet.reward_max }}
-                        </div>
-                    {% endif %}
-
+                    <div style="display: inline-block" title="Average">
+                        <b>~</b>&nbsp;{{ faucet.reward_mid }}
+                    </div>
                 </td>
 
                 <td width="1%">
-                    Pays&nbsp;every&nbsp;{{ faucet.update_time }}&nbsp;minutes
+                    Pays&nbsp;every&nbsp;{{ faucet.update_time }}&nbsp;min.
                 </td>
 
                 <td class="text-right">
