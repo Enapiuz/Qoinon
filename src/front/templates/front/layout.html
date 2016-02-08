@@ -25,16 +25,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" style="padding: 15px 15px;" href="{% host_url 'main' host 'main_host' %}">
+                <a class="navbar-brand" style="padding: 15px 15px;" href="{% url 'main' %}">
                     QOINON
                 </a>
             </div>
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="{% if request.resolver_match.url_name == 'faucets' %}active{% endif %}"><a href="{% host_url 'faucets' host 'main_host' %}">Faucets</a></li>
-                    <li class="{% if request.resolver_match.url_name == 'faq' %}active{% endif %}"><a href="{% host_url 'faq' host 'main_host' %}">FAQ</a></li>
-                    <li class="{% if request.resolver_match.url_name == 'contacts' %}active{% endif %}"><a href="{% host_url 'contacts' host 'main_host' %}">Contact</a></li>
+                    <li class="{% if request.resolver_match.url_name == 'faucets' %}active{% endif %}"><a href="{% url 'faucets' %}">Faucets</a></li>
+                    <li class="{% if request.resolver_match.url_name == 'faq' %}active{% endif %}"><a href="{% url 'faq'%}">FAQ</a></li>
+                    <li class="{% if request.resolver_match.url_name == 'contacts' %}active{% endif %}"><a href="{% url 'contacts' %}">Contact</a></li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
