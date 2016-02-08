@@ -38,8 +38,8 @@
                         <td width="1%">
                             <a
                                     class="btn btn-default btn-sm faucets__btn_go"
-                                    href="{% faucet.get_absolute_url() %}"
-                                    data-href="{% faucet.get_absolute_url() %}">
+                                    href="{{ faucet.get_absolute_url }}"
+                                    data-href="{{ faucet.get_absolute_url }}">
                                 GO! {% if faucet.ttl > 0 %} ({{ faucet.ttl }} min.) {% endif %}
                             </a>
                         </td>

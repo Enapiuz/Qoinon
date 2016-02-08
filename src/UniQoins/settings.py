@@ -169,7 +169,7 @@ SESSION_SAVE_EVERY_REQUEST = True
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "default"
 
-SESSION_COOKIE_DOMAIN = ".qoinon.com"
+#SESSION_COOKIE_DOMAIN = ".qoinon.com"
 
 
 RECAPTCHA_PUBLIC_KEY = "6LcaaRATAAAAAOtgd2Z_i04kzlu2EE23OWqipxy3"

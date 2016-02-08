@@ -145,7 +145,7 @@ class Faucet(DirtyFieldsMixin, models.Model):
         return cache.ttl(str(prefix) + '.faucets.' + str(self.id))
 
     def get_absolute_url(self):
-        return '/hammer?start=' + urlencode(self.title_en)
+        return '/hammer?start=' + self.title_en
 
 
 class WalletCategory(models.Model):

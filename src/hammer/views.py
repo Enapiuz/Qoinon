@@ -73,7 +73,7 @@ def main(req):
     #  записать кран в сессию
     cache.set(str(cache_prefix) + '.faucets.' + str(faucet.id), 1, timeout=faucet.update_time*60)
 
-    next_link = reverse('hammer') + '?cur={0}'.format(faucet.currency_id)
+    next_link = '/hammer/?cur={0}'.format(faucet.currency_id)
     
     if captcha is not None:
         next_link = next_link + '&cpt=' + captcha
