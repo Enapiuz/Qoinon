@@ -60,6 +60,8 @@
                     <div id="hammer__past_btn" class="btn btn-default btn-sm btn-success">Copy wallet address</div>
                     <div id="hammer__edit_btn" class="btn btn-default btn-sm">Edit</div>
 
+                    <a class="btn btn-danger btn-sm nxt-button" href="{{ next_link }}">&nbsp;&nbsp;&nbsp;NEXT&nbsp;&nbsp;&nbsp;</a>
+
                     <input id="hammer__current_currency_helper" type="hidden" value="{{ faucet.currency.id }}">
                 </td>
             </tr>
@@ -75,7 +77,6 @@
     </div>
 
     <div class="row hammer">
-        <a href="{{ next_link }}" class="next-button"> </a>
         {% if faucet.iframe_ready %}
             <iframe class="hammer__faucet fullheight" src="{{ faucet.real_href }}"
                     sandbox="allow-forms allow-popups allow-scripts allow-same-origin"></iframe>

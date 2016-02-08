@@ -73,7 +73,7 @@ module.exports = function () {
         });
         $(window).resize();
 
-        $(".next-button").click(function(){
+        $(".nxt-button").click(function(){
             ga('send', 'event', 'button', 'click', 'Next Faucet');
         });
 
