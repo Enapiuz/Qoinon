@@ -1,6 +1,5 @@
 {% extends 'front/layout.html' %}
 {% load staticfiles %}
-{% load hosts %}
 
 {% block top_title %}Main page | {% endblock %}
 
@@ -47,7 +46,7 @@
                     </tr>
                 {% endfor %}
             </table>
-            <p class="pull-right"><a href="{% host_url 'faucets' host 'main_host' %}">See more faucets...</a></p>
+            <p class="pull-right"><a href="{% url 'faucets' %}">See more faucets...</a></p>
         </div>
     </div>
 {% endblock %}
