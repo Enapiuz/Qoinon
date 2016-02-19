@@ -80,14 +80,14 @@
         {% if request.resolver_match.url_name != 'hammer' %}
             <div class="container footer">
                 <div class="row">
-                    <div class="col-sm-12 col-md-6">
+                    <div class="col-sm-12 col-md-6 text-center">
                         <a href="{% host_url 'main' host 'main_host' %}">Main page</a> |
                         <a href="{% host_url 'faucets' host 'main_host' %}">Faucets</a> |
                         <a href="{% host_url 'faq' host 'main_host' %}">FAQ</a> |
                         <a href="{% host_url 'contacts' host 'main_host' %}">Contacts</a>
                     </div>
 
-                    <div class="col-sm-12 col-md-6 text-right">
+                    <div class="col-sm-12 col-md-6 text-center">
                         Copyright {% now "Y" %} qoinon.com
                     </div>
                 </div>
