@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from objects.models import Captcha, Faucet, Currency, FaucetCategory
 from .models import FaqItem, FaqCategory, ContactForm
 from .forms import ContactsForm
-from .logic import get_main_faucets, get_life_widget
+from .logic import get_main_faucets, get_life_widget, send_email_from_contact
 
 
 def main(req):
@@ -80,7 +80,7 @@ def contacts(req):
             contact.text = form.cleaned_data['text']
             contact.save()
 
-            # TODO: отправляем письмо
+            send_email_from_contact(contact)
 
             return redirect("/contacts/")
     else:

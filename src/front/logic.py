@@ -1,4 +1,5 @@
 from objects.models import Captcha, Faucet, Currency, FaucetCategory
+from django.core.mail import send_mail
 
 
 def get_main_faucets(session_key):
@@ -15,3 +16,13 @@ def get_main_faucets(session_key):
 
 def get_life_widget():
     pass
+
+
+def send_email_from_contact(form):
+    send_mail(
+        'New response from {0} - {1}'.format(form.name, form.email),
+        form.text,
+        'info@qoinon.com',
+        ['enapiuz@gmail.com'],
+        fail_silently=True
+    )
