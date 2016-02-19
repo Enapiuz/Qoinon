@@ -20,4 +20,5 @@ rm -rf /tmp/backup/*
 /usr/local/bin/megaput --username=backup@uniqoins.com --path /Root/uniqoins_backup/backup.${timestamp}.tar.gz.gpg /tmp/backup_finale/backup.tar.gz.gpg < ./megapass
 
 
-echo "Regular backup made at ${timestamp}" | mutt -s "Regular UniQoins backup" -- enapiuz@gmail.com
+set from = "info@qoinon.com"
+echo "Regular backup made at ${timestamp}" | mutt -s "Regular Qoinon backup" -- enapiuz@gmail.com
