@@ -179,5 +179,5 @@ NOCAPTCHA = True
 # Перезапись существующего конфига
 try:
     from site_config import *
-except:
+except ImportError:
     pass
