@@ -23,7 +23,7 @@
                         {% if currency.display %}
                             <div class="btn btn-default faucets__filter_btn faucets__filter_btn_currency {% if currency.title_short_en == 'BTC' %} faucets__filter_btn--active {% endif %}"
                                  data-currency="{{ currency.id }}">
-                                {{ currency.title_en }}
+                                {{ currency.title_short_en }}
                             </div>
                         {% endif %}
                     {% endfor %}
