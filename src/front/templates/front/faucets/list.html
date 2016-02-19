@@ -31,56 +31,7 @@
             </div>
         </div> <br />
 
-        <div class="row">
-            <div class="col-sm-12 text-center">
-                <div class="btn-group big-btns">
-                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Times
-                        <span class="faucets__filter_time_text"></span>
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li class="faucets__filter_btn_time" data-min="null" data-max="null" data-value="null"><a href="#">All</a></li>
-                        <li class="faucets__filter_btn_time" data-min="null" data-max="30" data-value="0"><a href="#">< 30</a></li>
-                        <li class="faucets__filter_btn_time" data-min="30" data-max="60" data-value="1"><a href="#">30 - 60</a></li>
-                        <li class="faucets__filter_btn_time" data-min="61" data-max="61" data-value="2"><a href="#">61 - 180</a></li>
-                        <li class="faucets__filter_btn_time" data-min="181" data-max="240" data-value="3"><a href="#">181 - 240</a></li>
-                        <li class="faucets__filter_btn_time" data-min="241" data-max="720" data-value="4"><a href="#">241 - 720</a></li>
-                        <li class="faucets__filter_btn_time" data-min="720" data-max="null" data-value="5"><a href="#">> 720</a></li>
-                    </ul>
-                </div>
-
-                <div class="btn-group big-btns">
-                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Captchas
-                        <span class="faucets__filter_captcha_text"></span>
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li class="faucets__filter_btn_captcha" data-value="null"><a href="#">All</a></li>
-                        {% for captcha in captchas %}
-                            <li class="faucets__filter_btn_captcha" data-value="{{ captcha.id }}"><a href="#">{{ captcha.title_en }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
-
-                <div class="btn-group big-btns">
-                    <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Wallets
-                        <span class="faucets__filter_wallet_text"></span>
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li class="faucets__filter_btn_wallet" data-value="null"><a href="#">All</a></li>
-                        {% for category in categories %}
-                            <li class="faucets__filter_btn_wallet" data-value="{{ category.id }}"><a href="#">{{ category.title_en }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-        </div> <br />
     </div>
-
 
     <div class="row">
         <div class="col-sm-12">
@@ -99,12 +50,12 @@
                         <td>
                             <b>~</b>&nbsp;{{ faucet.reward_mid }}
                         </td>
-                        <td>
+                        <td class="hidden-xs">
                             <div class="label label-warning">wait {{ faucet.update_time }} min.</div>
                             <div class="label label-info">{{ faucet.captcha.title_en }}</div>
                             <div class="label label-primary">{{ faucet.category.title_en }}</div>
                         </td>
-                        <td width="1%">
+                        <td width="1%" class="hidden-xs">
                             <a href="{% url 'faucet_about' faucet.title_en %}" class="pull-right btn btn-default btn-sm">About</a>
                         </td>
                         <td width="1%">
