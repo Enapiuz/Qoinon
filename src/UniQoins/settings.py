@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 't9dky=*#tc%2d_0sj%1c9$qs%t^$nc*)prdlb4-1v$n6u5gvdc'
+SECRET_KEY = 'ImSoSecret!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -39,7 +39,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_summernote',
-    'django_hosts',
     'django_jinja',
     'djangobower',
     'objects',
@@ -50,7 +49,6 @@ INSTALLED_APPS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'django_hosts.middleware.HostsRequestMiddleware',  # всегда в начале
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -58,16 +56,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-    'django_hosts.middleware.HostsResponseMiddleware'  # всегда в конце
+    'django.middleware.security.SecurityMiddleware'
 )
 
-ROOT_HOSTCONF = 'UniQoins.hosts'
 ROOT_URLCONF = 'UniQoins.urls'
-
-DEFAULT_HOST = 'main_host'
-
-# HOST_OVERRIDE_URL_TAG = True
 
 TEMPLATES = [
     {
@@ -93,8 +85,8 @@ WSGI_APPLICATION = 'UniQoins.wsgi.application'
 
 POSTGRESQL_SETTINGS = {
     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    'NAME': 'uniqoins',
-    'USER': 'enapiuz',
+    'NAME': 'qoinon',
+    'USER': 'qoinon',
     'PASSWORD': '',
     'HOST': '',
     'PORT': ''
@@ -168,9 +160,6 @@ CACHES = {
 SESSION_SAVE_EVERY_REQUEST = True
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "default"
-
-#SESSION_COOKIE_DOMAIN = ".qoinon.com"
-
 
 RECAPTCHA_PUBLIC_KEY = "6LcaaRATAAAAAOtgd2Z_i04kzlu2EE23OWqipxy3"
 RECAPTCHA_PRIVATE_KEY = "6LcaaRATAAAAADUCU5BtnwjRkG6pYmRjYGxHrtPm"  # TODO: не делать так

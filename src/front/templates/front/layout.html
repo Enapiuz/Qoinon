@@ -1,5 +1,4 @@
 {% load staticfiles %}
-{% load hosts %}
 {% load crypto_currency %}
 <!DOCTYPE html>
 <html lang="en" {% if global_color_inverse %} class="uni-inverse" {% endif %} >
@@ -81,10 +80,10 @@
             <div class="container footer">
                 <div class="row">
                     <div class="col-sm-12 col-md-6 text-center">
-                        <a href="{% host_url 'main' host 'main_host' %}">Main page</a> |
-                        <a href="{% host_url 'faucets' host 'main_host' %}">Faucets</a> |
-                        <a href="{% host_url 'faq' host 'main_host' %}">FAQ</a> |
-                        <a href="{% host_url 'contacts' host 'main_host' %}">Contacts</a>
+                        <a href="{% url 'main' %}">Main page</a> |
+                        <a href="{% url 'faucets' %}">Faucets</a> |
+                        <a href="{% url 'faq' %}">FAQ</a> |
+                        <a href="{% url 'contacts' %}">Contacts</a>
                     </div>
 
                     <div class="col-sm-12 col-md-6 text-center">
@@ -94,7 +93,7 @@
             </div>
         {% endif %}
 
-        <script async type="text/javascript" src="{% static 'components/javascripts/main.js' %}"></script>
+        <script type="text/javascript" src="{% static 'components/javascripts/main.js' %}"></script>
 
         {% block javascripts %}{% endblock %}
 

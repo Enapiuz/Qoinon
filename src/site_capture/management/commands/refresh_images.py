@@ -6,6 +6,7 @@ from django.core.files import File
 from django.core.management.base import BaseCommand, CommandError
 from objects.models import Faucet
 
+
 class Command(BaseCommand):
     help = 'Make screenshots for all faucets'
 

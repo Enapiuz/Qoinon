@@ -1,5 +1,4 @@
 {% extends 'front/layout.html' %}
-{% load hosts %}
 
 {% block top_title %}Hammer | {{ faucet.title_en }} | {% endblock %}
 
@@ -66,8 +65,8 @@
 
     <div id="help-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="faucetHelp">
         <div class="modal-dialog modal-sm">
-            <div class="modal-content" style="padding: 5px;">
-                {{ faucet.help_text|default:'There is no help text' }}
+            <div class="modal-content" style="padding: 5px; color: white;">
+                {{ faucet.help_text|default:'There is no help text'|safe }}
             </div>
         </div>
     </div>

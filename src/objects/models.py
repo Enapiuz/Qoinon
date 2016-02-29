@@ -50,8 +50,8 @@ class Faucet(DirtyFieldsMixin, models.Model):
     title_en = models.CharField(max_length=300, unique=True)
     title_ru = models.CharField(max_length=300, blank=True)
     append_wallet = models.BooleanField(
-            default=True,
-            help_text="Автоматически подставлять в конец ссылки наш подходящий адрес кошелька")
+        default=True,
+        help_text="Автоматически подставлять в конец ссылки наш подходящий адрес кошелька")
     update_time = models.IntegerField(help_text="Cooldown в минутах")
     visible = models.BooleanField(default=True)
     currency = models.ForeignKey(Currency, default=1)
@@ -72,30 +72,30 @@ class Faucet(DirtyFieldsMixin, models.Model):
     views = models.IntegerField(default=0)
 
     reward_min = models.IntegerField(
-            blank=True,
-            null=True,
-            # validators=[
-            #     MinValueValidator(0)
-            # ]
+        blank=True,
+        null=True,
+        # validators=[
+        #     MinValueValidator(0)
+        # ]
     )
     reward_max = models.IntegerField(
-            blank=True,
-            null=True,
-            # validators=[
-            #     MinValueValidator(0)
-            # ]
+        blank=True,
+        null=True,
+        # validators=[
+        #     MinValueValidator(0)
+        # ]
     )
     reward_mid = models.IntegerField(
-            validators=[
-                MinValueValidator(0)
-            ]
+        validators=[
+            MinValueValidator(0)
+        ]
     )
     minimum_withdraw = models.IntegerField(
-            blank=True,
-            null=True,
-            # validators=[
-            #     MinValueValidator(0)
-            # ]
+        blank=True,
+        null=True,
+        # validators=[
+        #     MinValueValidator(0)
+        # ]
     )
 
     referral_percent = models.IntegerField(default=0, help_text="Сколько нам % с реферральной программы")
@@ -209,10 +209,10 @@ def faucet_history_handler(sender, **kwargs):
 
     if kwargs['created'] is True:
         FaucetHistory.objects.create(
-                faucet=obj,
-                action_type=history_states['added'],
-                action_text_ru='Новый',
-                action_text_en='New'
+            faucet=obj,
+            action_type=history_states['added'],
+            action_text_ru='Новый',
+            action_text_en='New'
         )
     elif obj.is_dirty():
         fields = obj.get_dirty_fields()
@@ -220,15 +220,15 @@ def faucet_history_handler(sender, **kwargs):
             if 'visible' in fields:
                 if getattr(obj, 'visible') is True:
                     FaucetHistory.objects.create(
-                            faucet=obj,
-                            action_type=history_states['updated'],
-                            action_text_ru='Онлайн',
-                            action_text_en='Online'
+                        faucet=obj,
+                        action_type=history_states['updated'],
+                        action_text_ru='Онлайн',
+                        action_text_en='Online'
                     )
                 else:
                     FaucetHistory.objects.create(
-                            faucet=obj,
-                            action_type=history_states['updated'],
-                            action_text_ru='Оффлайн',
-                            action_text_en='Gone offline'
+                        faucet=obj,
+                        action_type=history_states['updated'],
+                        action_text_ru='Оффлайн',
+                        action_text_en='Gone offline'
                     )

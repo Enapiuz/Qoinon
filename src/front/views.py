@@ -28,7 +28,7 @@ def faucets(req):
     # faucets = cache.get('all_faucets_cache')
     # if faucets is None:
     faucets = Faucet.objects.exclude(visible=False).order_by('-reward_mid')
-        # cache.set('all_faucets_cache', faucets, 120)
+    # cache.set('all_faucets_cache', faucets, 120)
     currencies = Currency.objects.order_by('id')
     categories = FaucetCategory.objects.all()
 
@@ -51,7 +51,7 @@ def faucet_about(req, faucet_title_en):
         raise Http404("Faucet does not exist")
 
     if not os.path.isfile(settings.MEDIA_ROOT + faucet.image.path):
-        faucet.image.name ='#'
+        faucet.image.name = '#'
 
     return render(req, 'front/faucets/about.html', {
         'global_centered': True,

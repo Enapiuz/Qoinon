@@ -1,16 +1,13 @@
 from django.shortcuts import render, redirect
 from objects.models import Faucet
 from django.core.urlresolvers import reverse
-from django_hosts import reverse as reverse_host
 from django.http import JsonResponse
 from django.core.cache import cache
 
 
 def main(req):
     """
-    Гавнокоооооод
-    нужно больше менеджеров
-    и обработки дополнительных параметров
+    FIXME: super big shit
     """
     cache_prefix = req.session.session_key
 
@@ -23,17 +20,17 @@ def main(req):
     query = Faucet.objects.exclude(visible=False).order_by('-reward_mid')
 
     if currency is not None:
-        query = query.filter(currency__id=currency) 
-        
+        query = query.filter(currency__id=currency)
+
     if captcha is not None:
         query = query.filter(captcha__id=captcha)
-        
+
     if wallet is not None:
         query = query.filter(category__id=wallet)
-        
+
     if ut_min is not None:
         query = query.filter(update_time__gt=ut_min)
-        
+
     if ut_max is not None:
         query = query.filter(update_time__lt=ut_max)
 
@@ -65,30 +62,30 @@ def main(req):
                     response['Location'] += '?cur={0}'.format(currency)
                 return response
             else:
-                response = redirect(reverse_host('faucets', host='main_host', scheme='https'))
+                response = redirect(reverse('faucets'))
                 return response
         else:
             faucet = query[0]
 
-    #  записать кран в сессию
-    cache.set(str(cache_prefix) + '.faucets.' + str(faucet.id), 1, timeout=faucet.update_time*60)
+    # записать кран в сессию
+    cache.set(str(cache_prefix) + '.faucets.' + str(faucet.id), 1, timeout=faucet.update_time * 60)
 
     next_link = '/hammer/?cur={0}'.format(faucet.currency_id)
-    
+
     if captcha is not None:
         next_link = next_link + '&cpt=' + captcha
-        
+
     if wallet is not None:
         next_link = next_link + '&cat=' + wallet
-        
+
     if ut_min is not None:
         next_link = next_link + '&tmin=' + ut_min
-        
+
     if ut_max is not None:
         next_link = next_link + '&tmax=' + ut_max
-    
+
     # турбо-костыль, починить admin namespace
-    admin_edit_link = "https://qoinon.com/admin/objects/faucet/{0}/".format(faucet.id)
+    admin_edit_link = "/admin/objects/faucet/{0}/".format(faucet.id)
 
     if faucet.currency.title_short_en == "BTC":
         cookie_faucet = req.COOKIES.get('address' + str(faucet.currency.id))
@@ -108,6 +105,7 @@ def main(req):
         'faucetbox_link': faucetbox_link
     })
 
+
 def moderation_actions(req):
     if not req.user.groups.filter(name='Moderators').exists():
         return JsonResponse({'status': 'not allowed'})
@@ -126,6 +124,7 @@ def moderation_actions(req):
     else:
         return JsonResponse({'status': 'err'})
 
+
 def edit_help_text(req):
     if not req.user.groups.filter(name='Moderators').exists():
         return JsonResponse({'status': 'not allowed'})
@@ -138,6 +137,7 @@ def edit_help_text(req):
     faucet.save()
 
     return JsonResponse({'status': 'ok'})
+
 
 def _make_labels(faucet):
     labels = []
@@ -181,8 +181,8 @@ def _make_labels(faucet):
             'type': 'top'
         })
 
-
     return labels
+
 
 def robots_txt(req):
     return render(req, 'front/main/hammer_robots.html', content_type='text/plain')
