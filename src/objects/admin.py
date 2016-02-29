@@ -26,7 +26,7 @@ class MetaKeyInline(admin.TabularInline):
 
 class FaucetAdmin(SummernoteModelAdmin):
     # TODO понять как называть фильтры
-    list_filter = ('currency__title_short_en', 'category__title_en', 'captcha__title_en')
+    list_filter = ('currency__title_short_en', 'category__title_en', 'captcha__title_en', 'visible')
     ordering = ['title_en']
     search_fields = ['title_en']
     readonly_fields = ('display_image', 'create_date')
