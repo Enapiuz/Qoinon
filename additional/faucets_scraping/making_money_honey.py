@@ -1,6 +1,7 @@
 from grab.spider import Spider, Task
 import xlsxwriter
 
+
 class MakingMoneyHoneySpider(Spider):
     initial_urls = ['http://makingmoneyhoney.com/bitcoinfaucets.php']
 
@@ -21,14 +22,14 @@ class MakingMoneyHoneySpider(Spider):
         worksheet.write(0, 7, 'min withdraw')
 
         for idx, faucet in enumerate(faucets):
-            worksheet.write(idx+1, 0, faucet.select('td[1]/center/a').text())
-            worksheet.write(idx+1, 1, faucet.select('td[1]/center/a/@href').text())
-            worksheet.write(idx+1, 2, faucet.select('td[2]/center').text())
-            worksheet.write(idx+1, 3, faucet.select('td[3]/center').text())
-            worksheet.write(idx+1, 4, faucet.select('td[4]/center').text())
-            worksheet.write(idx+1, 5, faucet.select('td[5]/center').text())
-            worksheet.write(idx+1, 6, faucet.select('td[6]/center').text())
-            worksheet.write(idx+1, 7, faucet.select('td[7]/center').text())
+            worksheet.write(idx + 1, 0, faucet.select('td[1]/center/a').text())
+            worksheet.write(idx + 1, 1, faucet.select('td[1]/center/a/@href').text())
+            worksheet.write(idx + 1, 2, faucet.select('td[2]/center').text())
+            worksheet.write(idx + 1, 3, faucet.select('td[3]/center').text())
+            worksheet.write(idx + 1, 4, faucet.select('td[4]/center').text())
+            worksheet.write(idx + 1, 5, faucet.select('td[5]/center').text())
+            worksheet.write(idx + 1, 6, faucet.select('td[6]/center').text())
+            worksheet.write(idx + 1, 7, faucet.select('td[7]/center').text())
 
         workbook.close()
 

@@ -47,7 +47,8 @@ class FaucetBoxSpider(Spider):
                 faucet.select('td[6]').text()  # avg
             )
 
-            yield Task('urls', url='https://faucetbox.com/en/' + unquote(faucet.select('td[2]/a/@href').text()), faucet=data)
+            yield Task('urls', url='https://faucetbox.com/en/' + unquote(faucet.select('td[2]/a/@href').text()),
+                       faucet=data)
 
     def task_urls(self, grab, task):
         data = task.faucet + (grab.response.url,)
