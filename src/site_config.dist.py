@@ -23,3 +23,6 @@ CACHES = {
         }
     }
 }
+
+RECAPTCHA_PUBLIC_KEY = "public_key"
+RECAPTCHA_PRIVATE_KEY = "secret_key"

@@ -161,8 +161,8 @@ SESSION_SAVE_EVERY_REQUEST = True
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "default"
 
-RECAPTCHA_PUBLIC_KEY = "6LcaaRATAAAAAOtgd2Z_i04kzlu2EE23OWqipxy3"
-RECAPTCHA_PRIVATE_KEY = "6LcaaRATAAAAADUCU5BtnwjRkG6pYmRjYGxHrtPm"  # TODO: не делать так
+RECAPTCHA_PUBLIC_KEY = ""
+RECAPTCHA_PRIVATE_KEY = ""
 NOCAPTCHA = True
 
 # Перезапись существующего конфига
